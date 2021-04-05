@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_status"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.app.ekottel.activity.StatusActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_status_pic"
+        android:layout_width="@dimen/_130dp"
+        android:layout_height="@dimen/_130dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_status_profile_avathar" />
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_pic"
+        android:layout_width="@dimen/_35dp"
+        android:layout_height="@dimen/_35dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_status_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_status_profile_camera"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:padding="@dimen/_5dp"
+        android:background="@drawable/login_button_bg"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/et_name_status"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_25dp"
+            android:layout_marginRight="@dimen/_25dp"
+            android:background="@android:color/transparent"
+            android:gravity="left|center"
+            android:paddingLeft="@dimen/_10dp"
+            android:hint="@string/status_hint_name"
+            android:inputType="textCapSentences|textNoSuggestions|textVisiblePassword"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textCursorDrawable="@null"
+            android:textColor="#434343"
+            android:textColorHint="#434343"
+            android:textSize="@dimen/text_18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_status_status"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:padding="@dimen/_5dp"
+        android:background="@drawable/login_button_bg"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40dp"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/tv_profile_status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_25dp"
+                android:layout_toLeftOf="@+id/tv_status_arrow_down"
+                android:ellipsize="marquee"
+                android:paddingLeft="@dimen/_10dp"
+                android:gravity="left|center"
+                android:singleLine="true"
+                android:text="@string/status_activity_set_status"
+                android:textColor="#434343"
+                android:textColorHint="#434343"
+                android:textSize="@dimen/text_18sp" />
+
+            <TextView
+                android:id="@+id/tv_status_arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_25dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="#434343"
+                android:textSize="@dimen/text_20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:layout_marginLeft="@dimen/_80dp"
+        android:layout_marginRight="@dimen/_80dp"
+        android:layout_marginTop="@dimen/_20dp">
+
+        <TextView
+            android:id="@+id/tv_status_done"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/submit_button_bg"
+            android:gravity="center"
+            android:text="@string/status_btn_done"
+            android:textSize="@dimen/text_18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

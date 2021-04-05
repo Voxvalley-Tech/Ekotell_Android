@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_dialog_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_alert_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="@string/call_rate_enter_number"
+            android:textColor="#7e7f82"
+            android:textSize="@dimen/text_16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_30dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/rounded_corner2"
+            android:padding="@dimen/_10dp">
+
+
+
+            <EditText
+                android:id="@+id/et_callrates_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Enter Country Code"
+                android:inputType="number"
+                android:maxLength="15"
+                android:gravity="center"
+                android:textColor="#7e7f82"
+                android:fontFamily="@font/ubuntu_light"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_layout"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_20dp">
+
+
+        <Button
+            android:id="@+id/btn_callrates_alert_cancel"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_35dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/alert_dialog_no_bg"
+            android:gravity="center"
+            android:padding="@dimen/_7dp"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_12sp" />
+
+        <Button
+            android:id="@+id/btn_callrates_alert_ok"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_35dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/ubuntu_regular"
+            android:background="@drawable/alert_dialog_yes_bg"
+            android:gravity="center"
+            android:padding="@dimen/_7dp"
+            android:text="Get Call Rates"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_12sp" />
+    </LinearLayout>
+
+</RelativeLayout>

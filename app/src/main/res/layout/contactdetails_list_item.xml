@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/listitem_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:padding="@dimen/_15dp">
+
+        <RelativeLayout
+            android:layout_width="@dimen/_45dp"
+            android:layout_height="@dimen/_45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_dialpad_hover">
+
+            <TextView
+                android:id="@+id/textView_remote_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_25sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/contacts_dtails_phonenumber_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_15dp"
+            android:ellipsize="marquee"
+            android:textColor="@color/black_50"
+            android:fontFamily="@font/ubuntu_light"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:textSize="@dimen/text_16sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

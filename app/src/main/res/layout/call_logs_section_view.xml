@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_5dp"
+    android:paddingBottom="@dimen/_2dp"
+    android:paddingTop="@dimen/_2dp">
+
+    <TextView
+        android:id="@+id/listTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="left"
+        android:paddingBottom="@dimen/_5dp"
+        android:paddingLeft="@dimen/_10dp"
+        android:paddingRight="@dimen/_10dp"
+        android:paddingTop="@dimen/_5dp"
+        android:textColor="#ff7043"
+        android:textSize="@dimen/text_14sp"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>

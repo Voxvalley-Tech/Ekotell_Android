@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_voucher_recharge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_voucher_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_15dp">
+
+            <TextView
+                android:id="@+id/tv_voucher_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/more_back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:src="@mipmap/ic_voucher_recharge" />
+
+            <TextView
+                android:id="@+id/tv_voucher_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:gravity="center_vertical"
+                android:text="@string/voucher_recharge_header_message"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_14sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_title_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_150dp"
+        android:gravity="center"
+        android:text="@string/voucher_recharge_redeem_message"
+        android:textSize="@dimen/text_18sp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textColor="#363636"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/et_voucher_input"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_below="@+id/tv_title_message"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_25dp"
+        android:background="@drawable/login_button_bg"
+        android:gravity="center"
+        android:hint="@string/voucher_recharge_hint_voucher_code_message"
+        android:inputType="number"
+        android:maxLength="15"
+        android:fontFamily="@font/ubuntu_light"
+        android:textColor="#b2b2b2"
+        android:textColorHint="#b2b2b2"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/text_16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/et_voucher_input"
+        android:layout_marginLeft="@dimen/_60dp"
+        android:layout_marginRight="@dimen/_60dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:background="#bdbdbd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_25dp"
+        android:layout_below="@+id/et_voucher_input"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/redeem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_40dp"
+            android:layout_marginRight="@dimen/_40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_bg"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingLeft="@dimen/_30dp"
+            android:paddingRight="@dimen/_30dp"
+            android:paddingTop="@dimen/_10dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:textColor="@color/white"
+            android:text="@string/voucher_recharge_btn_redeem_message"
+            android:textSize="@dimen/text_18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

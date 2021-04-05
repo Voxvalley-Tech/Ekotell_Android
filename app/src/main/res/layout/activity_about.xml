@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_voucher_recharge"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_contact_support_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_15dp">
+
+            <TextView
+                android:id="@+id/tv_contact_support_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/more_back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:src="@mipmap/ic_contact_support" />
+
+            <TextView
+                android:id="@+id/tv_contact_support_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:gravity="center_vertical"
+                android:text="@string/about_contact_support"
+                android:textColor="#fff"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textSize="@dimen/text_14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="@dimen/_30dp"
+        android:src="@mipmap/ic_launcher" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+           android:layout_marginBottom="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Email: "
+                android:textSize="@dimen/text_16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:textColor="#434343"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/about_email_support"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+           android:layout_marginBottom="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="Call : "
+                android:textSize="@dimen/text_16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:textColor="#434343"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/about_phone_number_support"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+           android:layout_marginBottom="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:gravity="right"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="WhatsApp : "
+                android:textSize="@dimen/text_16sp" />
+            <TextView
+                android:id="@+id/chat_with_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:textColor="#434343"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/about_whatsapp_number_support"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

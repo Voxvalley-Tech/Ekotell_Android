@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_header_signup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.app.ekottel.activity.SignupActivity">
+
+    <ImageView
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="@dimen/_160dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_25dp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="@dimen/_20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New User"
+            android:gravity="center"
+         
+            android:textColor="#000"
+            android:textSize="@dimen/text_18sp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:id="@+id/ll_signup"
+            android:layout_width="@dimen/_250dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_bg">
+
+            <TextView
+                android:id="@+id/tv_signup_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubuntu_medium"
+                android:gravity="center"
+                android:text="Sign Up"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registration required"
+            android:gravity="center"
+         
+            android:textColor="#000"
+            android:textSize="@dimen/text_18sp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="@dimen/_50dp"
+            android:layout_height="@dimen/_50dp"
+            android:text="Or"
+            android:gravity="center"
+         
+            android:background="@drawable/ic_dialpad_hover"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16sp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Existing Customers"
+            android:gravity="center"
+         
+            android:textColor="#000"
+            android:textSize="@dimen/text_18sp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:id="@+id/ll_login"
+            android:layout_width="@dimen/_250dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_bg">
+
+            <TextView
+                android:id="@+id/tv_login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/ubuntu_medium"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/theme_color">
+
+        <com.app.ekottel.utils.CustomfontTextview
+            android:id="@+id/tv_zone_select_back_arrow"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_3dp"
+            android:gravity="center"
+            android:padding="@dimen/_5dp"
+            android:text="@string/more_back"
+            android:textColor="@drawable/font_icon_bg"
+            android:textSize="@dimen/text_20sp" />
+
+
+        <com.app.ekottel.utils.CustomfontTextview
+            android:id="@+id/tv_header_zone_select"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:gravity="center_vertical"
+            android:text="Country Selection"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18sp" />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_search_country"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_30dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:background="@drawable/zone_search_bg"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_country_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_20dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text="@string/country_search"
+                android:fontFamily="@font/ubuntu_light"
+                android:textColor="#b2b2b2"
+                android:textSize="@dimen/text_16sp" />
+
+            <EditText
+                android:id="@+id/search_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:ems="10"
+                android:hint="@string/call_logs_hint_search_message"
+                android:fontFamily="@font/ubuntu_light"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:inputType="textCapSentences|textNoSuggestions|textVisiblePassword"
+                android:textColor="#b2b2b2"
+                android:textColorHint="#b2b2b2"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewZone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_header"
+        android:choiceMode="singleChoice"
+        android:divider="#b2b2b2"
+        android:dividerHeight="0.1dp"
+        android:listSelector="@drawable/list_selector_light"/>
+
+    <TextView
+        android:id="@+id/tv_no_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/zone_no_matches_found"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textColor="#b2b2b2"
+        android:textSize="@dimen/text_14sp" />
+</RelativeLayout>

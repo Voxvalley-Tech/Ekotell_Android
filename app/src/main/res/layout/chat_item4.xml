@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/lyt_msg_top"
+        layout="@layout/lyt_chat_message_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recieve_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lyt_msg_top"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginRight="@dimen/_50dp"
+        android:background="@drawable/chat_l"
+        android:backgroundTint="#e57576"
+        android:visibility="visible">
+
+        <FrameLayout
+            android:id="@+id/lyt_msg_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5dp"
+            custom:layout_constraintLeft_toLeftOf="parent"
+            custom:layout_constraintTop_toTopOf="parent">
+
+            <!--reciever documents layout-->
+            <RelativeLayout
+                android:id="@+id/reciever_documents_layout"
+                android:layout_width="@dimen/_200dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/_10dp"
+                android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/reciever_document_img"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/ic_document" />
+
+            <TextView
+                android:id="@+id/reciever_document_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_5dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:layout_toRightOf="@+id/reciever_document_img"
+                android:ellipsize="marquee"
+                android:paddingRight="@dimen/_5dp"
+                android:singleLine="true"
+                android:text="Document"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13sp" />
+
+            <TextView
+                android:id="@+id/reciever_document_file_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reciever_document_tv"
+                android:layout_marginTop="@dimen/_2dp"
+                android:layout_toRightOf="@+id/reciever_document_img"
+                android:gravity="bottom"
+                android:text=""
+                android:textSize="@dimen/text_10sp" />
+
+            </RelativeLayout>
+
+            <!--reciever location layout-->
+            <RelativeLayout
+                android:id="@+id/reciever_location_layout"
+                android:layout_width="@dimen/_220dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/reciever_location_image_view"
+                    android:layout_width="@dimen/_220dp"
+                    android:layout_height="@dimen/_220dp"
+                    android:layout_marginLeft="@dimen/_2dp"
+                    android:layout_marginRight="@dimen/_2dp" />
+
+                <TextView
+                    android:id="@+id/reciever_location_address_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/reciever_location_image_view"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_marginTop="@dimen/_10dp"
+                    android:adjustViewBounds="true"
+                    android:autoLink="map"
+                    android:gravity="left"
+                    android:linksClickable="true"
+                    android:paddingRight="@dimen/_5dp"
+                    android:text="reciever"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_15sp" />
+
+            </RelativeLayout>
+
+            <!--reciever image layoput-->
+            <RelativeLayout
+                android:id="@+id/reciever_image_layout"
+                android:layout_width="@dimen/_220dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_2dp"
+                    android:layout_marginRight="@dimen/_2dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/reciever_media_img"
+                        android:layout_width="@dimen/_220dp"
+                        android:layout_height="@dimen/_220dp"
+                        android:scaleType="centerCrop" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/reciever_video_play_icon"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_video_play"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <!-- reciever audio layout -->
+            <LinearLayout
+                android:id="@+id/reciever_audio_layout"
+                android:layout_width="@dimen/_230dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                android:gravity="center_vertical"
+                android:visibility="visible">
+
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5dp">
+
+                    <ImageView
+                        android:id="@+id/reciever_audio_play_pause_img"
+                        android:layout_width="@dimen/_40dp"
+                        android:layout_height="@dimen/_40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_video_play" />
+
+                    <ImageView
+                        android:id="@+id/reciever_audio_download_img"
+                        android:layout_width="@dimen/_30dp"
+                        android:layout_height="@dimen/_30dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/download"
+                        android:tint="@color/colorPrimaryDark"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+
+                <SeekBar
+                    android:id="@+id/reciever_audio_seekBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/reciever_audio_timer_tv"
+                    android:layout_width="@dimen/_60dp"
+                    android:layout_height="@dimen/_25dp"
+                    android:layout_marginRight="@dimen/_5dp"
+                    android:background="@drawable/rounded_corners_large"
+                    android:gravity="center"
+                    android:text="00:00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_15sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!--message date and status  -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5dp"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_5dp"
+            android:paddingVertical="@dimen/_10dp"
+            custom:layout_constraintLeft_toLeftOf="@+id/lyt_msg_body"
+            custom:layout_constraintRight_toRightOf="parent"
+            custom:layout_constraintTop_toBottomOf="@+id/lyt_msg_body">
+
+            <RelativeLayout
+
+                android:id="@+id/uploaddownloadlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_45dp"
+                android:layout_below="@+id/send_layout"
+                android:layout_alignLeft="@+id/send_layout"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/rounded_corners_chat_fsz"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/uploaddownloadimage"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/download"
+                    android:tint="@color/white"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/uploaddownloadcloseimage"
+                    android:layout_width="@dimen/_30dp"
+                    android:layout_height="@dimen/_30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="visible" />
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:id="@+id/progressBar"
+                    android:layout_width="@dimen/_40dp"
+                    android:layout_height="@dimen/_40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="2dp"
+                    custom:donut_finished_color="@color/colorAccent"
+                    custom:donut_finished_stroke_width="1dp"
+                    custom:donut_progress="0"
+                    custom:donut_text_color="@color/colorAccent"
+                    custom:donut_text_size="0sp"
+                    custom:donut_unfinished_stroke_width="@dimen/_2dp" />
+
+                <TextView
+                    android:id="@+id/filesize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_toRightOf="@+id/progressBar"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="6sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/msg_timestamp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/_2dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:layout_marginBottom="@dimen/_5dp"
+                android:gravity="center_vertical"
+                android:layout_gravity="right"
+                android:textColor="@color/black_30"
+                android:textSize="@dimen/text_10sp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

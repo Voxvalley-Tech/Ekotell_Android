@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.ekottel">
+    <uses-sdk tools:overrideLibrary="com.paypal.android.sdk.payments"/>
+    <application
+        android:name="com.app.ekottel.utils.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_circle"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="allowBackup,name">
+        <activity android:name="com.app.ekottel.activity.TopUpActivity"></activity>
+
+        <activity
+            android:name="com.app.ekottel.activity.SplashScreenActivity"
+            android:hardwareAccelerated="false"
+            android:theme="@style/AppTheme_splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.ekottel.activity.HomeScreenActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.CALL" />
+                <action android:name="android.intent.action.DIAL" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tel" />
+            </intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.ekottel.activity.ContactsFragmentActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.app.ekottel.activity.PSTNCallActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.HelpScreenActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.SignupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.PasswordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.app.ekottel.activity.StatusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.VoucherRechargeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.FaqsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ContactSupportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.SubscriberPackagesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.TermsAndConditionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ViewMyPromotionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.DialpadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.BalanceTransferActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.TransactionHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ZoneSelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ZoneSelectActivityTest"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.PlayAudioCallActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ResetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.CallScreenActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:showOnLockScreen="true" />
+        <activity
+            android:name="com.app.ekottel.activity.ContactDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.PaypalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ViewMyPackageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ViewAndBuyPackageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.AppContactsActivity"
+            android:screenOrientation="portrait">
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="video/*" />
+
+                &lt;!&ndash; <data android:mimeType="text/plain" /> &ndash;&gt;
+            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="com.app.ekottel.activity.PlayVideoCallActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.app.ekottel.activity.ShowImagesActivity" />
+        <activity
+            android:name="com.app.ekottel.activity.ChatMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.New_Mapacivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.SupportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.CallRatesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.EmptyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ProfileImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.UserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ChatActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.app.ekottel.activity.ChatAdvancedActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ContactViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.ContactShareActivity"
+            android:screenOrientation="portrait" /> <!-- Fire base Notifications -->
+        <activity
+            android:name="com.app.ekottel.activity.DocumentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.app.ekottel.activity.StripePaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.app.ekottel.activity.PrivacyPolicyActivity"></activity>
+
+        <activity
+            android:name="com.app.ekottel.activity.ExistingUserOrNotActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity android:name="com.app.ekottel.activity.ShowCallLogHistory" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="2facee391d58b100e793ac20edd0f0390e691d82"
+            tools:replace="android:value" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBfBYH6e-sguUxKWKl3dKxfoS3rOG6ku1A" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider> <!-- ./Fire base Notifications -->
+        <receiver
+            android:name="com.app.ekottel.receivers.NetworkChangeReceiver"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.app.ekottel.receivers.PromotionalMessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="PromotionalMessageReceieved" />
+            </intent-filter>
+        </receiver> <!-- Below code is required to get external storage permissions from API 24 -->
+        <receiver
+            android:name="com.app.ekottel.receivers.CallReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="CSCallReceiver" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.app.ekottel.receivers.MissedCallNotificationReceiver" />
+
+
+        <receiver android:name="com.app.ekottel.receivers.InComingCallHandlingReceiver" />
+        <receiver
+            android:name="com.app.ekottel.receivers.ChatReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="CSChatReceiver" />
+            </intent-filter>
+        </receiver>
+        <!--
+<receiver android:name=".receivers.LoginSomeWhereElseReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="CSLoginElseWhereNotification" />
+            </intent-filter>
+        </receiver>
+        -->
+        <receiver
+            android:name="com.app.ekottel.receivers.CSCallMissed"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="CSCallMissed" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.app.ekottel.receivers.FireBaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.app.ekottel.receivers.RingtonePlayingService"
+            android:enabled="true"
+            android:exported="false" />
+        <!--<service android:name="com.app.jibicall.utils.MyService" />-->
+        <service android:name="com.app.ekottel.utils.MyService" />
+        <service
+            android:name="com.app.ekottel.foregroundservices.ForeGroundCallService"
+            android:enabled="true"
+            android:exported="false" />
+
+
+
+        <service
+            android:name="com.app.ekottel.foregroundservices.ForeGroundChatService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Fore ground service permission -->
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+</manifest>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_drop_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shadow_dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e0e0e0"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_transaction_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+
+                <TextView
+                    android:id="@+id/tv_transaction_all"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5dp"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:paddingLeft="@dimen/_8dp"
+                    android:paddingRight="@dimen/_15dp"
+                    android:paddingTop="@dimen/_8dp"
+                    android:text="@string/transaction_popup_all"
+                    android:textColor="@color/black_50"
+                    android:textSize="@dimen/text_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_transaction_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:id="@+id/tv_transaction_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:paddingLeft="@dimen/_8dp"
+                    android:paddingRight="@dimen/_20dp"
+                    android:paddingTop="@dimen/_8dp"
+                    android:text="@string/transaction_popup_transfer"
+                    android:textColor="@color/black_50"
+                    android:textSize="@dimen/text_14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_transaction_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:id="@+id/tv_transaction_recharge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:paddingLeft="@dimen/_8dp"
+                    android:paddingRight="@dimen/_20dp"
+                    android:paddingTop="@dimen/_8dp"
+                    android:text="@string/transaction_popup_recharge"
+                    android:textColor="@color/black_50"
+                    android:textSize="@dimen/text_14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_transaction_package"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:id="@+id/tv_transaction_package"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:paddingLeft="@dimen/_8dp"
+                    android:paddingRight="@dimen/_20dp"
+                    android:paddingTop="@dimen/_8dp"
+                    android:text="@string/transaction_popup_package"
+                    android:textColor="@color/black_50"
+                    android:textSize="@dimen/text_14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_transaction_paypal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+
+
+                <TextView
+                    android:id="@+id/tv_transaction_paypal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:paddingLeft="@dimen/_8dp"
+                    android:paddingRight="@dimen/_20dp"
+                    android:paddingTop="@dimen/_8dp"
+                    android:text="@string/transaction_popup_paypal"
+                    android:textColor="@color/black_50"
+                    android:textSize="@dimen/text_14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

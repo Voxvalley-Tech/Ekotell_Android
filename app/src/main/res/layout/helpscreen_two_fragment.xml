@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_tour_guide_bg_2"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40dp"
+        android:src="@mipmap/ic_tour_guide_logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:padding="@dimen/_8dp"
+            android:background="@drawable/help_screen_text_bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_help_two_text_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntu_medium"
+                android:text="@string/help_screen_two_header_title_message"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_60dp"
+                android:layout_marginRight="@dimen/_60dp"
+                android:background="@color/white"></View>
+
+            <TextView
+                android:id="@+id/tv_help_two_text_footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/help_screen_two_header_message"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_help_two_web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/ll_text"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/_50dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:gravity="center"
+            android:text="www.tringy.com"
+            android:textColor="@color/theme_color"
+            android:textSize="@dimen/text_12sp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</RelativeLayout>

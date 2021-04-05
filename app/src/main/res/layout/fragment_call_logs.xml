@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_contacts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/headerTv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/app_name_capitel"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_30dp"
+        android:textSize="@dimen/text_22sp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:id="@+id/ll_call_logs_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="#4a0d2e"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30dp"
+            android:layout_gravity="left"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_30dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:background="@drawable/contacts_search_button"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_call_logs_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:paddingRight="@dimen/_5dp"
+                android:text="@string/country_search"
+                android:textColor="#808080"
+                android:textSize="@dimen/text_15sp" />
+
+            <EditText
+                android:id="@+id/et_call_logs_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:ems="10"
+                android:fontFamily="@font/ubuntu_light"
+                android:hint="@string/call_logs_hint_search_message"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_call_logs_search"
+                android:layout_toLeftOf="@+id/tv_calllogs_search_cancel"
+                android:inputType="textCapSentences|textNoSuggestions|textVisiblePassword"
+                android:textColor="#808080"
+                android:textColorHint="#808080"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_14sp" />
+            <TextView
+                android:id="@+id/tv_calllogs_search_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/_15dp"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/_15dp"
+                android:text="@string/search_cancel"
+                android:textColor="#808080"
+                android:visibility="invisible"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/text_20sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_call_logs_all_calls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/contacts_button_bg"
+            android:gravity="center"
+            android:padding="@dimen/_5dp"
+            android:text="@string/call_logs_all_calls_message"
+            android:textColor="@drawable/contacts_button_text_bg"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:id="@+id/tv_call_logs_missed_calls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/contacts_button_bg"
+            android:gravity="center"
+            android:padding="@dimen/_5dp"
+            android:text="@string/call_logs_missed_calls_message"
+            android:textColor="@drawable/contacts_button_text_bg"
+            android:textSize="@dimen/text_14sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/lcdscreen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_removecalllog"
+                android:layout_width="@dimen/_35dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/_15dp"
+                android:layout_marginTop="@dimen/_5dp"
+                android:background="@drawable/ic_delete"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/removeallcallog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_80dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/lcdscreen">
+
+            <ListView
+                android:id="@+id/lv_calllogs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_70dp" />
+
+            <TextView
+                android:id="@+id/tv_call_logs_nocontacts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/call_logs_no_call_logs_msg"
+                android:textColor="#b3b3b3"
+                android:textSize="@dimen/text_14sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_recents_dialpad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/ic_keypad_hover"
+                android:textColor="#b3b3b3" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

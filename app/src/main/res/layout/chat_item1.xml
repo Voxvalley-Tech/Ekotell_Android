@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/lyt_msg_top"
+        layout="@layout/lyt_chat_message_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+
+    <LinearLayout
+        android:id="@+id/sender_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginLeft="@dimen/_50dp"
+        android:layout_marginRight="@dimen/_20dp"
+        android:background="@drawable/chat_r"
+        android:backgroundTint="#faaad4"
+        android:paddingHorizontal="@dimen/_5dp"
+        android:gravity="center_vertical|right"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_5dp">
+
+
+        <LinearLayout
+            android:id="@+id/msg_body_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_contact_pic"
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="4dp"
+                android:src="@mipmap/ic_contact_avatar" />
+
+            <TextView
+                android:id="@+id/sender_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:linksClickable="true"
+                android:paddingLeft="@dimen/_5dp"
+                android:paddingRight="@dimen/_5dp"
+                android:text="sender"
+                android:textColor="#505050"
+                android:textSize="@dimen/text_15sp" />
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/lyt_chat_time_stamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/_2dp"
+            android:layout_marginTop="@dimen/_2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+
+</LinearLayout>

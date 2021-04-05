@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_dialog_bg"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/_30dp"
+    android:paddingTop="@dimen/_20dp"
+    android:paddingBottom="@dimen/_20dp">
+
+    <LinearLayout
+        android:id="@+id/pstnCallLayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:src="@mipmap/ic_call"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_50dp"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:gravity="center"
+            android:text="PSTN Call"
+            android:textColor="@color/contacts_button_text_hover"
+            android:textSize="@dimen/text_13sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/appCallLayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/_30dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:src="@mipmap/ic_redirect_contacts"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_50dp"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_20dp"
+            android:gravity="center"
+            android:text="App Call"
+            android:textColor="@color/contacts_button_text_hover"
+            android:textSize="@dimen/text_13sp" />
+    </LinearLayout>
+</LinearLayout>

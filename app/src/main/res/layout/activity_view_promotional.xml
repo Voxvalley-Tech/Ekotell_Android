@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_promotional_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_15dp">
+
+            <TextView
+                android:id="@+id/tv_promotional_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/more_back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:src="@mipmap/ic_notifications" />
+
+            <TextView
+                android:id="@+id/tv_topup_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:gravity="center_vertical"
+                android:text="@string/promotional_header_message"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lv_promotional"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/header" />
+
+    <TextView
+        android:id="@+id/nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No Notifications"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textColor="@color/black_50"
+        android:textSize="@dimen/_14dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_notifications_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/_5dp"
+        android:src="@drawable/ic_delete_icon"
+        android:textColor="#b3b3b3"
+        android:visibility="gone" />
+
+</RelativeLayout>

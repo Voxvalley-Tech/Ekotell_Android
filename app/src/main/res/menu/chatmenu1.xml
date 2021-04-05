@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+ <item
+     android:id="@+id/audiocall"
+     app:showAsAction="always"
+     android:icon="@drawable/menuaudiocall"
+     android:title="AudioCall"
+/>
+ <item
+     android:id="@+id/videocall"
+     app:showAsAction="always"
+     android:icon="@drawable/menuvideocall"
+     android:title="VideoCall"
+     />
+ <item
+     android:id="@+id/chat"
+     app:showAsAction="always"
+     android:icon="@drawable/menuchat"
+     android:title="Chat"
+     />
+</menu>

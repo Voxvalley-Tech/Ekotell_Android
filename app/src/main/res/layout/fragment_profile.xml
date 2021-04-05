@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/headerTv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/app_name_capitel"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/_30dp"
+        android:textSize="@dimen/text_22sp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:textColor="@color/white"/>
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/_100dp"
+        android:background="@color/profile_image_default_bg"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_5dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="@dimen/_80dp"
+                android:layout_height="@dimen/_80dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:src="@drawable/ic_contact_avatar" />
+
+            <TextView
+                android:id="@+id/iv_contact_details_app_contact"
+                android:layout_width="@dimen/_10dp"
+                android:layout_height="@dimen/_10dp"
+                android:layout_gravity="top|right"
+                android:layout_marginLeft="-20dip"
+                android:layout_toRightOf="@+id/iv_profile"
+                android:scaleType="fitXY"
+                android:background="@drawable/circle_contact_header"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/rl_profile_image"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_profile_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text=""
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_profile_number_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/black_30"
+                        android:textSize="@dimen/text_18sp" />
+
+                    <TextView
+                        android:id="@+id/tv_profile_number"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5dp"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="6"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_profile_reg_status"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:text=""
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_14sp" />
+
+                <TextView
+                    android:id="@+id/tv_profile_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:textColor="@color/black_30"
+                    android:textSize="@dimen/text_22sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_5dp"
+        android:layout_toRightOf="@+id/rl_profile_image"
+        android:background="#fff0f1"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5dp">
+
+        <ImageView
+            android:id="@+id/iv_profile_status"
+            android:layout_width="@dimen/_80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_15dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/tv_profile_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Available"
+            android:singleLine="true"
+            android:fontFamily="@font/ubuntu_regular"
+            android:ellipsize="marquee"
+            android:textColor="#2c2c2c"
+            android:textSize="@dimen/text_16sp" />
+
+        <TextView
+            android:id="@+id/tv_send_logs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/_80dp"
+            android:text="Send Logs"
+            android:visibility="gone"
+            android:textColor="#2c2c2c"
+            android:textSize="@dimen/text_16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_20dp"
+            android:text="My Packages"
+            android:textColor="#b2b2b2" />
+
+        <EditText
+            android:id="@+id/et_profile_packages_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/profile_edit_bg"
+            android:editable="false"
+            android:gravity="center_vertical"
+            android:hint="Package one"
+            android:maxLength="25"
+            android:paddingBottom="10dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/theme_color"
+            android:textColorHint="@color/theme_color"
+            android:textSize="@dimen/text_18sp" />
+
+        <EditText
+            android:id="@+id/et_profile_packages_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/profile_edit_bg"
+            android:editable="false"
+            android:gravity="start|center_vertical"
+            android:hint="Package two"
+            android:maxLength="25"
+            android:paddingBottom="10dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/theme_color"
+            android:textColorHint="@color/theme_color"
+            android:textSize="@dimen/text_18sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_profile_packages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:text="My Packages"
+        android:fontFamily="@font/ubuntu_regular"
+        android:textColor="#b2b2b2"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@null" />
+
+        <TextView
+            android:id="@+id/tv_profile_nodate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#b2b2b2"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+</LinearLayout>

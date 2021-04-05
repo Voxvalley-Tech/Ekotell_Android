@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31968049674",
+    "project_id": "ekotell-ecf0d",
+    "storage_bucket": "ekotell-ecf0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31968049674:android:0f4e9bbe8e092915967df3",
+        "android_client_info": {
+          "package_name": "com.app.ekottel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31968049674-qgqmffeffs6d8c52lsk3sgjpbrmtbo7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmaXoPbcqWIOjhCuKfwfRPyZmkReb4t-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31968049674-qgqmffeffs6d8c52lsk3sgjpbrmtbo7p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

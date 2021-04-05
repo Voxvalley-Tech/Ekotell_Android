@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_120dp"
+    android:id="@+id/image_parent_layout"
+    android:layout_marginTop="@dimen/_5dp"
+    android:layout_marginLeft="@dimen/_5dp">
+
+    <ImageView
+        android:id="@+id/display_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120dp" />
+
+    <RelativeLayout
+        android:id="@+id/selected_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150dp"
+        android:visibility="gone"
+        android:background="@color/black_50"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_30dp"
+            android:src="@drawable/ic_selected_tickmark" />
+    </RelativeLayout>
+
+</RelativeLayout>

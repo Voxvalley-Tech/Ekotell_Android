@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ShowImagesActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55dp"
+        android:background="@color/theme_color"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_55dp"
+            android:layout_height="@dimen/_55dp"
+            android:onClick="finsshScreen"
+            android:padding="@dimen/_15dp"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_65dp"
+            android:layout_toLeftOf="@+id/done_button_tv"
+            android:gravity="center_vertical"
+            android:text="Ekottel Gallery"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_22sp" />
+
+        <TextView
+            android:id="@+id/done_button_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_15dp"
+            android:gravity="center_vertical"
+            android:text="Done"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_20sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/images_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/image_button_selector"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Images"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14sp" />
+
+        <TextView
+            android:id="@+id/videos_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:background="@drawable/image_button_selector"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Videos"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/images_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/videos_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="left|top"
+            android:background="@color/white"
+            app:contentInsetLeft="0dp"
+            app:theme="@style/ToolbarColoredBackArrow"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:id="@+id/profile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_below="@+id/appbarlayout"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/_10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_profle_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_contact_details_avatar"
+            app:civ_border_width="0.1dp" />
+
+        <TextView
+            android:id="@+id/call_logs_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:textColor="@color/black_50"
+            android:textSize="@dimen/text_18sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appinfo_profile_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:src="@drawable/ic_call_details">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/appcontacts1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/conversation_layout"
+        android:layout_below="@+id/profile_layout"
+        android:layout_margin="@dimen/_10dp"
+        android:background="@color/white"
+        android:divider="@null"/>
+
+</RelativeLayout>

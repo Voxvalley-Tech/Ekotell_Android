@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/profile_page_bg"
+    android:orientation="vertical"
+    tools:context=".activity.UserProfileActivity">
+
+    <RelativeLayout
+        android:id="@+id/profile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_230dp"
+        android:background="@color/profile_image_default_bg">
+
+        <ImageView
+            android:id="@+id/user_profile_pic_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/profile_back_img"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_30dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:src="@drawable/back_button" />
+
+        <ImageView
+            android:id="@+id/profile_default_img"
+            android:layout_width="@dimen/_100dp"
+            android:layout_height="@dimen/_100dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_status_profile_avathar"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/_10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_field_bg"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_10dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/text_16sp" />
+
+            <TextView
+                android:id="@+id/profile_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40dp"
+                android:background="@drawable/profile_field_bg"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:textColor="@color/list_background"
+                android:textSize="@dimen/text_18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/profile_page_bg"></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:text="Phone Number"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/text_16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40dp"
+                android:background="@drawable/profile_field_bg"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/profile_contact_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:layout_toLeftOf="@+id/profile_video_call_img"
+                    android:background="@drawable/profile_field_bg"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:singleLine="true"
+                    android:textColor="@color/list_background"
+                    android:textSize="@dimen/text_18sp" />
+
+                <TextView
+                    android:id="@+id/profile_audio_call_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_toLeftOf="@+id/profile_video_call_img"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/_5dp"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/text_22sp" />
+
+                <TextView
+                    android:id="@+id/profile_chat_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_toLeftOf="@+id/profile_audio_call_img"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/text_22sp" />
+
+                <TextView
+                    android:id="@+id/profile_video_call_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/text_22sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10dp"
+            android:background="@drawable/profile_field_bg"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingLeft="@dimen/_10dp"
+            android:text="Status"
+            android:textColor="@color/theme_color"
+            android:textSize="@dimen/text_16sp" />
+
+        <TextView
+            android:id="@+id/profile_status_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_field_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_10dp"
+            android:paddingBottom="@dimen/_5dp"
+            android:textColor="@color/list_background"
+            android:textSize="@dimen/text_18sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_voucher_recharge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_paypal_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_10dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center"
+            android:paddingRight="@dimen/_15dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:padding="@dimen/_15dp"
+                android:src="@drawable/ic_back_white"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:src="@mipmap/ic_topup" />
+
+            <com.app.ekottel.utils.CustomfontTextview
+                android:id="@+id/tv_topup_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:gravity="center_vertical"
+                android:text="@string/topup_header"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_14sp"
+                foo:customFont="AvenirLT-Romon.ttf"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:background="@drawable/input_field"
+        android:padding="@dimen/_10dp"
+        android:visibility="gone">
+
+        <com.app.ekottel.utils.CustomfontTextview
+            android:id="@+id/mobile_icon"
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:background="@android:color/transparent"
+            android:text="&#xf10b;"
+            android:textSize="@dimen/text_20sp"
+            foo:customFont="AvenirLT-Romon.ttf"/>
+
+        <com.app.ekottel.utils.CustomfontEdittextview
+            android:id="@+id/et_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/text_16sp"
+            foo:customFont="AvenirLT-Romon.ttf"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyt_in_app_mode1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_20dp">
+
+        <ImageView
+            android:id="@+id/img_payment_mode_icon"
+            android:layout_width="@dimen/_150dp"
+            android:layout_height="@dimen/_150dp"
+            android:layout_alignTop="@+id/lyt_in_app_mode" />
+
+    </LinearLayout>
+
+
+    <com.app.ekottel.utils.CustomfontTextview
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:textStyle="bold"
+        foo:customFont="AvenirLT-Romon.ttf"
+        />
+
+    <FrameLayout
+        android:id="@+id/amount_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_200dp"
+        android:background="@drawable/input_button_bg"
+        android:padding="@dimen/_10dp">
+
+        <RelativeLayout
+            android:id="@+id/lyt_paypal_amount_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:paddingHorizontal="@dimen/_10dp" >
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/spinner_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5dp"
+                android:gravity="left"
+                android:hint="usd"
+                app:ms_dropdown_max_height="350dp"
+                app:ms_dropdown_height="wrap_content"
+                android:visibility="gone"
+                android:singleLine="true"
+                app:ms_hint_color="@color/black"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/currency_icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_dollar_icon"
+                android:visibility="visible"
+                />
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edit_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="select amount"
+                android:gravity="center"
+                android:textSize="@dimen/text_16sp"
+                android:background="#FFF"
+                android:layout_toRightOf="@+id/spinner_currency"
+                android:textColor="@color/black"
+                />
+            <com.app.ekottel.utils.CustomfontTextview
+                android:id="@+id/et_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_status_arrow_down"
+                android:hint="select amount"
+                android:gravity="center"
+                android:textSize="@dimen/text_16sp"
+                android:layout_toRightOf="@+id/spinner_currency"
+                android:textColor="@color/black"
+                foo:customFont="AvenirLT-Heavy.ttf"
+                />
+
+            <ImageView
+                android:id="@+id/tv_status_arrow_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_20dp"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_status_drop_down"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+
+
+        <!--<RelativeLayout
+            android:id="@+id/lyt_in_app_amount_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:background="@android:color/transparent">
+
+            <com.app.banatelecom.utils.CustomfontTextview
+                android:id="@+id/tv_recharge_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/tv_status_arrow_down1"
+                android:hint="select amount"
+                android:gravity="center"
+                android:textSize="@dimen/text_20sp"
+                android:textColor="@color/colorPrimary"
+                foo:customFont="AvenirLT-Romon.ttf"
+
+                />
+
+            <com.app.banatelecom.utils.CustomfontTextview
+                android:id="@+id/tv_status_arrow_down1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_25dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_20sp"
+                foo:customFont="AvenirLT-Romon.ttf"/>
+        </RelativeLayout>-->
+
+    </FrameLayout>
+    <com.app.ekottel.utils.CustomfontEdittextview
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@drawable/input_button_bg"
+        android:layout_below="@+id/amount_layout"
+        android:hint="  Email*"
+        android:textColor="@color/black"
+        android:padding="@dimen/_10dp"
+        android:textColorHint="@color/black"
+        android:inputType="textEmailSubject"
+        android:maxLength="100"
+        foo:customFont="AvenirLT-Romon.ttf"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_100dp"
+        android:layout_below="@+id/amount_layout"
+        android:orientation="vertical">
+
+        <com.app.ekottel.utils.CustomfontTextview
+            android:id="@+id/transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/submit_button_bg"
+            android:onClick="onBuyPressed"
+            android:paddingLeft="@dimen/_60dp"
+            android:paddingTop="@dimen/_10dp"
+            android:paddingRight="@dimen/_60dp"
+            android:paddingBottom="@dimen/_10dp"
+            android:text="@string/topup_btn_proceed"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18sp"
+            android:textStyle="bold"
+            foo:customFont="AvenirLT-Romon.ttf" />
+    </LinearLayout>
+
+</RelativeLayout>

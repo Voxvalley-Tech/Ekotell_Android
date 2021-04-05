@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/imageviewPager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <LinearLayout
+        android:id="@+id/ll_help_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_10dp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingBottom="@dimen/_8dp"
+            android:paddingLeft="@dimen/_20dp"
+            android:paddingRight="@dimen/_8dp"
+            android:paddingTop="@dimen/_8dp"
+            android:text="@string/help_skip_message"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/_45dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:paddingTop="@dimen/_10dp">
+
+                <TextView
+                    android:id="@+id/btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_10sp" />
+
+                <TextView
+                    android:id="@+id/btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_10sp" />
+
+                <TextView
+                    android:id="@+id/btn3"
+                    android:layout_width="@dimen/_10dp"
+                    android:layout_height="@dimen/_10dp"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/btn5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:paddingBottom="@dimen/_8dp"
+                android:paddingLeft="@dimen/_8dp"
+                android:paddingRight="@dimen/_20dp"
+                android:paddingTop="@dimen/_8dp"
+                android:text="@string/help_next_message"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

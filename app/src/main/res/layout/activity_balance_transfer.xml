@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_voucher_recharge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_balance_transfer_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_15dp">
+
+            <TextView
+                android:id="@+id/balance_transfer_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/more_back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"
+                android:src="@drawable/ic_balance_transfer" />
+
+            <TextView
+                android:id="@+id/tv_bal_transfer_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:gravity="center_vertical"
+                android:text="@string/bal_trans_header_name"
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_bal_trans_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50dp"
+        android:gravity="center"
+        android:textColor="#434343"
+        android:fontFamily="@font/ubuntu_regular"
+        android:text="@string/bal_trans_credits_to_message"
+        android:textSize="@dimen/text_15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        android:gravity="center"
+        android:fontFamily="@font/ubuntu_light"
+        android:textColor="#b2b2b2"
+        android:text="@string/bal_trans_enter_number_message"
+        android:textSize="@dimen/text_12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:background="@drawable/login_button_bg"
+        android:padding="@dimen/_10dp">
+
+        <TextView
+            android:id="@+id/tv_bal_trans_mobile_icon"
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:background="@android:color/transparent"
+            android:text="&#xf10b;"
+            android:textColor="#b2b2b2"
+            android:textSize="@dimen/text_20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_balance_transfer_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/iv_app_contacts"
+                android:background="@android:color/transparent"
+                android:hint="@string/bal_trans_hint_mobile_number_message"
+                android:inputType="phone"
+                android:fontFamily="@font/ubuntu_light"
+                android:maxLength="15"
+                android:textColor="#434343"
+                android:textColorHint="#434343"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_16sp" />
+
+            <ImageView
+                android:id="@+id/iv_app_contacts"
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_5dp"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/ic_number_contact" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_40dp"
+        android:layout_marginRight="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:background="@drawable/login_button_bg"
+        android:padding="@dimen/_10dp">
+
+        <TextView
+            android:id="@+id/tv_bal_trans_currency_icon"
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:textColor="#b2b2b2"
+            android:background="@android:color/transparent"
+            android:text="&#xf155;"
+            android:textSize="@dimen/text_20sp" />
+
+        <EditText
+            android:id="@+id/et_balance_transfer_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/bal_trans_hint_credits_message"
+            android:inputType="numberDecimal"
+            android:maxLength="15"
+            android:fontFamily="@font/ubuntu_light"
+            android:textColor="#434343"
+            android:textColorHint="#434343"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/text_16sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_bal_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_bg"
+            android:paddingBottom="@dimen/_10dp"
+            android:paddingLeft="@dimen/_30dp"
+            android:paddingRight="@dimen/_30dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:paddingTop="@dimen/_10dp"
+            android:textColor="@color/white"
+            android:text="@string/bal_trans_transfer_credit_message"
+            android:textSize="@dimen/text_18sp" />
+    </LinearLayout>
+
+</LinearLayout>

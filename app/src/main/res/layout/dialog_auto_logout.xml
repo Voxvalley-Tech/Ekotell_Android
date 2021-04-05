@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:text="@string/alert_dialog_title"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_1dp"
+            android:layout_below="@+id/txt_alert"
+            android:layout_marginLeft="@dimen/_30dp"
+            android:layout_marginRight="@dimen/_30dp"
+            android:background="@color/theme_color" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15dp"
+            android:layout_marginRight="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/auto_logout_alert_dialog_message"
+            android:textColor="@color/black_30"
+            android:textSize="@dimen/text_14sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/auto_logout_ok_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/_60dp"
+        android:layout_marginRight="@dimen/_60dp"
+        android:layout_marginBottom="@dimen/_20dp"
+        android:background="@drawable/submit_button_bg"
+        android:gravity="center"
+        android:padding="@dimen/_7dp"
+        android:text="@string/alert_info_btn_ok"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14sp" />
+
+</LinearLayout>

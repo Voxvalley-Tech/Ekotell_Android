@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_220dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/_25dp"
+        android:paddingRight="@dimen/_25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45dp"
+            android:layout_marginLeft="@dimen/_40dp"
+            android:layout_marginRight="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_normal_bg"
+            android:paddingLeft="@dimen/_20dp"
+            android:paddingRight="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/tv_profile_camera"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="@string/status_popup_btn_camera"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45dp"
+            android:layout_marginLeft="@dimen/_40dp"
+            android:layout_marginRight="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_normal_bg"
+            android:paddingLeft="@dimen/_20dp"
+            android:paddingRight="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/tv_profile_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/status_popup_btn_video"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45dp"
+            android:layout_marginLeft="@dimen/_40dp"
+            android:layout_marginRight="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:background="@drawable/submit_button_normal_bg"
+            android:paddingLeft="@dimen/_20dp"
+            android:paddingRight="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/tv_profile_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/status_popup_btn_gallery"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

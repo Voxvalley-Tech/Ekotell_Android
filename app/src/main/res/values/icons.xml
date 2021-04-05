@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="more_next">&#xf105;</string>
+    <string name="more_back">&#xf060;</string>
+    <string name="mute">&#xf131;</string>
+    <string name="hold">&#xf04c;</string>
+    <string name="speaker">&#xf027;</string>
+    <string name="keypad">&#xf00a;</string>
+
+    <string name="location_done">&#xf058;</string>
+    <string name="transaction_arrow_down">&#xf107;</string>
+</resources>

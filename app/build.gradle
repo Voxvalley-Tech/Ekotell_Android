@@ -1,0 +1,172 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.app.ekottel"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res/drawable-hdpi', 'src/main/res/drawable-xhdpi', 'src/main/res/menu']
+        }
+    }
+}
+allprojects {
+    repositories {
+        jcenter()
+        flatDir {
+            dirs 'libs'
+        }
+        google()
+        // progress bar library repository
+        maven { url "https://jitpack.io" }
+
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // SDK
+   /// implementation(name: 'app-release', ext: 'aar')
+    implementation 'vox-cpaas:connectsdk:1.4.2.5'
+    // AppCompact library
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    // Support design library
+    implementation 'com.google.android.material:material:1.0.0'
+    // Support V4 library
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // For SDK video Call
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    // Location services
+    implementation "com.google.android.gms:play-services-location:16.0.0"
+    // Google maps
+    implementation "com.google.android.gms:play-services-maps:16.1.0"
+
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    // Fire base cloud messaging
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+
+    // Retrofi
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
+
+    // Multi Dex support
+    implementation 'androidx.multidex:multidex:2.0.0'
+    // Circle image support
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    // Image loader library
+    implementation 'com.squareup.picasso:picasso:2.4.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    // Version Check from play store
+    implementation 'org.jsoup:jsoup:1.10.3'
+    // Unit testing library
+    testImplementation 'junit:junit:4.12'
+    //Paypal SDK
+    implementation('com.paypal.sdk:paypal-android-sdk:2.16.0') {
+        exclude group: 'io.card'
+    }
+    implementation 'com.jaredrummler:material-spinner:1.3.1'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    //implementation 'com.emredavarci:circleprogressbar:1.0.4'
+
+    //Crashlytics SDK
+    implementation('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
+        transitive = true;
+    }
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    implementation 'com.stripe:stripe-android:11.2.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'com.stripe:stripe-java:13.0.0'
+    implementation 'com.jaredrummler:material-spinner:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+    implementation "com.madgag.spongycastle:prov:1.54.0.0"
+
+    //implementation 'com.emredavarci:circleprogressbar:1.0.4'
+
+
+    implementation 'com.github.lzyzsd:circleprogress:1.1.0@aar'
+
+}
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+    useLibrary 'org.apache.http.legacy'
+}
+android { sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/drawable-mdpi'] } } }
+
+apply plugin: 'com.google.gms.google-services'
+googleServices {
+    disableVersionCheck = true
+}

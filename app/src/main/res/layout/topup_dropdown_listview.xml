@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    xmlns:foo="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_add_status"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_add_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_5"
+                android:textColor="#083635"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="#b2b2b2">
+
+        </View>
+        <LinearLayout
+            android:id="@+id/layout_tentext"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_add_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_10"
+                android:textColor="#083635"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="#b2b2b2">
+
+        </View>
+
+        <LinearLayout
+            android:id="@+id/ll_available"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_available"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_20"
+                android:textColor="#303030"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="#b2b2b2"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_busy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_busy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_50"
+                android:textColor="#303030"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="#b2b2b2"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_send_me_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_send_me_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_100"
+                android:textColor="#303030"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1dp"
+            android:background="#b2b2b2"></View>
+
+        <LinearLayout
+            android:id="@+id/ll_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/_8dp">
+
+
+
+            <TextView
+                android:id="@+id/tv_in_meeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:text="@string/topup_500"
+                android:textColor="#303030"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/text_12sp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

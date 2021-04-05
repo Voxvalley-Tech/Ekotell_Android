@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_voucher_recharge"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_header_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_drop_down"
+        android:background="@color/profile_image_default_bg"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+
+        <TextView
+            android:id="@+id/tv_trns_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:textColor="#3c0909"
+            android:textSize="@dimen/text_12sp" />
+
+        <TextView
+            android:id="@+id/tv_trns_credit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:textColor="#3c0909"
+            android:textSize="@dimen/text_12sp" />
+
+        <TextView
+            android:id="@+id/tv_trns_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:textColor="#3c0909"
+            android:textSize="@dimen/text_12sp" />
+
+        <TextView
+            android:id="@+id/tv_trns_cost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:textColor="#3c0909"
+            android:textSize="@dimen/text_12sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="#434343" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="#434343" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:layout_marginTop="@dimen/_8dp"
+            android:background="#434343" />
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pb_transaction_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_transaction_history_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_15dp">
+
+            <TextView
+                android:id="@+id/tv_transaction_history_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/more_back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_transaction_history"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_transaction_history_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_15dp"
+                android:fontFamily="@font/ubuntu_medium"
+                android:gravity="center_vertical"
+                android:text="@string/more_activity_list_transaction_history"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_14sp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_drop_down"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header"
+        android:background="@color/tracasetion_history_deatails"
+        android:padding="@dimen/_5dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_drop_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_8dp"
+            android:paddingLeft="@dimen/_15dp"
+            android:paddingRight="@dimen/_10dp">
+
+            <TextView
+                android:id="@+id/tv_filter_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_8dp"
+                android:fontFamily="@font/ubuntu_light"
+                android:text="All"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16sp" />
+
+            <TextView
+                android:id="@+id/tv_drop_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:text="@string/transaction_arrow_down"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_header_items"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <TableLayout
+            android:id="@+id/tl_recharge_history"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"></TableLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_transaction_history_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/transaction_history_loading_message"
+        android:textColor="@color/black_30"
+        android:textSize="@dimen/text_20sp" />
+</RelativeLayout>

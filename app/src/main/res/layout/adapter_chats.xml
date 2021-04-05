@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cpb="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_adapter_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/unread_messages_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:background="#0d000000"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/unread_messages_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_color"
+            android:gravity="center"
+            android:padding="@dimen/_10dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:text="Unread Messages"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15sp"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/chat_date_tv"
+        android:layout_width="@dimen/_100dp"
+        android:layout_height="@dimen/_30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:gravity="center"
+        android:text=""
+        android:fontFamily="@font/ubuntu_regular"
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/text_15sp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/receiver_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginBottom="@dimen/_5dp"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginRight="@dimen/_50dp"
+        android:background="@drawable/chat_l"
+        android:backgroundTint="#e57576"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_5dp"
+        android:paddingLeft="@dimen/_10dp"
+        android:paddingRight="@dimen/_10dp"
+        android:paddingTop="@dimen/_20dp">
+
+        <TextView
+            android:id="@+id/receiver_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5dp"
+            android:adjustViewBounds="true"
+            android:autoLink="all"
+            android:gravity="left"
+            android:fontFamily="@font/ubuntu_regular"
+            android:linksClickable="true"
+            android:text="receiver"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15sp" />
+        <!--receiver contact layout-->
+
+        <LinearLayout
+            android:id="@+id/receiver_contact_layout"
+            android:layout_width="@dimen/_230dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_50dp"
+                android:src="@mipmap/ic_contact_avatar" />
+
+            <TextView
+                android:id="@+id/receiver_contact_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text=""
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_18sp" />
+
+        </LinearLayout>
+
+        <!-- receiver image layout -->
+        <RelativeLayout
+            android:id="@+id/receiver_image_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="@dimen/_190dp">
+
+            <ImageView
+                android:id="@+id/receiver_media_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/receiver_video_play_icon"
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_video_play"
+                android:visibility="gone" />
+
+            <com.app.ekottel.utils.CircleProgressBar
+                android:id="@+id/receiver_image_progressbar_layout"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/download_background"
+                android:visibility="gone"
+                cpb:backgroundColor="#33000000"
+                cpb:backgroundWidth="2"
+                cpb:maxValue="100"
+                cpb:prefix=""
+                cpb:progressColor="@color/white"
+                cpb:progressText=""
+                cpb:progressTextColor="@color/theme_color"
+                cpb:roundedCorners="true"
+                cpb:strokeWidthValue="4"
+                cpb:suffix="%"
+                cpb:textSize="@dimen/text_13sp" />
+
+            <ImageView
+                android:id="@+id/receive_cancel_img"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/ic_close_white"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/receive_download_img"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/download_background"
+                android:padding="@dimen/_14dp"
+                android:src="@drawable/download" />
+        </RelativeLayout>
+
+
+        <!-- receiver Audio layout -->
+
+        <LinearLayout
+            android:id="@+id/receiver_audio_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/receiver_audio_download_img"
+                android:layout_width="@dimen/_35dp"
+                android:layout_height="@dimen/_35dp"
+                android:background="@drawable/download_background"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/download"
+                android:visibility="visible" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/receiver_audio_cancel_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="gone" />
+
+                <com.app.ekottel.utils.CircleProgressBar
+                    android:id="@+id/receiver_audio_progress_bar"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:visibility="gone"
+                    cpb:backgroundColor="#33000000"
+                    cpb:backgroundWidth="2"
+                    cpb:maxValue="100"
+                    cpb:prefix=""
+                    cpb:progressColor="@color/white"
+                    cpb:progressText=""
+                    cpb:progressTextColor="@color/theme_color"
+                    cpb:roundedCorners="true"
+                    cpb:strokeWidthValue="2"
+                    cpb:suffix="%"
+                    cpb:textSize="@dimen/text_10sp" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/receiver_audio_play_pause"
+                android:layout_width="@dimen/_35dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:background="@drawable/ic_video_play" />
+
+            <SeekBar
+                android:id="@+id/receiver_audio_seekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/receiver_audio_timer"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_25dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:background="@drawable/rounded_corners_large"
+                android:gravity="center"
+                android:text="00:00"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15sp" />
+        </LinearLayout>
+
+
+        <!-- receiver documents layout -->
+
+        <RelativeLayout
+            android:id="@+id/documents_layout"
+            android:layout_width="@dimen/_200dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/document_img"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/ic_document"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/receiver_document_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_5dp"
+                android:layout_toLeftOf="@+id/receiver_document_options"
+                android:layout_toRightOf="@+id/document_img"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="Document"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15sp" />
+
+            <TextView
+                android:id="@+id/receiver_document_file_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/receiver_document_tv"
+                android:layout_marginTop="@dimen/_2dp"
+                android:layout_toRightOf="@+id/document_img"
+                android:ellipsize="marquee"
+                android:gravity="bottom"
+                android:fontFamily="@font/ubuntu_light"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:text=""
+                android:textSize="@dimen/text_10sp" />
+
+
+            <RelativeLayout
+                android:id="@+id/receiver_document_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/receiver_document_download_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/download"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/receiver_document_cancel_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:padding="@dimen/_7dp"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="gone" />
+
+                <com.app.ekottel.utils.CircleProgressBar
+                    android:id="@+id/receiver_document_progress"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:visibility="gone"
+                    cpb:backgroundColor="#33000000"
+                    cpb:backgroundWidth="2"
+                    cpb:maxValue="100"
+                    cpb:prefix=""
+                    cpb:progressColor="@color/white"
+                    cpb:progressText=""
+                    cpb:progressTextColor="@color/theme_color"
+                    cpb:roundedCorners="true"
+                    cpb:strokeWidthValue="2"
+                    cpb:suffix="%"
+                    cpb:textSize="@dimen/text_10sp" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- receiver location layout -->
+        <RelativeLayout
+            android:id="@+id/receiver_location_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/receiver_location_image_view"
+                android:layout_width="@dimen/_190dp"
+                android:layout_height="@dimen/_190dp" />
+
+            <TextView
+                android:id="@+id/receiver_location_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/receiver_location_image_view"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:adjustViewBounds="true"
+                android:autoLink="map"
+                android:gravity="left"
+                android:linksClickable="true"
+                android:text="receiver"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/receiver_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="@dimen/_5dp"
+            android:layout_marginTop="@dimen/_2dp"
+            android:text="12:55pm"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/black_30"
+            android:textSize="@dimen/text_10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sender_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginBottom="@dimen/_5dp"
+        android:layout_marginLeft="@dimen/_50dp"
+        android:layout_marginRight="@dimen/_10dp"
+        android:background="@drawable/chat_r"
+        android:backgroundTint="#faaad4"
+        android:gravity="center_vertical|right"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_5dp"
+        android:paddingLeft="@dimen/_10dp"
+        android:paddingRight="@dimen/_10dp"
+        android:paddingTop="@dimen/_20dp">
+
+        <TextView
+            android:id="@+id/sender_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:autoLink="all"
+            android:gravity="left"
+            android:linksClickable="true"
+            android:paddingRight="@dimen/_5dp"
+            android:text="sender"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_15sp" />
+        <!--sender contact layout-->
+
+        <LinearLayout
+            android:id="@+id/sender_contact_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_50dp"
+                android:src="@mipmap/ic_contact_avatar" />
+
+            <TextView
+                android:id="@+id/sender_contact_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text=""
+                android:fontFamily="@font/ubuntu_medium"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_18sp" />
+
+        </LinearLayout>
+        <!-- sender audio layout -->
+        <LinearLayout
+            android:id="@+id/sender_audio_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/sender_audio_download_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/download"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/sender_audio_upload_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/upload"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/sender_audio_cancel_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="gone" />
+
+                <com.app.ekottel.utils.CircleProgressBar
+                    android:id="@+id/sender_audio_progress_bar"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:visibility="gone"
+                    cpb:backgroundColor="#33000000"
+                    cpb:backgroundWidth="2"
+                    cpb:maxValue="100"
+                    cpb:prefix=""
+                    cpb:progressColor="@color/white"
+                    cpb:progressText=""
+                    cpb:progressTextColor="@color/theme_color"
+                    cpb:roundedCorners="true"
+                    cpb:strokeWidthValue="2"
+                    cpb:suffix="%"
+                    cpb:textSize="@dimen/text_10sp" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/sender_audio_play_pause"
+                android:layout_width="@dimen/_35dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_marginLeft="@dimen/_5dp"
+                android:background="@drawable/ic_video_play" />
+
+            <SeekBar
+                android:id="@+id/sender_audio_seekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/sender_audio_timer"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_25dp"
+                android:layout_marginRight="@dimen/_5dp"
+                android:background="@drawable/rounded_corners_large"
+                android:gravity="center"
+                android:text="00:00"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13sp" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/sender_documents_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_40dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/sender_document_img"
+                android:layout_width="@dimen/_40dp"
+                android:layout_height="@dimen/_40dp"
+                android:padding="@dimen/_5dp"
+                android:src="@drawable/ic_document" />
+
+            <TextView
+                android:id="@+id/sender_document_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5dp"
+                android:layout_toLeftOf="@+id/sender_document_options"
+                android:layout_toRightOf="@+id/sender_document_img"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="Document"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15sp" />
+
+            <TextView
+                android:id="@+id/sender_document_file_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sender_document_tv"
+                android:layout_marginTop="@dimen/_2dp"
+                android:layout_toRightOf="@+id/sender_document_img"
+                android:gravity="bottom"
+                android:text=""
+                android:fontFamily="@font/ubuntu_light"
+                android:textSize="@dimen/text_10sp" />
+
+            <RelativeLayout
+                android:id="@+id/sender_document_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/sender_document_download_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/download"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/sender_document_upload_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/upload"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/sender_document_cancel_img"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:background="@drawable/download_background"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="gone" />
+
+                <com.app.ekottel.utils.CircleProgressBar
+                    android:id="@+id/sender_document_progress"
+                    android:layout_width="@dimen/_35dp"
+                    android:layout_height="@dimen/_35dp"
+                    android:visibility="gone"
+                    cpb:backgroundColor="#33000000"
+                    cpb:backgroundWidth="2"
+                    cpb:maxValue="100"
+                    cpb:prefix=""
+                    cpb:progressColor="@color/white"
+                    cpb:progressText=""
+                    cpb:progressTextColor="@color/theme_color"
+                    cpb:roundedCorners="true"
+                    cpb:strokeWidthValue="2"
+                    cpb:suffix="%"
+                    cpb:textSize="@dimen/text_10sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sender_image_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="@dimen/_190dp">
+
+            <ImageView
+                android:id="@+id/sender_media_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/sender_video_play_icon"
+                android:layout_width="@dimen/_30dp"
+                android:layout_height="@dimen/_30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_video_play"
+                android:visibility="gone" />
+
+            <com.app.ekottel.utils.CircleProgressBar
+                android:id="@+id/sender_image_progressbar_layout"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/download_background"
+                android:padding="@dimen/_5dp"
+                android:visibility="gone"
+                cpb:backgroundColor="#33000000"
+                cpb:backgroundWidth="2"
+                cpb:maxValue="100"
+                cpb:prefix=""
+                cpb:progressColor="@color/white"
+                cpb:progressText=""
+                cpb:progressTextColor="@color/theme_color"
+                cpb:roundedCorners="true"
+                cpb:strokeWidthValue="4"
+                cpb:suffix="%"
+                cpb:textSize="@dimen/text_13sp" />
+
+            <ImageView
+                android:id="@+id/sender_cancel_img"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/ic_close_white"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/sender_upload_img"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/download_background"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/upload"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/sender_download_img"
+                android:layout_width="@dimen/_60dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/download_background"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/download"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sender_location_layout"
+            android:layout_width="@dimen/_190dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/sender_location_image_view"
+                android:layout_width="@dimen/_190dp"
+                android:layout_height="@dimen/_190dp" />
+
+            <TextView
+                android:id="@+id/sender_location_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sender_location_image_view"
+                android:adjustViewBounds="true"
+                android:autoLink="map"
+                android:gravity="left"
+                android:fontFamily="@font/ubuntu_regular"
+                android:linksClickable="true"
+                android:paddingRight="@dimen/_5dp"
+                android:text="sender"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_15sp" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/_5dp"
+            android:layout_marginTop="@dimen/_2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sender_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/ubuntu_regular"
+                android:text="12:55pm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_10sp" />
+
+            <ImageView
+                android:id="@+id/sender_message_status"
+                android:layout_width="@dimen/_17dp"
+                android:layout_height="@dimen/_17dp"
+                android:layout_marginLeft="@dimen/_2dp"
+                android:background="@drawable/ic_msg_sent" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

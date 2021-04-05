@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_splash_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_splash_bg">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_splash_logo" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_splash_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:text="1.0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_light"
+            android:gravity="center"
+            android:text="Powered by"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_13sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:text=" H&amp;N MARKETING AND COMMUNICATION"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_regular"
+            android:layout_marginBottom="@dimen/_20dp"
+            android:gravity="center"
+            android:text="2021"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15sp"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,981 @@
+<resources>
+    <string name="app_name">Ekottel</string>
+    <string name="app_name_capitel">EKOTTEL</string>
+    <string name="recent_details_date_today">Today</string>
+    <string name="recent_details_date_yesterday">Yesterday</string>
+
+    <string name="support_terms_conditions">Terms &amp; Conditions</string>
+
+    <string name="icon_contacts">&#xf2b9;</string>
+
+    <string name="icon_call_logs">&#xf1da;</string>
+    <string name="icon_messages">&#xf27a;</string>
+    <string name="icon_profile">&#xf007;</string>
+    <string name="icon_more">&#xf141;</string>
+
+
+
+    <string name="icon_fill_circle">&#xf111;</string>
+    <string name="icon_circle">&#xf10c;</string>
+
+    <string name="signup_flag">&#xf024;</string>
+    <string name="signup_mobile">&#xf10b;</string>
+    <string name="signup_arrow_down">&#xf078;</string>
+
+    <string name="status_camera">&#xf030;</string>
+
+    <string name="country_search">&#xf002;</string>
+    <string name="search_cancel">&#xf057;</string>
+
+    <string name="contacts_details_back_arrow">&#xf060;</string>
+    <string name="contacts_details_edit_contact">&#xf040;</string>
+
+    <string name="dialpad_call">&#xf095;</string>
+
+    <string name="contact_chat">&#xf075;</string>
+    <string name="contact_more">&#xf142;</string>
+
+    <string name="contact_details">&#xf2b9;</string>
+    <string name="contact_invite">&#xf1d8;</string>
+
+    <string name="chat_arrow_right">&#xf054;</string>
+
+    <string name="chat_image_transfer">&#xf1c5;</string>
+    <string name="chat_file_transfer">&#xf15b;</string>
+    <string name="chat_voice_transfer">&#xf130;</string>
+    <string name="info">&#xf05a;</string>
+    <string name="download">&#xf019;</string>
+
+    <string name="chat_location">&#xf041;</string>
+    <string name="chat_contact">&#xf2b9;</string>
+
+    <string name="login_password_hide">&#xf070;</string>
+    <string name="login_password_show">&#xf06e;</string>
+    <string name="recents_delete">&#xf1f8;</string>
+    <string name="contact_details_email">&#xf0e0;</string>
+
+    <string name="dialpad_add_contact">&#xf234;</string>
+    <string name="chat_copy_text">&#xf0ea;</string>
+    <string name="chat_play">&#xf04b;</string>
+    <string name="chat_pause">&#xf04c;</string>
+    <string name="audio_download">&#xf01a;</string>
+    <string name="chat_forward">&#xf064;</string>
+    <string name="video_call_icon">&#xf03d;</string>
+
+
+    <string name="help_screen_next">Next</string>
+    <string name="help_screen_skip">Skip</string>
+
+    <string name="location_settings">Location settings</string>
+    <string name="gps_not_enable">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+    <string name="location_not_found">Location not found</string>
+
+
+    <!-- Splash Screen-->
+
+    <string name="splash_version_name">Powered by\nH&amp;N MARKETING AND COMMUNICATION \n2021</string>
+    <string name="splash_version_number">V 1.0.0</string>
+    <string name="splash_version_number_single">V</string>
+    <string name="splash_network_message">Please make sure your Network Connection is ON</string>
+    <string name="splash_network_alert_settings">Settings</string>
+    <string name="splash_network_alert_ok">OK</string>
+    <string name="splash_pref_is_already_login">isLogin</string>
+    <string name="splash_pref_network_status">NetworkStatus</string>
+
+    <!--Help Screen-->
+    <string name="help_screen_prf_more">More</string>
+
+    <!--Notification Handling Strings-->
+
+    <string name="notification_title">Ekotell</string>
+
+    <!--Add Message-->
+    <string name="add_message_pref_balance">balance</string>
+    <string name="add_message_header_name">Contacts</string>
+    <string name="add_message_no_contacts_found_message">No Contacts Found</string>
+    <!--BalanceTransferActivity-->
+    <string name="bal_trans_tag">BalanceTransferActivity</string>
+    <string name="bal_trans_pref_balance">balance</string>
+    <string name="bal_trans_pref_app_compat">AppContact</string>
+    <string name="bal_trans_mobile_not_empty">mobile number shouldn\'t be empty</string>
+    <string name="bal_trans_credits_not_empty">credits shouldn\'t be empty</string>
+    <string name="bal_trans_mobile_valid">mobile number should be valid</string>
+    <string name="bal_trans_credits_valid">credits should be valid</string>
+    <string name="bal_trans_network_unavail">Network Unavailable</string>
+    <string name="bal_trans_success">Balance transfer done</string>
+    <string name="bal_trans_success_message1">Balance transfer successfully sent to</string>
+    <string name="bal_trans_success_message2">with credit of</string>
+    <string name="bal_trans_response_message_key">data</string>
+    <string name="bal_trans_response_message_value">message</string>
+    <string name="bal_trans_response_error_message_key">error</string>
+    <string name="bal_trans_time_out">Timeout.Pls Retry..</string>
+    <string name="bal_trans_wait_message">Please wait..</string>
+    <string name="bal_trans_pref_avail_message">AvailBal</string>
+    <string name="bal_trans_http_api_message">API</string>
+    <string name="bal_trans_http_data_message">Data</string>
+    <string name="bal_trans_balance_transfer_message">balancetransfer</string>
+
+    <string name="bal_trans_balance_transfer_success_message">Balance transfer done For $</string>
+    <string name="balance_transfer_failed">Oops! Balance transfer failed</string>
+    <string name="bal_trans_valid_message">valid</string>
+    <string name="bal_trans_ok_message">Ok</string>
+
+    <string name="bal_trans_header_name">Balance Transfer</string>
+    <string name="bal_trans_credits_to_message">Transfer Credits to</string>
+    <string name="bal_trans_enter_number_message">Enter mobile number with +</string>
+    <string name="bal_trans_hint_mobile_number_message">Mobile Number</string>
+    <string name="bal_trans_hint_credits_message">Enter Credits</string>
+    <string name="bal_trans_transfer_credit_message">Transfer Credit</string>
+
+    <!--CallLogs-->
+    <string name="call_logs_tag">CallLogsActivity</string>
+    <string name="call_logs_pref_make_call">CallLogsMakeCall</string>
+    <string name="call_logs_all_message">All</string>
+    <string name="call_logs_missed_message">Missed</string>
+    <string name="call_logs_no_call_logs_message">updatenologtext</string>
+    <string name="call_logs_pref_gsm_key">isGSMCall</string>
+    <string name="call_logs_intent_dntnum_key">dstnumber</string>
+    <string name="call_logs_intent_stream_subscr_key">streamdescription</string>
+    <string name="call_logs_intent_initiator_key">isinitiatior</string>
+    <string name="call_logs_invalid_number">No valid Number</string>
+    <string name="call_logs_date_format">dd MMM yyyy, EEEE</string>
+    <string name="call_logs_delete_single_history_message">Delete Single History</string>
+    <string name="call_logs_add_contact_message">Add Contact</string>
+    <string name="call_logs_out_going_message">OUTGOING</string>
+    <string name="call_logs_in_coming_message">INCOMING</string>
+    <string name="call_logs_hours_format">hh:mm a</string>
+    <string name="call_logs_incall_message">isInCall</string>
+    <string name="call_running_error_message">Can\'t place a new call while you\'re already in a call</string>
+    <string name="call_logs_intent_sender_key">Sender</string>
+    <string name="call_logs_intent_is_group_key">IS_GROUP</string>
+
+    <string name="call_logs_details_outgoing_audio">outgoing</string>
+    <string name="call_logs_details_incoming_audio">incoming</string>
+    <string name="call_logs_details_outgoing_video">outgoing</string>
+    <string name="call_logs_details_incoming_video">incoming</string>
+    <string name="call_logs_details_missed_audio">missed</string>
+    <string name="call_logs_details_missed_video">missed</string>
+
+    <string name="call_logs_confirmation_message">Confirmation</string>
+    <string name="call_logs_delete_all_message">Delete All History?</string>
+    <string name="call_logs_missed_call_message">Delete Missed Call History?</string>
+
+    <string name="call_logs_hint_search_message">Search</string>
+    <string name="call_logs_all_calls_message">All Calls</string>
+    <string name="call_logs_missed_calls_message">Missed Calls</string>
+    <string name="call_logs_no_call_logs_msg">No Call Logs</string>
+    <string name="call_logs_popup_exit_message">Exit</string>
+
+    <!--CallScreenActivity-->
+    <string name="call_screen_dstnum">sDstMobNu</string>
+    <string name="call_screen_callid">callid</string>
+    <string name="call_screen_call_active">callactive</string>
+    <string name="call_screen_sdp">sdp</string>
+    <string name="call_screen_call_type">callType</string>
+    <string name="call_screen_src_number">srcnumber</string>
+    <string name="call_screen_call_start_time">callstarttime</string>
+    <string name="call_screen_call_type_video">video</string>
+    <string name="call_screen_call_type_audio">audio</string>
+    <string name="call_screen_incoming_video_call_message">Incoming Video Call</string>
+    <string name="call_screen_incoming_audio_call_message">Incoming Audio Call</string>
+    <string name="call_screen_incoming_pstn_call_message">Incoming PSTN Call</string>
+    <string name="call_screen_incoming_call_message">Incoming Call</string>
+    <string name="call_screen_initiator">isinitiatior</string>
+
+
+    <string name="Front_Camera_Not_Available">Your device do not have Front Camera to switch</string>
+    <string name="call_screen_call_end_message">CallEnd Failed</string>
+
+
+    <!--ChatActivity-->
+    <string name="chat_screen_tag">ChatActivity</string>
+    <string name="chat_screen_hint_type_message">Type a Message...</string>
+    <string name="chat_screen_intent_contact_id">Contactlist_contactID</string>
+    <string name="chat_screen_intent_is_app_contact">Contactlist_isapp_contact</string>
+    <string name="iscameFromAllContacts">iscameFromAllContacts</string>
+    <string name="chat_screen_enter_message">Please enter a message</string>
+    <string name="chat_screen_audio_message">AudioRecording.aac</string>
+    <string name="chat_screen_audio_start_message">Recording started</string>
+    <string name="chat_screen_intent_dntnum_key">dstnumber</string>
+    <string name="chat_screen_intent_stream_subscr_key">streamdescription</string>
+    <string name="chat_screen_intent_initiator_key">isinitiatior</string>
+    <string name="chat_screen_alert_send">SEND</string>
+    <string name="chat_screen_alert_cancel">CANCEL</string>
+    <string name="chat_screen_alert_message">Do you want to share this audio</string>
+    <string name="chat_screen_image_date_format">yyyyMMdd_HHmmss</string>
+    <string name="chat_screen_no_image_message">No Image Set</string>
+    <string name="chat_screen_size_exceed_message">File Size limit exceeded</string>
+    <string name="chat_screen_no_phone_number_message">This contact has no phone number</string>
+    <string name="chat_screen_no_location_message">Location not found</string>
+    <string name="wrong_document">Select document type</string>
+
+
+    <string name="chat_screen_location_name_key">results</string>
+    <string name="chat_screen_location_address_key">formatted_address</string>
+    <string name="chat_screen_no_address">Address not found :\n</string>
+    <string name="chat_screen_latitude_address">Latitude :</string>
+    <string name="chat_screen_longitude_address">Longitude :</string>
+    <string name="chat_screen_intent_place_key">place</string>
+    <string name="chat_screen_intent_status_key">status</string>
+    <string name="chat_screen_intent_network_status_key">NetworkStatus</string>
+
+    <string name="chat_screen_audio_release_send_message">Hold to record, release to send</string>
+    <string name="chats_screen_audio_random_file_name">ABCDEFGHIJKLMNOP</string>
+
+    <string name="chat_screen_chat_updated_call_back">ChatUpdated</string>
+    <string name="chat_screen_chat_received_call_back">ChatReceived</string>
+    <string name="chat_screen_presence_call_back">getPresenceRessuccess</string>
+    <string name="chat_screen_download_progress_back">downloadprogress</string>
+    <string name="chat_screen_download_done_call_back">downloadfiledone</string>
+    <string name="chat_screen_download_failed_call_back">downloadfilefailed</string>
+    <string name="chat_screen_upload_progress_call_back">uploadprogress</string>
+    <string name="chat_screen_upload_failed_call_back">uploadfilefailed</string>
+    <string name="chat_screen_upload_done_call_back">uploadfiledone</string>
+
+    <string name="chat_screen_intent_file_path">filepath</string>
+    <string name="chat_screen_intent_file_key">filekey</string>
+    <string name="chat_transfer_percentage">transferpercentage</string>
+
+    <string name="chat_screen_lastseen_today">lastseen: Today</string>
+    <string name="chat_screen_lastseen_yesterday">lastseen: Yesterday</string>
+    <string name="chat_screen_lastseen">lastseen:</string>
+
+    <string name="chat_screen_intent_dest_num_key">destinationnumber</string>
+    <string name="chat_screen_online">Online</string>
+    <string name="chat_screen_intent_online">Online</string>
+
+    <string name="chat_screen_intent_presence_number">presencenumber</string>
+    <string name="chat_screen_intent_presence_status">presencestatus</string>
+    <string name="chat_screen_intent_lastseen_time">lastseentime</string>
+    <string name="downloading_help_text">File downloading please wait..</string>
+
+    <string name="chat_screen_lastseen_time_format_today">hh:mm:ss a</string>
+    <string name="chat_screen_lastseen_time_format">dd-MM-yyyy hh:mm:ss a</string>
+
+    <string name="chat_screen_copy_text_message">Copied Text</string>
+    <string name="chat_screen_enable_location_message">Enable Location</string>
+    <string name="chat_screen_share_contact_message">Share Contact</string>
+    <string name="chat_screen_share_location_message">Share Location</string>
+
+    <string name="chat_screen_format_time">hh:mm a</string>
+    <string name="chat_screen_format_date">dd-MM-yyyy</string>
+
+    <string name="chat_screen_no_app_avail">No Application Available to view this file type</string>
+    <string name="chat_screen_enable_location">Enable Location</string>
+    <string name="chat_screen_no_location">No Location Found</string>
+
+    <string name="chat_screen_today_message">Today</string>
+    <string name="chat_screen_yesterday_message">Yesterday</string>
+
+    <!--ContactDetailsActivity-->
+    <string name="contact_details_profile_presence">ProfilePresence</string>
+    <string name="contact_details_profile_available">Available</string>
+    <string name="contact_details_profile_busy">Busy</string>
+    <string name="contact_details_profile_send_me_msg">Send me a Message</string>
+
+    <!--ContactsActivity-->
+    <string name="contact_no_contacts_found">No Contacts</string>
+    <string name="contacts_permission_not_available">Please allow the App Permissions to Show Contacts</string>
+    <string name="contact_update_no_logs">updatenologtext</string>
+    <string name="contact_share_stream_resuccess">shareStreamRessuccess</string>
+    <string name="contact_images_db_update">imagesdbupdated</string>
+    <string name="contact_is_app_contact_resuccess">isAppContactRessuccess</string>
+    <string name="contact_update_contacts">contactsupdated</string>
+    <string name="contact_names_update_contacts">contactNamesUpdated</string>
+    <string name="contact_intent_incall">InCall</string>
+
+    <string name="contact_all_contacts_message">All Contacts</string>
+    <string name="contact_tringy_contacts_message">Ekotell Contacts</string>
+    <string name="contact_loading_contacts_message">Contacts Loading...</string>
+
+    <string name="contact_no_sms_app_available">No Sms App Available</string>
+    <string name="contact_intent_address_key">address</string>
+
+    <!--DialpadActivity-->
+    <string name="dialpad_tag">DialpadActivity</string>
+    <string name="dialpad_enter_number">Please Enter Number</string>
+    <string name="dialpad_select_country">Select Country</string>
+    <string name="dialpad_call_rates_api_message">callrates</string>
+    <string name="dialpad_balance_api_message">balance</string>
+    <string name="dialpad_enter_number_message">Enter a Number</string>
+    <string name="dialpad_enter_valid_number_message">Please enter valid number</string>
+    <string name="dialpad_response_message_key">data</string>
+    <string name="dialpad_response_message_value">message</string>
+    <string name="dialpad_response_cost_key">cost</string>
+    <string name="dialpad_avail_bal">AvailBal</string>
+    <string name="dialpad_drawable_message">drawable</string>
+    <string name="dialpad_tringy_message">tringy_</string>
+    <string name="dialpad_dialing_message">dialing..</string>
+    <string name="dialpad_intent_zone">zone</string>
+    <string name="dialpad_country_message">Country</string>
+    <string name="dialpad_nointernet_message">nointernet</string>
+    <string name="dialpad_register_sip_user_resuccess1_message">registerSipUserRessuccess1</string>
+    <string name="dialpad_register_sip_user_resuccess_message">registerSipUserRessuccess</string>
+    <string name="dialpad_register_sip_user_res_failure_message">registerSipUserResfailure</string>
+    <string name="dialpad_call_answer_req_failure_message">callAnswerReqfailure</string>
+
+    <string name="dialpad_intent_api_message">API</string>
+    <string name="dialpad_intent_response_message">Response</string>
+    <string name="dialpad_intent_data_message">Data</string>
+
+    <string name="dialpad_failure_message">Failure</string>
+    <string name="dialpad_intent_txnid_message">trnxid</string>
+
+    <!--ChatMapActivity-->
+    <string name="edit_profile_map_current_location_message">Current Location</string>
+    <string name="edit_profile_map_set_location_message">Set this Location</string>
+    <string name="edit_profile_map_ok_message">ok</string>
+
+    <!--EmptyActivity-->
+    <string name="empty_screen_tag">EmptyActivity</string>
+    <!--FaqsActivity-->
+    <string name="faq_screen_tag">FaqsActivity</string>
+
+    <!--LoginActivity-->
+    <string name="login_tag">LoginActivity</string>
+    <string name="login_username_not_empty">Username shouldn\'t be empty</string>
+    <string name="login_password_not_empty">Password shouldn\'t be empty</string>
+    <string name="login_username_should_valid">Username should be valid</string>
+    <string name="login_password_should_valid">Password should be valid</string>
+    <string name="login_pref_username">Username</string>
+    <string name="login_failed_message">Failed</string>
+    <string name="login_my_register_user_success">myregisterSipUserRessuccess</string>
+    <string name="login_my_register_user_failure">myregisterSipUserResfailure</string>
+    <string name="login_wrong_username_password_message">wrong username or password</string>
+    <string name="login_hint_username_message">Username*</string>
+    <string name="login_hint_password_message">Password*</string>
+    <string name="login_btn_login_message">Next</string>
+
+    <!--About-->
+    <string name="about_contact_support">Contact Support</string>
+    <string name="about_email_support"> calljibi@gmail.com</string>
+    <string name="about_phone_number_support">00201127810605</string>
+    <string name="about_whatsapp_number_support">00201153430639</string>
+
+    <!--Audio Call-->
+    <string name="audio_call_default_country_name">India</string>
+    <string name="audio_call_mute_message">Mute</string>
+    <string name="audio_call_hold_message">Hold</string>
+    <string name="audio_call_speaker_message">Speaker</string>
+    <string name="audio_call_contacts_message">Contacts</string>
+    <string name="audio_call_keypad_message">Keypad</string>
+    <string name="audio_call_msg_message">Message</string>
+
+
+    <!--Dialpad-->
+    <string name="dialpad_avail_credit_message">Available Credit</string>
+    <string name="dialpad_select_country_message">Select country</string>
+    <string name="dialpad_call_rate_message">Call Rate</string>
+    <!--map-->
+    <string name="map_header_message">Location</string>
+    <!--Faqs-->
+    <string name="faq_header_message">FAQs</string>
+    <!--Help Screen-->
+    <string name="help_screen_one_header_title_message">Be-in-Touch with Friends &amp; Family All-the-Time</string>
+    <string name="help_screen_one_header_message">Call landlines and mobiles for extremely low-rates around the world \n Free app-to-app audio, instant messaging and media sharing</string>
+
+    <string name="help_screen_two_header_title_message">Simple &amp; Secure E-Wallet for Online Money Transactions</string>
+    <string name="help_screen_two_header_message">Subscribe to various packages, recharge and transfer your mobile VoIP balance\nSend/receive money, pay utility bills, top-up mobile balance internationally and many more</string>
+    <string name="help_skip_message">Skip</string>
+    <string name="help_next_message">Next</string>
+
+
+    <!--Message Activity-->
+
+    <string name="messages_no_chats">No Chats</string>
+    <string name="messages_tag">Messages</string>
+
+    <!--Password-->
+    <string name="password_hint_one_time_pwd">Enter One Time Password</string>
+    <string name="password_hint_set_pwd">Set Password</string>
+    <string name="password_hint_set_new_pwd">Enter new password</string>
+    <string name="password_resend_sms">Resend SMS</string>
+    <string name="password_call_via_ivr">Call via IVR</string>
+    <string name="password_btn_next">Next</string>
+    <string name="password_btn_done">Done</string>
+    <!--Profile-->
+    <string name="subscribe_no_packages">No packages available</string>
+    <string name="profile_no_packages">No Packages Subscribed</string>
+    <string name="profile_loading_packages">Loading Subscribed Packages</string>
+
+    <!--Signup-->
+    <string name="signup_hint_mobile_number">Mobile Number</string>
+    <string name="signup_btn_signup">Next</string>
+    <string name="signup_btn_login">Login</string>
+
+    <!--Status-->
+    <string name="status_activity_tag">StatusActivity</string>
+    <string name="status_activity_add_status">Add Status</string>
+    <string name="status_activity_in_meeting">In a Meeting</string>
+    <string name="status_activity_set_status">Set Status</string>
+    <string name="status_activity_select_status">Please Select The Status</string>
+    <string name="status_activity_profile_image">profileimage</string>
+    <string name="status_activity_enter_name">Enter Name</string>
+    <string name="status_activity_enter_status_message">Please enter status message</string>
+    <string name="status_hint_name">Name</string>
+    <string name="status_btn_done">Done</string>
+
+
+    <!--Subscriber Package-->
+    <string name="subscribe_package_tag">SubscriberPackagesActivity</string>
+    <string name="subscribe_package_tag_buy_package">ViewAndBuyPackage</string>
+    <string name="subscribe_package_header">Subscribe Packages</string>
+    <string name="subscribe_package_name">PackageName:</string>
+    <string name="subscribe_package_cost">Cost:</string>
+    <string name="subscribe_package_validity">Validity:</string>
+    <string name="subscribe_package_max_min">Max Minutes:</string>
+    <string name="subscribe_package_subscribe">Subscribe</string>
+
+    <string name="subscribe_package_buy_package_intent_packageid">packageid</string>
+    <string name="subscribe_package_buy_package_btn_message">Subscribe For</string>
+    <string name="subscribe_package_buy_package_api_key">getmypackages</string>
+    <string name="subscribe_package_buy_package_alert_title">Confirm</string>
+
+    <string name="subscribe_package_buy_package_intent_username">username</string>
+    <string name="subscribe_package_buy_package_intent_pwd">password</string>
+    <string name="subscribe_package_buy_package_intent_package">packagename</string>
+
+    <string name="subscribe_package_buy_package_api_subscribe_pkg">subscribepackage</string>
+    <string name="subscribe_package_buy_package_api_get_pkgs">getmypackages</string>
+    <string name="subscribe_package_buy_package_insert_date_format">yyyy-MM-dd HH:mm:ss</string>
+
+    <string name="subscribe_package_buy_package_pref_my_packages">myPackages</string>
+
+    <string name="subscribe_package_buy_package_json_array_key_id">id</string>
+    <string name="subscribe_package_buy_package_json_array_key_pkgname">packagename</string>
+    <string name="subscribe_package_buy_package_json_array_key_cost">cost</string>
+    <string name="subscribe_package_buy_package_json_array_key_expiry">expiry</string>
+    <string name="subscribe_package_buy_package_json_array_key_date">creationdate</string>
+
+
+    <!--My Packages-->
+    <string name="my_packages_tag">ViewMyPackage</string>
+    <string name="my_packages_header">My Packages</string>
+    <string name="my_packages_package_name">PackageName:</string>
+    <string name="my_packages_cost">Cost:</string>
+    <string name="my_packages_expiry">Expiry:</string>
+    <string name="my_packages_rem_min">Remaining Minutes:</string>
+
+    <string name="my_packages_package_id">packageid</string>
+
+    <string name="my_packages_api_key">subscribepackage</string>
+    <string name="my_packages_api_success_response">Success</string>
+
+    <string name="my_packages_api_intent_api">API</string>
+    <string name="my_packages_api_intent_response">Response</string>
+
+
+    <!--Support-->
+    <string name="support_header_name">Support</string>
+    <!--Topup-->
+    <string name="topup_header">TopUp / Recharge</string>
+    <string name="topup_hint_enter_amount">Enter Amount</string>
+    <string name="topup_btn_proceed">Proceed</string>
+
+    <!--transaction history-->
+
+    <string name="transaction_history_loading_message">Loading...</string>
+    <string name="transaction_history_header_message">Transaction History</string>
+
+    <!--Voucher_recharge-->
+    <string name="voucher_recharge_header_message">Voucher Recharge</string>
+
+    <string name="voucher_recharge_redeem_message">Redeem Voucher</string>
+    <string name="voucher_recharge_hint_voucher_code_message">Enter your Voucher code</string>
+    <string name="voucher_recharge_btn_redeem_message">Redeem</string>
+    <!--Status Alert-->
+    <string name="status_alert_enter_status">Please Enter Status</string>
+    <string name="status_alert_hint_enter_status">Enter status here</string>
+    <string name="status_alert_btn_cancel">Cancel</string>
+    <string name="status_alert_btn_ok">OK</string>
+
+    <!--Alert Dialog-->
+    <string name="alert_dialog_title">Alert</string>
+    <string name="alert_dialog_message">Do you really want to exit the app?</string>
+    <string name="alert_dialog_btn_no">No</string>
+    <string name="alert_dialog_btn_yes">Yes</string>
+    <string name="chat_alert_dialog_btn_no">Cancel</string>
+    <string name="chat_alert_dialog_btn_yes">Send</string>
+
+    <!--Alert Info-->
+    <string name="alert_info_title">Alert!</string>
+    <string name="alert_info_message">Exit the App?</string>
+    <string name="alert_info_btn_ok">OK</string>
+    <string name="auto_logout_alert_dialog_message">Your account on this device will be logged out as this number is registered on other device.</string>
+
+    <!--Call Rates Dialog-->
+    <string name="call_rate_enter_number">Please Enter a Number</string>
+    <!--contacts popup-->
+    <string name="contacts_popup_details_message">Contact Details</string>
+    <string name="contacts_popup_invite_friends_message">Invite to Ekotell</string>
+
+    <!--Incall keypad-->
+
+    <string name="incall_keypad_end_call">End Call</string>
+    <string name="incall_keypad_hide_keypad">Hide Keyboard</string>
+    <!--Location Alert-->
+
+    <string name="location_alert_message">Do you want to share this location ?</string>
+
+    <string name="location_alert_btn_cancel">Cancel</string>
+    <string name="location_alert_btn_yes">Yes</string>
+
+    <!--HomeActivity-->
+    <string name="home_activity_tag">HomeActivity</string>
+    <string name="home_activity_not_registered_message">Not Registered</string>
+    <string name="home_activity_tab_contacts">Contacts</string>
+    <string name="home_activity_tab_call_logs">Call Logs</string>
+    <string name="home_activity_tab_im">IM</string>
+    <string name="home_activity_tab_profile">Profile</string>
+    <string name="home_activity_tab_more">More</string>
+    <string name="home_activity_error_message">error</string>
+    <string name="home_activity_response_balance_key">balance</string>
+    <string name="home_activity_intent_is_missed_call_notif">IsMissedCallNotification</string>
+
+
+    <!--Login Activity-->
+    <string name="login_activity_user_attached_message">USER ALREADY ATTACHED</string>
+    <string name="login_activity_connection_offline_message">Internet connection is offline</string>
+
+
+    <!--Messages-->
+    <string name="message_activity_message_photo">Photo</string>
+
+    <string name="message_activity_message_file">File</string>
+    <string name="message_activity_message_audio">Audio</string>
+    <string name="message_activity_message_video">Video</string>
+    <string name="message_activity_message_audio_record">Audio Record</string>
+    <string name="message_activity_message_location">Location</string>
+
+    <string name="message_activity_delete_chat_message">Delete Single Chat?</string>
+    <string name="audio_record_error_during_call">Can\'t record voice messages during a Call</string>
+    <string name="video_record_error_during_call">Can\'t use camera during a Call</string>
+
+    <!--More-->
+    <string name="more_activity_tag">MoreActivity</string>
+    <string name="more_activity_list_topup">TopUp / Recharge</string>
+    <string name="more_activity_list_voucher_recharge">Voucher Recharge</string>
+    <string name="more_activity_list_subscribe_package">Subscribe Packages</string>
+    <string name="more_activity_list_balance_transfer">Share Transfer</string>
+    <string name="more_activity_list_call_rates">Call Rates</string>
+    <string name="more_activity_list_transaction_history">Paypament history</string>
+    <string name="more_activity_list_support">Support</string>
+    <string name="more_activity_list_notifications">Notifications</string>
+    <string name="more_activity_list_invite_friend">Invite a friend</string>
+    <string name="more_activity_list_reset_password">Reset Password</string>
+    <string name="more_activity_list_logout">Sign Out</string>
+    <string name="more_activity_paypal_api_value">paypalgetclientid</string>
+    <string name="more_activity_get_packages_api_value">getpackages</string>
+    <string name="more_activity_transaction_api_value">transactionhistory</string>
+
+    <string name="more_activity_testid">testid</string>
+
+    <string name="more_activity_json_key_validity">validity</string>
+    <string name="more_activity_json_key_max_minutes">maxminutes</string>
+
+    <string name="more_activity_no_call_rates_found">No Call Rates Found</string>
+    <string name="more_activity_enter_min_six_digits">Please Enter minimum 6 digits</string>
+
+
+    <!--Promotional Message-->
+    <string name="promotional_header_message">Notifications</string>
+    <string name="promotional_tag">ViewMyPromotions</string>
+    <string name="promotional_intent_message_received">PromotionalMessageReceieved</string>
+    <string name="promotional_alert_type_all">All</string>
+    <string name="promotional_alert_type_single">Single</string>
+    <string name="promotional_delete_single_notification_alert_message">Do you really want to delete this notification</string>
+    <string name="promotional_delete_all_notification_alert_message">Do you really want to delete all notifications</string>
+    <!--PasswordActivity-->
+    <string name="password_activity_tag">PasswordActivity</string>
+    <string name="password_activity_enter_valid_number">Please enter a valid number</string>
+    <string name="password_activity_wrong_code">Wrong Code</string>
+
+    <string name="password_activity_update_settings_server">server</string>
+    <string name="password_activity_update_settings_port">port</string>
+
+
+    <!--PaypalActivity-->
+    <string name="paypal_tag">PaypalActivity</string>
+    <string name="paypal_enter_amount">Please Enter Amount</string>
+    <string name="paypal_valid_amount">Please Enter Valid Amount</string>
+    <string name="paypal_my_package">my package</string>
+    <string name="paypal_usd">USD</string>
+    <string name="paypal_json_key_response">response</string>
+    <string name="paypal_json_key_id">id</string>
+    <string name="paypal_db_value_paypal">paypal</string>
+    <string name="paypal_api_value">paypalverifypayment</string>
+    <string name="paypal_alert_message">Future Payment code received from PayPal</string>
+    <string name="paypal_alert_profile_sharing_message">Profile Sharing code received from PayPal</string>
+    <string name="paypal_verify_api">paypalverifypayment</string>
+
+    <string name="paypal_validation_failed">Validation Failed</string>
+
+    <!--PlayAudioCallActivity-->
+    <string name="play_audio_call_tag">PlayAudioCallActivity</string>
+    <string name="play_audio_call_ended">Call Ended!</string>
+    <string name="play_audio_outgoing_audio_call">Outgoing Audio Call</string>
+    <string name="play_audio_incoming_audio_call">Incoming Audio Call</string>
+    <string name="play_audio_in_audio_call">In Audio Call</string>
+
+
+    <!--PlaySipCallActivity-->
+    <string name="play_sip_call_end_message">CallEnded</string>
+    <string name="play_sip_call_time_out_message">Time Out!</string>
+    <string name="play_sip_call_no_media_message">No Media</string>
+    <string name="play_sip_call_avail_credit_message">Available Credit:</string>
+
+    <string name="play_sip_call_seconds_format">mm:ss</string>
+    <string name="play_sip_call_hold_failed_message">Hold Failed</string>
+    <string name="play_sip_call_internal_error_message">500 Internal Error</string>
+    <string name="play_sip_call_intent_call_date">callDate</string>
+    <string name="play_sip_call_intent_picid">picid</string>
+
+    <string name="play_sip_call_intent_username">username</string>
+    <string name="play_sip_call_intent_message">message</string>
+    <string name="play_sip_call_intent_dst_mob_num">DstMobNu</string>
+    <string name="play_sip_call_intent_sdp">Sdp</string>
+    <string name="play_sip_call_intent_destination_number">sDstNumber</string>
+    <string name="play_sip_call_out_going_call">Outgoing Call</string>
+    <string name="play_sip_call_intent_event">event</string>
+    <string name="play_sip_call_intent_near">near</string>
+    <string name="play_sip_call_intent_event_name">sEventName</string>
+    <string name="play_sip_call_in_pstn_call">In PSTN Call</string>
+
+    <!--PlayVideoCallActivity-->
+    <string name="play_video_call_tag">PlayVideoCallActivity</string>
+    <string name="play_video_call_pref_already_login">isAlreadyInCall</string>
+    <string name="play_video_call_pref_ringing_key">isRingingCall</string>
+    <string name="play_video_call_no_answer">No Answer</string>
+    <string name="play_video_call_no_media">No Media!</string>
+    <string name="play_video_intent_call_id">CallId</string>
+    <string name="play_video_stream_stop">Stream Stopped!</string>
+    <string name="play_video_error">Error!</string>
+    <string name="play_video_out_going_call_dir">OUTGOING VIDEO CALL</string>
+    <string name="play_video_intent_stream_id">streamid</string>
+    <string name="play_video_camera_error_message">Camera Error From Platform!</string>
+
+    <string name="play_video_intent_mobile_number">mobilenumer</string>
+    <string name="play_video_intent_streamid">streamid</string>
+    <string name="play_video_intent_location">location</string>
+    <string name="play_video_intent_return_code">returncode</string>
+    <string name="play_video_in_video_call">In Video Call</string>
+    <string name="play_video_end_call_message">End Call?</string>
+    <string name="play_video_alert_message">Stop Present Stream and View New Stream?</string>
+    <string name="play_video_call_intent_stream_id">StreamID</string>
+
+    <string name="play_video_call_intent_ice_candidate">IceCandidates</string>
+    <string name="play_video_call_intent_view_count">viewercount</string>
+
+    <string name="play_video_call_seconds_date_format">mm:ss</string>
+    <string name="play_audio_video_call_reconnecting_message">Reconnecting</string>
+
+    <!--ProfileActivity-->
+    <string name="profile_intent_package_id">packageid</string>
+    <string name="profile_intent_profile">Profile</string>
+
+    <string name="profile_available_message">Available</string>
+    <string name="profile_available_busy">Busy</string>
+    <string name="profile_available_send_me_message">Send me a Message</string>
+
+    <string name="profile_pref_username">Username</string>
+    <string name="profile_pref_profile_presence">ProfilePresence</string>
+    <string name="profile_pref_my_packages">myPackages</string>
+
+    <string name="profile_mypackages_api_key">getmypackages</string>
+
+    <string name="profile_date_format">yyyy-MM-dd HH:mm:ss</string>
+
+    <string name="profile__packages_remaining_minutes">remainingminutes</string>
+
+    <string name="profile__pref_profile_name">ProfileName</string>
+    <string name="profile__pref_profile_presence">ProfilePresence</string>
+
+
+    <!--Status Popup-->
+    <string name="status_popup_btn_gallery">Gallery</string>
+    <string name="status_popup_btn_camera">Camera</string>
+    <string name="status_popup_btn_video">Video</string>
+
+    <!--Signup-->
+    <string name="signup_tag">SignupActivity</string>
+    <string name="signup_network_type_wifi">wifi</string>
+    <string name="signup_network_type_data">data</string>
+    <string name="signup_network_type_no_internet">no internet</string>
+
+    <string name="signup_default_country">India</string>
+    <string name="signup_default_country_code">91</string>
+    <string name="signup_pref_username">Username</string>
+    <string name="signup_valid_mobile_number">Enter Valid Mobile Number</string>
+    <string name="signup_enter_mobile_number">Enter Mobile Number</string>
+
+    <string name="signup_popup_confirm_title">Confirmation</string>
+    <string name="signup_popup_message">A verification code will be sent by SMS to this number</string>
+    <string name="signup_popup_cancel">Cancel</string>
+    <string name="signup_failure_message">SignUp Failure</string>
+    <string name="signup_intent_retcode_key">retcode</string>
+    <string name="signup_user_already_registered">User Already Registered</string>
+    <string name="signup_intent_sip_pwd">sippassword</string>
+    <string name="signup_callback_signup_failure">getStSignUpResfailure</string>
+    <string name="signup_no_internet_avail">No Internet Available</string>
+    <string name="signup_in_progress">in progress</string>
+
+    <string name="signup_intent_phone_number">phoneNumber</string>
+    <string name="signup_intent_region">region</string>
+    <string name="signup_alert_settings_button">Settings</string>
+    <!--Support-->
+    <string name="support_intent_more">More</string>
+    <string name="support_contact_support">Contact Support</string>
+    <string name="support_faqs">FAQ\'s</string>
+    <string name="support_terms_and_condition">Terms &amp; Conditions</string>
+    <string name="support_quick_tour">Quick Tour</string>
+
+
+    <!--TermsAndConditionsActivity-->
+    <string name="terms_and_condition_tag">TermsAndConditions</string>
+    <!--Transaction-->
+    <string name="transaction_tag">TransactionHistory</string>
+    <string name="transaction_intent_count">count</string>
+
+    <string name="transaction_header_date">Date</string>
+    <string name="transaction_header_type">Type</string>
+    <string name="transaction_header_mode">Mode</string>
+    <string name="transaction_header_amount">Amount</string>
+    <string name="transaction_loading_message">Loading...</string>
+    <string name="transaction_api_key">transactionhistory</string>
+    <string name="transaction_no_transaction_found">No Transactions Found</string>
+    <string name="transaction_popup_title">Transaction Details</string>
+
+    <string name="transaction_json_array_key_id">id</string>
+    <string name="transaction_json_array_key_username">username</string>
+    <string name="transaction_json_array_key_from_name">fromname</string>
+    <string name="transaction_json_array_key_from_cost">cost</string>
+    <string name="transaction_json_array_key_creation_date">creationdate</string>
+    <string name="transaction_json_array_key_type">type</string>
+
+    <string name="transaction_json_array_key_debit">debit</string>
+    <string name="transaction_json_array_key_credit">credit</string>
+
+    <string name="transaction_popup_date">Date :</string>
+    <string name="transaction_popup_mode">mode :</string>
+    <string name="transaction_popup_from">From :</string>
+    <string name="transaction_popup_to">To :</string>
+
+    <string name="transaction_curent_date_format">yyyy-MM-dd hh:mm:ss</string>
+    <string name="transaction_require_format">dd-MM-yyyy</string>
+
+    <!--VoucherRecharge-->
+    <string name="voucher_tag">VoucherRecharge</string>
+    <string name="voucher_not_empty">voucher code shouldn\'t be empty</string>
+    <string name="voucher_should_valid">voucher code should be valid</string>
+
+    <string name="voucher_intent_username">username</string>
+    <string name="voucher_intent_pwd">password</string>
+    <string name="voucher_intent_pinno">pinno</string>
+
+    <string name="voucher_recharge_successfully">Voucher recharged successfully</string>
+    <string name="voucher_not_recharged">Voucher not recharged</string>
+    <string name="voucher_http_api_message">API</string>
+    <string name="voucher_http_data_message">Data</string>
+    <string name="voucher_http_response_message">Response</string>
+    <string name="voucher_http_api_key_message">vocherrecharge</string>
+
+    <string name="voucher_http_api_data_key">data</string>
+    <string name="voucher_http_api_message_value">message</string>
+    <string name="voucher_http_api_error_key">error</string>
+    <string name="voucher_success_valid_message">valid</string>
+
+    <!--zone-->
+    <string name="zone_tag">ZoneSelectActivity</string>
+    <string name="zone_intent_zone">zone</string>
+    <string name="zone_no_matches_found">No Country Found</string>
+
+    <!--Chat Receiver-->
+    <string name="chat_receiver_tag">ChatReceiver</string>
+
+    <!--Call Receiver-->
+    <string name="call_receiver_tag">CallReceiver</string>
+
+    <!--PromotionalMessageReceiver-->
+    <string name="promotional_message_receiver_tag">PromotionalMessage</string>
+    <string name="promotional_message_receiver_intent_message_id">promotionalmessageid</string>
+    <string name="promotional_message_receiver_intent_message_api">promotionalmessageapi</string>
+    <string name="promotional_message_receiver_intent_message_type">promotionalmessagetype</string>
+    <string name="promotional_message_receiver_intent_message_message">promotionalmessagemessage</string>
+    <string name="promotional_message_receiver_intent_user_notified">promotionalmessageusernotified</string>
+
+
+    <!--NetworkChangeReceiver-->
+    <string name="network_change_receiver_tag">NetworkChangeReceiver</string>
+    <string name="network_change_receiver_intent_status_key">NetworkStatus</string>
+    <string name="network_change_receiver_intent_change_status_key">NetworkChangeStatus</string>
+
+    <!--Common Strings-->
+    <string name="registered">Registered</string>
+    <string name="registered_message">Please Register</string>
+    <string name="network_unavail_message">Network Unavailable</string>
+    <string name="error">Error</string>
+    <string name="initialisation_failed">Initialisation failed with server.</string>
+    <string name="internet_error">Please check your internet connection</string>
+    <string name="network_message">NetworkError</string>
+    <string name="http_message">httpreturn</string>
+
+    <string name="request_timeout">Something went wrong please try again later</string>
+
+    <string name="registering">Registering</string>
+    <string name="internet_unavailable">Internet Unavailable</string>
+
+    <string name="http_json_response_data_key">data</string>
+    <string name="http_json_response_error_key">error</string>
+    <string name="http_json_response_message_key">message</string>
+    <string name="http_intent_api_key">API</string>
+    <string name="http_intent_response_key">Response</string>
+    <string name="http_intent_data_key">Data</string>
+
+
+    <string name="images_db_update_message">imagesdbupdated</string>
+    <string name="contact_updated_message">contactsupdated</string>
+    <string name="contact_success_message">isAppContactRessuccess</string>
+    <string name="missed_audio_call_message">MISSED AUDIO CALL</string>
+    <string name="missed_video_call_message">MISSED VIDEO CALL</string>
+
+    <string name="gsm_message">GSM call is active please try after ending the GSM call</string>
+
+    <string name="network_type_message">Video calls are not allowed in 2G network</string>
+    <string name="media_not_available">Media not available</string>
+    <string name="media_player_nt_available">No Application found</string>
+
+    <!--Call Back Strings -->
+    <string name="direct_audio_video_call_end_resuccess_message">directAudioVideoCallEndRessuccess</string>
+    <string name="direct_audio_video_call_end_resuccess_failure_message">directAudioVideoCallEndResfailure</string>
+    <string name="direct_audio_video_call_end_message">directAudioVideoCallEndReq</string>
+    <string name="direct_audio_video_call_stream_view_res_fail">userStreamStartViewingResfailure</string>
+    <string name="direct_audio_video_call_start_res_fail">directAudioVideoCallStartResfailure</string>
+    <string name="direct_audio_video_call_start_resuccess">directAudioVideoCallStartRessuccess</string>
+    <string name="direct_audio_video_call_sdp_req_fail">joinRoomAnswerSdpReqfailure</string>
+    <string name="direct_audio_video_call_user_req_fail">streamAnswerSdpToUserReqfailure</string>
+    <string name="direct_audio_video_call_answer_req">directAudioVideoCallAnswerReq</string>
+    <string name="direct_audio_video_call_answer_res_success">directAudioVideoCallAnswerRessuccess</string>
+    <string name="direct_audio_video_call_indirect_av_call_req_success">sendIceCandidatesInDirectAVCallReqsuccess</string>
+    <string name="direct_audio_video_call_stream_stop_req">streamStoppedReq</string>
+    <string name="direct_audio_video_call_count_notif_req">sendStreamViewersCountNotificationReq</string>
+    <string name="direct_audio_video_call_login_success">loginsuccess</string>
+    <string name="direct_audio_video_call_images_not_updated">imagesdbnotupdated</string>
+    <string name="direct_audio_video_call_notification">golivewithnotification1</string>
+    <string name="direct_audio_video_call_camera_error">nativecameraerror</string>
+
+    <string name="direct_audio_video_call_user_stream_satart_success">userStreamStartsuccess</string>
+
+    <string name="pay_sip_call_end_resuccess">callEndRessuccess</string>
+    <string name="pay_sip_call_stream_start_failure">userStreamStartfailure</string>
+    <string name="pay_sip_call_hold_unhold_resuccess">callHoldUnHoldRessuccess</string>
+    <string name="pay_sip_call_hold_unhold_res_failure">callHoldUnHoldResfailure</string>
+    <string name="pay_sip_call_send_chat_in_stream">sendChatInStreamReq</string>
+    <string name="pay_sip_call_sdp_to_user_reqsuccess">streamAnswerSdpToUserReqsuccess</string>
+    <string name="pay_sip_call_progress_sdp_req_success">callSessionInProgressSdpReqsuccess</string>
+    <string name="pay_sip_call_answer_req_success">callAnswerReqsuccess</string>
+    <string name="pay_sip_call_ice_candidates_in_call_req">sendIceCandidatesInCallReqsuccess</string>
+    <string name="pay_sip_call_ended_req">callEndedReq</string>
+    <string name="pay_sip_call_start_res_success">callStartRessuccess</string>
+    <string name="pay_sip_call_count_resuccess">getStreamViewersCountRessuccess</string>
+    <string name="pay_sip_call_proximity">proximitySensorevent</string>
+    <string name="pay_sip_call_sip_user_event_req">sipUserEventReq</string>
+
+    <string name="password_activity_activation_success">activationsuccess</string>
+    <string name="login_activity_activation_success">getStSignUpRessuccess</string>
+
+    <string name="home_activity_login_failure">loginfailure</string>
+    <string name="home_activity_network_is_up">networkisup</string>
+    <string name="home_activity_reg_notification_update">regnotificationupdate</string>
+
+    <string name="status_activity_set_profile_resuccess">setProfileRessuccess</string>
+    <string name="status_activity_set_profile_res_failure">setProfileResfailure</string>
+
+    <!--transaction popup-->
+    <string name="transaction_popup_all">All</string>
+    <string name="transaction_popup_transfer">Transfer</string>
+    <string name="transaction_popup_recharge">Recharge</string>
+    <string name="transaction_popup_package">Package</string>
+    <string name="transaction_popup_paypal">Paypal</string>
+
+
+    <!--call rates-->
+
+    <string name="call_rates_header_message">Rates</string>
+    <string name="no_call_rates">No Call Rates Found</string>
+
+    <string name="want_to_delete">Are you sure you want to delete selected messages?</string>
+    <string name="delete_cap">DELETE</string>
+    <string name="cancel_cap">CANCEL</string>
+
+    <string name="select_payment_mode">Select Payment Mode</string>
+    <string name="paypal_mode">Paypal</string>
+    <string name="in_app_purchase_mode">In-app purchase</string>
+    <string name="stripe_mode">Stripe</string>
+    <string name="stripe_tag">Visa/Master card</string>
+    <string name="cardNumber">Card Number*</string>
+    <string name="pay_tag">Paypal Payment</string>
+    <string name="stripe_publishable_key">stripe_publishable_key</string>
+    <!--Topup Balance transfer-->
+    <string name="topup_add_ammount">Add Ammount</string>
+    <string name="topup_5">5</string>
+    <string name="topup_10">10</string>
+    <string name="topup_20">20</string>
+    <string name="topup_50">50</string>
+    <string name="topup_100">100</string>
+    <string name="topup_500">500</string>
+    <string-array name="year_array">
+        <item>Year</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+        <item>2028</item>
+        <item>2029</item>
+        <item>2030</item>
+        <item>2031</item>
+        <item>2032</item>
+        <item>2033</item>
+        <item>2034</item>
+        <item>2035</item>
+        <item>2036</item>
+        <item>2037</item>
+        <item>2038</item>
+        <item>2039</item>
+        <item>2040</item>
+    </string-array>
+
+    <string-array name="month_array">
+        <item>Month</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+    <string name="policy_allow_message">I Agree</string>
+    <string name="policy_deny_message">Decline</string>
+    <string name="network_unavailable">No Internet Connection</string>
+    <string name="dialpad_kodatel_message">tringy_</string>
+    <string name="record_help_text">Hold to record, release to send</string>
+
+
+    <string name="splash_screen_string">Jibiyality Marketing &amp; Communication</string>
+
+
+
+</resources>
