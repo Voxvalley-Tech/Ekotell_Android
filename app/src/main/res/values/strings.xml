@@ -543,13 +543,11 @@
 
     <!--Messages-->
     <string name="message_activity_message_photo">Photo</string>
-
     <string name="message_activity_message_file">File</string>
     <string name="message_activity_message_audio">Audio</string>
     <string name="message_activity_message_video">Video</string>
     <string name="message_activity_message_audio_record">Audio Record</string>
     <string name="message_activity_message_location">Location</string>
-
     <string name="message_activity_delete_chat_message">Delete Single Chat?</string>
     <string name="audio_record_error_during_call">Can\'t record voice messages during a Call</string>
     <string name="video_record_error_during_call">Can\'t use camera during a Call</string>
