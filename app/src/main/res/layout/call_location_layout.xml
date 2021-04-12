@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:id="@+id/mainLL"
+  >
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+
+            android:background="@color/theme_color"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_gravity="left|top" />
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+
+        <fragment
+            android:layout_below="@+id/appbarlayout"
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment">
+        <ImageView
+            android:id="@+id/pin"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_add_contact" />
+    </fragment>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/appbarlayout"
+        android:id="@+id/rlvvv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+<View
+    android:id="@+id/centerview"
+    android:layout_width="0.1dp"
+    android:layout_height="0.1dp"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true">
+</View>
+            <RelativeLayout
+
+                android:clickable="true"
+             android:layout_above="@+id/rlv2"
+android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/rlv1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+
+               >
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                    android:textColor="@color/theme_color"
+                    android:text="Share this location" />
+
+                <TextView
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/textView3"
+                    android:maxLines="1"
+                    android:text="Address" />
+
+
+
+            </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlv2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/up_arrow"
+            android:rotation="180"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/centerview" />
+    </RelativeLayout>
+
+
+    <EditText
+        android:id="@+id/context"
+android:layout_below="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="call context"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginLeft="@dimen/_10dp"
+        android:layout_marginRight="@dimen/_10dp"
+       android:background="@drawable/rounded_corners_large"
+        android:maxLines="1"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black_50"
+
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/text_12sp" />
+
+    <Button
+        android:id="@+id/startcall"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/dialpad_call_bg"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white" />
+</RelativeLayout>

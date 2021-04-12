@@ -211,6 +211,7 @@ public class FirstCallRecentsDetailLogAdapter extends CursorAdapter {
                     String callid = cursor.getString(cursor.getColumnIndexOrThrow(CSDbFields.KEY_CALLLOG_CALLID));
                    // CSDataProvider.UpdateCallLogbyCallidAndFilter(callid, CSDbFields.KEY_CALLLOG_MISSEDCALL_NOTIFIED, 1);
                     CSDataProvider.updateCallLogbyCallidAndFilter(callid, CSDbFields.KEY_CALLLOG_MISSEDCALL_NOTIFIED, 1);
+                        //CSDataProvider.updateCallLogbyCallidAndFilter(callid, CSDbFields.KEY_CALLLOG_MISSEDCALL_NOTIFIED, 1);
                 }
                 //}
             } catch (Exception ex) {

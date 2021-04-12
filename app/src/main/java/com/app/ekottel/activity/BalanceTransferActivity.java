@@ -269,7 +269,7 @@ public class BalanceTransferActivity extends AppCompatActivity {
                     PreferenceProvider pf = new PreferenceProvider(getApplicationContext());
                     pf.setPrefString("activeDestination", mMobileNumberET.getText().toString());
                     CSChat csChat=new CSChat();
-                    csChat.sendMessage(mMobileNumberET.getText().toString(), "I have transferred" + " " + mAmountET.getText().toString() + " $" + " " + "to your account", false);
+                    csChat.sendMessage(mMobileNumberET.getText().toString(), "I have transferred" + " " + mAmountET.getText().toString() + " $" + " " + "to your account", false,"","");
                     showAlert(getString(R.string.bal_trans_success_message1) + " " + mMobileNumberET.getText().toString() + " " + getString(R.string.bal_trans_success_message2) + " " + mAmountET.getText().toString() + " $");
                     mMobileNumberET.setText("");
                     mAmountET.setText("");

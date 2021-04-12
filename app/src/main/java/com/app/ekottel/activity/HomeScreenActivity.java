@@ -128,7 +128,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabs);
         context = HomeScreenActivity.this;
 
-        new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.G729);
+        //new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.G729);
         // If OS version is more than Lollipop we ask all below permissions
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             LOG.info("hasPermissions: " + PermissionUtils.hasPermissions(HomeScreenActivity.this, PermissionUtils.PERMISSIONS));

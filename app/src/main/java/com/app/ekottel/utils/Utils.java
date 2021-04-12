@@ -45,6 +45,8 @@ import com.google.i18n.phonenumbers.Phonenumber;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -981,7 +983,7 @@ public class Utils {
         alertDialog.show();
     }
 
-    public static void addContactsToSdk(Context context) {
+   /* public static void addContactsToSdk(Context context) {
         new Thread(() -> {
             PreferenceProvider preferenceProvider = new PreferenceProvider(context);
             Cursor contactsCursor = CSDataProvider.getContactsCursor();
@@ -1048,5 +1050,15 @@ public class Utils {
             nativeContactsCursor.close();
 
         }).start();
+    }*/
+    public static void logStacktrace(Exception e) {
+        try {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String sStackTrace = sw.toString();
+            LOG.warn(sStackTrace);
+        } catch (Exception ex) {
+        }
     }
 }

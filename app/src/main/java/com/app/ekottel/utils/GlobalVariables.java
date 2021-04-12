@@ -45,4 +45,6 @@ public class GlobalVariables {
 	public static String defaultCountryCode = "+1";
 	public static String SDK_APP_NAME= "Ekottel";
 	public static Boolean INCALL= false;
+
+	public static String smsdidnumber = "";
 }

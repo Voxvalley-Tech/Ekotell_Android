@@ -67,6 +67,7 @@ import com.app.ekottel.utils.Utils;
 import com.ca.Utils.CSConstants;
 import com.ca.Utils.CSDbFields;
 import com.ca.Utils.CSEvents;
+import com.ca.dao.CSLocation;
 import com.ca.wrapper.CSCall;
 import com.ca.wrapper.CSDataProvider;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -210,7 +211,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                         PhoneStateListener.LISTEN_CALL_STATE);
             }
             mPreferenceProvider.setPrefString(PreferenceProvider.LAST_DIAL_NUMBER, GlobalVariables.destinationnumbettocall);
-
+            new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.G729);
             try {
                 // phone must begin with '+'
                 PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
@@ -387,15 +388,16 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
             if (getIntent().getBooleanExtra("isinitiatior", false)) {
                 mDestinationNumberToCall = getIntent().getStringExtra("dstnumber");
                 //destinationNumberToCall = destinationNumberToCall.replace("+","");
-                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall);
+                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall,GlobalVariables.smsdidnumber,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng,CallLocationActivity.final_address));
                 //myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall, CSConstants.CALLRECORD.DONTRECORD);
                 manageAudioFocus.requestAudioFocus(PSTNCallActivity.this, myCallId, mDestinationNumberToCall, false);
-            } else {
+            }/* else {
                 mDestinationNumberToCall = getIntent().getStringExtra("srcnumber");
                 //destinationNumberToCall = destinationNumberToCall.replace("+","");
                 myCallId = getIntent().getStringExtra("callid");
+                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall,GlobalVariables.smsdidnumber,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng,CallLocationActivity.final_address));
                 CSCallsObj.answerPstnCall(mDestinationNumberToCall, getIntent().getStringExtra("callid"));
-            }
+            }*/
 
 
             GlobalVariables.lastcallid = myCallId;

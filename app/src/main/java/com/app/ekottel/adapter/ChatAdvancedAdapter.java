@@ -46,7 +46,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.ca.Utils.CSConstants;
 import com.ca.Utils.CSDbFields;
-import com.ca.dao.CSChatLocation;
+import com.ca.dao.CSLocation;
 import com.ca.wrapper.CSChat;
 import com.ca.wrapper.CSDataProvider;
 
@@ -1886,7 +1886,7 @@ public class ChatAdvancedAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             } else if (clicktype == 0 && (viewtype == SENDER_LOCATION_IMAGE_VIDEO_AUDIO || viewtype == RECIEVER_LOCATION_IMAGE_VIDEO_AUDIO || viewtype == SENDER_MULTI_LOCATION_IMAGE_VIDEO_AUDIO)) {
                 if (chattype == CSConstants.E_LOCATION) {
                     if (action == Actions.DEFAULT) {
-                        CSChatLocation location = CSChatObj.getLocationFromChatID(chatid);
+                        CSLocation location = CSChatObj.getLocationFromChatID(chatid);
                         Double lat = location.getLat();
                         Double lng = location.getLng();
                         String geoUri = "https://maps.google.com/maps?q=loc:" + lat + "," + lng + "&zoom=14&markers=color:blue%7C" + lat + "," + lng;

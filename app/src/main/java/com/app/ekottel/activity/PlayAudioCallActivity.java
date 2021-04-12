@@ -49,6 +49,7 @@ import com.app.ekottel.utils.Utils;
 import com.ca.Utils.CSConstants;
 import com.ca.Utils.CSDbFields;
 import com.ca.Utils.CSEvents;
+import com.ca.dao.CSLocation;
 import com.ca.wrapper.CSCall;
 import com.ca.wrapper.CSClient;
 import com.ca.wrapper.CSDataProvider;
@@ -210,7 +211,7 @@ public class PlayAudioCallActivity extends Activity implements SensorEventListen
             dtmfButton.setEnabled(false);
             contactsButton.setEnabled(false);
             holdButton.setEnabled(false);
-
+            new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.opus);
             try {
                 // phone must begin with '+'
                 PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
@@ -285,13 +286,14 @@ public class PlayAudioCallActivity extends Activity implements SensorEventListen
                     }
                 };
 
-                IntentFilter filter1 = new IntentFilter(CSEvents.CSCALL_CALLENDED);
+                    IntentFilter filter1 = new IntentFilter(CSEvents.CSCALL_CALLENDED);
                 LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter1);
 
-                if (getIntent().getBooleanExtra("isinitiatior", false)) {
+                    if (getIntent().getBooleanExtra("isinitiatior", false)) {
 
                     destinationnumbettocall = getIntent().getStringExtra("dstnumber");
-                    mycallid = CSCallsObj.startVoiceCall(destinationnumbettocall, CSConstants.CALLRECORD.DONTRECORD);
+                        mycallid = CSCallsObj.startVoiceCall(destinationnumbettocall,CSConstants.CALLRECORD.DONTRECORD,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                   // mycallid = CSCallsObj.startVoiceCall(destinationnumbettocall, CSConstants.CALLRECORD.DONTRECORD);
                     manageAudioFocus.requestAudioFocus(PlayAudioCallActivity.this, mycallid, destinationnumbettocall,false);
 
 
@@ -301,8 +303,8 @@ public class PlayAudioCallActivity extends Activity implements SensorEventListen
                     mycallid = getIntent().getStringExtra("callid");
 
                     //String sdp = getIntent().getStringExtra("sdp");
-
-                    CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"));
+                        CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"),CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                  //  CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"));
                     //CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"), CSConstants.CALLRECORD.DONTRECORD);
                 }
                 GlobalVariables.lastcallid = mycallid;

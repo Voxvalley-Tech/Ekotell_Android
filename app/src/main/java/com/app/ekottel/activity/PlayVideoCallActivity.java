@@ -45,6 +45,7 @@ import com.app.ekottel.utils.Utils;
 import com.ca.Utils.CSConstants;
 import com.ca.Utils.CSDbFields;
 import com.ca.Utils.CSEvents;
+import com.ca.dao.CSLocation;
 import com.ca.views.CSPercentFrameLayout;
 import com.ca.views.CSSurfaceViewRenderer;
 import com.ca.wrapper.CSCall;
@@ -231,7 +232,8 @@ public class PlayVideoCallActivity extends Activity {
                     playConnectingTone();
                     mViewOptionsHandler.postDelayed(viewOptionsRunnable, mTimeInvervel);
                     destinationNumberToCall = getIntent().getStringExtra("dstnumber");
-                    mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView, CSConstants.CALLRECORD.DONTRECORD);
+                    mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView,CSConstants.CALLRECORD.DONTRECORD,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                   // mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView, CSConstants.CALLRECORD.DONTRECORD);
                     //mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView,localRenderLayout,remoteRenderLayout, CSConstants.CALLRECORD.DONTRECORD);
                     manageAudioFocus.requestAudioFocus(PlayVideoCallActivity.this, mycallid, destinationNumberToCall,false);
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -241,8 +243,9 @@ public class PlayVideoCallActivity extends Activity {
                     destinationNumberToCall = getIntent().getStringExtra("srcnumber");
                     h.postDelayed(RunnableObj, delay);
                     mycallid = getIntent().getStringExtra("callid");
+                    CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,CallLocationActivity.final_address));
                     //String sdp = getIntent().getStringExtra("sdp");
-                    CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView);
+                    //CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView);
                     //CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView,localRenderLayout,remoteRenderLayout, CSConstants.CALLRECORD.DONTRECORD);
 
                 }
@@ -253,7 +256,7 @@ public class PlayVideoCallActivity extends Activity {
                 mPreferenceProvider.setPrefString(PreferenceProvider.IN_CALL_NUMBER, destinationNumberToCall);
                 mPreferenceProvider.setPrefboolean(PreferenceProvider.IS_CALL_RUNNING, true);
                 //GlobalVariables.lastdestnationnumber = destinationNumberToCall;
-
+                new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.opus);
                 // displayname = destinationNumberToCall;
                 Cursor ccfr = CSDataProvider.getContactCursorByNumber(destinationNumberToCall);
                 if (ccfr.getCount() > 0) {
