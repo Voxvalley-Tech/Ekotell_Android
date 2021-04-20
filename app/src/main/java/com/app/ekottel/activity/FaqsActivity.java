@@ -62,9 +62,9 @@ public class FaqsActivity extends AppCompatActivity {
                 }
             });
         }
-        tv_faqsContent.setText(Html.fromHtml("<h3>1. How do I sign up for  Ekotell International calling APP?</h3>" +
+        tv_faqsContent.setText(Html.fromHtml("<h3>1. How do I sign up for  Ekottel International calling APP?</h3>" +
                 "</br>" +
-                "<p>You can sign up by downloading our Award-Winning free Ekotell App from the App Store or Google Play Store and create your account, follow these steps to start calling your loved ones:<br/>" +
+                "<p>You can sign up by downloading our Award-Winning free Ekottel App from the App Store or Google Play Store and create your account, follow these steps to start calling your loved ones:<br/>" +
                 "You don't need to type \"+\"  it is added automatically. No 0 or 00 or 011 before or after the country code unless it is the part of your number. If it doesn't help, please send us your phone number and we will try to help! Then simply search for the contact you want to call or dial a number on the keypad.Now you can start talking!<br/>" +
                 "Example: +291 717XX93, +251 9659XXX88<br/></p>" +
 
@@ -72,29 +72,29 @@ public class FaqsActivity extends AppCompatActivity {
                 "<p><ul>" +
                 "<li> Purchase a subscription or World Credits By going to Settings then Tap on Subscribe Packages or TopUp/Recharge Using Credit/debit cards and Paypal Account so you have an active Calling offer</li>" +
                 "<li> If you don't have Credit/debit cards and Paypal Account. <br/>" +
-                "You can add Funds, TopUp/Recharge from one of our Local retailers or Ekotell Distributors by going to Settings “VOUCHER RECHARGE”  so you have an active calling offer</li>" +
+                "You can add Funds, TopUp/Recharge from one of our Local retailers or Ekottel Distributors by going to Settings “VOUCHER RECHARGE”  so you have an active calling offer</li>" +
                 "<li> Then simply search for the contact you want to call or dial a number on the keypad</li>" +
                 "</ul>" +
                 "</br>" +
-                "Tip:  Make sure to save your contacts in your native phone device in the international calling format +291 xxxxxx, so Ekotell can identify them and connect your calls. <br/>" +
+                "Tip:  Make sure to save your contacts in your native phone device in the international calling format +291 xxxxxx, so Ekottel can identify them and connect your calls. <br/>" +
                 "</p>" +
 
 
-                "<h3>3. How do I login to my Ekotell International Calling Account ?<br/></h3>" +
+                "<h3>3. How do I login to my Ekottel International Calling Account ?<br/></h3>" +
                 "<p>" +
                 "<ul>" +
-                "<li> Goto Ekotellcalls.com login page <br/></li>" +
+                "<li> Goto Ekottelcalls.com login page <br/></li>" +
                 "<li> Enter your registered phone number with “+” sign  and password or security code.<br/></li>" +
                 "<li> Press the Login button.<br/></li>" +
                 "</ul>" +
                 "</p>" +
 
 
-                "<h3>4. What is Ekotell and why should I use it?<br/></h3>" +
-                "<p>Ekotell is an application that lets you make free HD-quality calls to other Ekotell App users and  Low cost High quality International calls to any phone (mobile or landline) all over the world. All at low rates! Ekotell uses your cell phone’s internet connection, be it WiFi, 3G, 4G/LTE instead of your phone’s voice network. Your friends and family always get calls from your personal phone number. They know it’s you and can even call you back!<br/></p>" +
+                "<h3>4. What is Ekottel and why should I use it?<br/></h3>" +
+                "<p>Ekottel is an application that lets you make free HD-quality calls to other Ekottel App users and  Low cost High quality International calls to any phone (mobile or landline) all over the world. All at low rates! Ekottel uses your cell phone’s internet connection, be it WiFi, 3G, 4G/LTE instead of your phone’s voice network. Your friends and family always get calls from your personal phone number. They know it’s you and can even call you back!<br/></p>" +
 
                 "<h3>5. Which calls are free?<br/></h3>" +
-                "<p>All Ekotell to Ekotell App to App Audio and video calls are completely free. Moreover, it is really easy to earn free credits to call landlines and mobiles by inviting friends.<br/>" +
+                "<p>All Ekottel to Ekottel App to App Audio and video calls are completely free. Moreover, it is really easy to earn free credits to call landlines and mobiles by inviting friends.<br/>" +
                 "*Please note that data charges may be applied by your service provider if you are using a cellular internet connection<br/></p>" +
 
 
@@ -104,16 +104,16 @@ public class FaqsActivity extends AppCompatActivity {
                 "Example: +291 717xx93, +251 96xxx0088<br/>" +
                 "You don't need to type \"+\" - it is added automatically. No 0 or 00 or 011 after or before the country code unless it is the part of your number. If it doesn't help, please send us your phone number and we will try to help! <br/></li>" +
                 "<li> If the validation message doesn't come, please wait for a validation call or try again<br/></li>" +
-                "<li> Some VoIP services may be blocked by Internet providers in some Countries. To make sure Ekotell App calls are not blocked just try to open Ekotellcalls.com in your mobile web browser. If you can't open it, try using some other Internet connection.<br/></li>" +
+                "<li> Some VoIP services may be blocked by Internet providers in some Countries. To make sure Ekottel App calls are not blocked just try to open Ekottelcalls.com in your mobile web browser. If you can't open it, try using some other Internet connection.<br/></li>" +
                 "</ul>" +
 
 
-                "<h3>7. Does Ekotell charge any extra fees for International Calls ?<br/></h3>" +
-                "<p>There is a fixed per-minute rate that you see before making your call to cellular and landline phones. There are no hidden charges or connection fees in Ekotell App.<br/>" +
+                "<h3>7. Does Ekottel charge any extra fees for International Calls ?<br/></h3>" +
+                "<p>There is a fixed per-minute rate that you see before making your call to cellular and landline phones. There are no hidden charges or connection fees in Ekottel App.<br/>" +
                 "*Please note that data charges may be applied by your service provider if you are using cellular internet connection.<br/></p>" +
 
 
-                "<h3>8.Will Ekotell run on my device?<br/></h3>" +
+                "<h3>8.Will Ekottel run on my device?<br/></h3>" +
                 "<p>Kodate is available for:<br/>" +
                 "<ul>" +
                 "<li> iPhone® 4s and higher (OS 8.0 and higher);<br/></li>" +
@@ -129,24 +129,24 @@ public class FaqsActivity extends AppCompatActivity {
 
 
                 "<h3>10. How can I enable or disable auto top-up?<br/></h3>" +
-                "<p>We strongly recommend you check the auto top-up checkbox after successful payment with your credit or debit card. This setting automatically tops-up your Ekotell balance by $5 when the balance falls below $2.<br/>" +
+                "<p>We strongly recommend you check the auto top-up checkbox after successful payment with your credit or debit card. This setting automatically tops-up your Ekottel balance by $5 when the balance falls below $2.<br/>" +
                 "You can disable auto top-up any time in the My balance section. <br/></p>" +
 
 
                 "<h3>11. What are subscriptions?<br/></h3>" +
                 "<p>" +
-                "If you want to call home a lot at the lowest price possible, Ekotell’s  unlimited subscriptions are your best bet! We offer subscriptions depending on the country you wish to call:<br/>" +
+                "If you want to call home a lot at the lowest price possible, Ekottel’s  unlimited subscriptions are your best bet! We offer subscriptions depending on the country you wish to call:<br/>" +
                 "<ul><li> 30-day subscription: available for 40 countries<br/></li>" +
                 "<li> 90-day subscription: currently available for Eritrea, Ethiopia and  India <br/></li>" +
                 "<li> 180-day subscription: currently available for Eritrea, Ethiopia and India </li></ul>" +
                 "</br>" +
-                "When you buy one of these subscriptions, you can call any mobile or landline in a select country however much you want during the period of time specified in the subscription. Your subscription begins on the day you buy it. It will renew automatically for 30/90/180 days, depending on the subscription you have. You can cancel your subscription at any time at Ekotellcalls.com in your Ekotell App. <br/>" +
+                "When you buy one of these subscriptions, you can call any mobile or landline in a select country however much you want during the period of time specified in the subscription. Your subscription begins on the day you buy it. It will renew automatically for 30/90/180 days, depending on the subscription you have. You can cancel your subscription at any time at Ekottel calls.com in your Ekottel  App. <br/>" +
                 "Note: Deals/subscriptions are reflected as minutes, not credit, and that's why you don't see it in your balance as additional money You can see It under your Profile.<br/>" +
                 "</p>" +
 
 
-                "<h3>12. Ekotell welcome offers:<br/></h3>" +
-                "<p>If you’re new to Ekotell, you can try one of our welcome offers for subscriptions! Welcome offers give you a certain period of  calling for free (outlined below) depending on the subscription you buy. After your welcome offer ends, the subscription will be renewed automatically, but you can always cancel the subscription at Ekotellcalls.com in your Ekotell App. 30-day subscription: 7 days free.<br/>" +
+                "<h3>12. Ekottel welcome offers:<br/></h3>" +
+                "<p>If you’re new to Ekottel, you can try one of our welcome offers for subscriptions! Welcome offers give you a certain period of  calling for free (outlined below) depending on the subscription you buy. After your welcome offer ends, the subscription will be renewed automatically, but you can always cancel the subscription at Ekottelcalls.com in your Ekottel App. 30-day subscription: 7 days free.<br/>" +
                 "<ul><li> 90-day subscription: 1 month free</li>" +
                 "<li> 180-day subscription: 1 month free</li></ul>" +
                 "</br>" +

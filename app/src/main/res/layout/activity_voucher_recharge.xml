@@ -98,6 +98,7 @@
         android:layout_below="@+id/et_voucher_input"
         android:layout_marginLeft="@dimen/_60dp"
         android:layout_marginRight="@dimen/_60dp"
+        android:visibility="gone"
         android:layout_marginTop="@dimen/_8dp"
         android:background="#bdbdbd" />
 

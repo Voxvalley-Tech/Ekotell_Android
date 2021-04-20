@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="@dimen/_25dp"
-            android:layout_height="@dimen/_25dp"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
             android:layout_gravity="center_vertical"
             android:src="@mipmap/ic_balance_transfer" />
 

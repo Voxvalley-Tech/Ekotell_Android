@@ -983,12 +983,13 @@ public class CallLogsFragment extends Fragment {
                     }
                     cr.close();
                     LOG.info("Calllog typeiff " + isApp);
-                    if(isApp.equals("0")){
-                        CallMethodHelper.processAudioCall(context, numberToDial, "PSTN");
+                    CallMethodHelper.processAudioCall(context, numberToDial, "PSTN");
+                   /* if(isApp.equals("0")){
+
                     }
                     else{
                         showCallTypeDia(context, numberToDial, mydirection);
-                    }
+                    }*/
 
                 }
             });

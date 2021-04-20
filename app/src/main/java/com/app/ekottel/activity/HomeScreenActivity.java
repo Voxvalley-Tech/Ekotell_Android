@@ -15,6 +15,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -30,6 +31,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -690,7 +692,8 @@ public class HomeScreenActivity extends AppCompatActivity {
     private View customContactsView(int currenttab) {
         int contacts_drawable = getTabDrawable(currenttab);
 
-        View contacts_view = createTabView(HomeScreenActivity.this, "Contacts", contacts_drawable, currenttab);
+        View contacts_view = createTabView(HomeScreenActivity.this, "Contacts", currenttab == -1 ?
+                R.drawable.ic_contacts_normal : R.drawable.ic_contacts_hover, currenttab);
 
         return contacts_view;
     }
@@ -699,23 +702,23 @@ public class HomeScreenActivity extends AppCompatActivity {
         int call_logs_drawable = getTabDrawable(currenttab);
 
 
-        View call_logs_view = createTabView(HomeScreenActivity.this, "Call Logs", call_logs_drawable, currenttab);
+        View call_logs_view = createTabView(HomeScreenActivity.this, "Calls", currenttab == -1 ? R.drawable.ic_call_logs_normal : R.drawable.ic_call_logs_hover, currenttab);
 
         return call_logs_view;
     }
 
-    private View customIMView(int currenttab) {
+   /* private View customIMView(int currenttab) {
 
         int im_drawable = getTabDrawable(currenttab);
-        View im_view = createTabView(HomeScreenActivity.this, "IM", im_drawable, currenttab);
+        View im_view = createTabView(HomeScreenActivity.this, "IM", currenttab == -1 ? R.drawable.ic_chats_normal : R.drawable.ic_chats_hover, currenttab);
 
         return im_view;
-    }
+    }*/
 
     private View customProfileView(int currenttab) {
 
         int profile_drawable = getTabDrawable(currenttab);
-        View profile_view = createTabView(HomeScreenActivity.this, "Profile", profile_drawable, currenttab);
+        View profile_view = createTabView(HomeScreenActivity.this, "Profile", currenttab == -1 ? R.drawable.ic_profile_normal : R.drawable.ic_profile_hover, currenttab);
 
         return profile_view;
     }
@@ -723,7 +726,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     private View customMoreView(int currenttab) {
 
         int more_drawable = getTabDrawable(currenttab);
-        View more_view = createTabView(HomeScreenActivity.this, "More", more_drawable, currenttab);
+        View more_view = createTabView(HomeScreenActivity.this, "More", currenttab == -1 ? R.drawable.ic_more_normal : R.drawable.ic_more_hover, currenttab);
 
         return more_view;
     }
@@ -731,13 +734,15 @@ public class HomeScreenActivity extends AppCompatActivity {
     private int getTabDrawable(int currentTab) {
         final int current_drawable;
         if (currentTab > -1) {
-            current_drawable = (Color.parseColor("#ed1c24"));
+            current_drawable = (Color.parseColor("#0063b2"));
         } else {
-            current_drawable = (Color.parseColor("#f4f4f4"));
+            current_drawable = (Color.parseColor("#a2a2a2"));
         }
 
         return current_drawable;
     }
+
+
 
 
     private void setupViewPager(ViewPager viewPager) {
@@ -832,46 +837,23 @@ public class HomeScreenActivity extends AppCompatActivity {
     private View createTabView(Context context, String tabText, int color, int currentTab) {
         View view = LayoutInflater.from(context).inflate(R.layout.tab_custom,
                 null, false);
-        TextView tv = (TextView) view.findViewById(R.id.tabTitleText);
 
-        TextView tv_icon = (TextView) view.findViewById(R.id.tv_icon);
+        ImageView tv_icon = view.findViewById(R.id.tv_icon);
         LinearLayout layout = view.findViewById(R.id.tablelayout);
-        layout.setBackgroundColor(color);
         Typeface text_font = Utils.getTypeface(getApplicationContext());
-        tv_icon.setTypeface(text_font);
-        tv.setText(tabText);
+        tv_icon.setBackgroundResource(color);
 
-       if(currentTab!=-1){
-           tv_icon.setTextColor(getResources().getColor(R.color.white));
-           tv.setTextColor(getResources().getColor(R.color.white));
-       }else{
-           tv_icon.setTextColor(getResources().getColor(R.color.black));
-           tv.setTextColor(getResources().getColor(R.color.black));
-
-       }
-
-
-        if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_contacts))) {
-            tv_icon.setText(getString(R.string.icon_contacts));
-        } else if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_call_logs))) {
-            tv_icon.setText(getString(R.string.icon_call_logs));
-        } else if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_im))) {
-            tv_icon.setText(getString(R.string.icon_messages));
+        if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_im))) {
             mUnreadCount = (TextView) view.findViewById(R.id.count);
             int count = getCount();
             mUnreadCount.setText(count + "");
             mUnreadCount.invalidate();
             if (count > 0)
                 mUnreadCount.setVisibility(View.VISIBLE);
-        } else if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_profile))) {
-            tv_icon.setText(getString(R.string.icon_profile));
-        } else if (tabText != null && tabText.equalsIgnoreCase(getString(R.string.home_activity_tab_more))) {
-            tv_icon.setText(getString(R.string.icon_more));
         }
 
         return view;
     }
-
     /**
      * @return this is returns integer value
      */

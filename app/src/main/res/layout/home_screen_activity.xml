@@ -15,16 +15,15 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:background="#f4f4f4"
         android:scrollbars="none"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        app:tabPaddingEnd="@dimen/_2dp"
-        app:tabPaddingStart="@dimen/_2dp" />
-
+        app:tabPaddingEnd="-1dp"
+        app:tabPaddingStart="-1dp" />
 
 </RelativeLayout>

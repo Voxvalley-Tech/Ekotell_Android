@@ -585,7 +585,7 @@ public class TopUpActivity  extends AppCompatActivity {
                         }
 
                     } else {
-                        showErrorMessage("Payment Failed, Please contact support@ekotell.com");
+                        showErrorMessage("Payment Failed, Please contact support@ekottel.com");
 
                     }
                 }
@@ -593,7 +593,7 @@ public class TopUpActivity  extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
                     hideProgressbar();
-                    showErrorMessage("Payment Failed, Please contact support@ekotell.com");
+                    showErrorMessage("Payment Failed, Please contact support@ekottel.com");
 
                 }
             });
@@ -631,7 +631,7 @@ public class TopUpActivity  extends AppCompatActivity {
                 if(strs.length > 0) {
                     String tranxid = strs[1];
 //                Log.i(TAG, "tranxid to be removed:" + tranxid);
-                    showErrorMessage("Payment Successful from the Bank, You will be need to wait for an payment approval. Please contact support@ekotell.com");
+                    showErrorMessage("Payment Successful from the Bank, You will be need to wait for an payment approval. Please contact support@ekottel.com");
                 }
             }catch (Exception e){
                 showErrorMessage("Payment Failed, Please contact Signed out\n" +

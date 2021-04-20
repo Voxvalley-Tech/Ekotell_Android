@@ -126,8 +126,10 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
     boolean shownotifiction = true;
     ManageAudioFocus manageAudioFocus = new ManageAudioFocus();
     //private int notificationID;
+    private boolean isMediaConnected = false;
     private String callEndReason = "";
-
+    TextView reconnecting;
+    private boolean isConnectingTone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,7 +157,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
             mTvDuration = findViewById(R.id.duration);
             mBlankScreenLayout.setVisibility(View.GONE);
             //  mMainScreenLayout.setVisibility(View.VISIBLE);
-
+            reconnecting = (TextView) findViewById(R.id.tv_audio_call_duration);
             username = CSDataProvider.getLoginID();
             username = username.replace("+", "");
 
@@ -211,6 +213,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                         PhoneStateListener.LISTEN_CALL_STATE);
             }
             mPreferenceProvider.setPrefString(PreferenceProvider.LAST_DIAL_NUMBER, GlobalVariables.destinationnumbettocall);
+            new CSCall().setPreferredPtimeForG729("80");
             new CSCall().setPreferredAudioCodec(CSConstants.PreferredAudioCodec.G729);
             try {
                 // phone must begin with '+'
@@ -375,7 +378,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                                 seconds = String.valueOf(sec);
                             }
 
-                            mTimerTv.setText("In Call"+" ( "+minutes + ":" + seconds+ " ) ");
+                            mTimerTv.setText("In Call" + " ( " + minutes + ":" + seconds + " ) ");
                         }
                     });
                 }
@@ -388,7 +391,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
             if (getIntent().getBooleanExtra("isinitiatior", false)) {
                 mDestinationNumberToCall = getIntent().getStringExtra("dstnumber");
                 //destinationNumberToCall = destinationNumberToCall.replace("+","");
-                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall,GlobalVariables.smsdidnumber,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall, GlobalVariables.smsdidnumber, CallLocationActivity.callcontext, new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng, CallLocationActivity.final_address));
                 //myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall, CSConstants.CALLRECORD.DONTRECORD);
                 manageAudioFocus.requestAudioFocus(PSTNCallActivity.this, myCallId, mDestinationNumberToCall, false);
             }/* else {
@@ -515,19 +518,19 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                 @Override
                 public void onClick(View view) {
                     try {
-                     /*   if (getIntent().getBooleanExtra(getString(R.string.call_logs_intent_initiator_key), false)) {*/
+                        /*   if (getIntent().getBooleanExtra(getString(R.string.call_logs_intent_initiator_key), false)) {*/
 
-                            if (isAudioEnabled) {
-                                Log.i("isAudioEnabled","iffff--->");
-                                CSCallsObj.muteAudio(myCallId, false);
-                                mMuteButtonTv.setSelected(false);
-                                isAudioEnabled = false;
-                            } else {
-                                Log.i("isAudioEnabled","elseee--->");
-                                CSCallsObj.muteAudio(myCallId, true);
-                                isAudioEnabled = true;
-                                mMuteButtonTv.setSelected(true);
-                            }
+                        if (isAudioEnabled) {
+                            Log.i("isAudioEnabled", "iffff--->");
+                            CSCallsObj.muteAudio(myCallId, false);
+                            mMuteButtonTv.setSelected(false);
+                            isAudioEnabled = false;
+                        } else {
+                            Log.i("isAudioEnabled", "elseee--->");
+                            CSCallsObj.muteAudio(myCallId, true);
+                            isAudioEnabled = true;
+                            mMuteButtonTv.setSelected(true);
+                        }
 
 
                     } catch (Exception ex) {
@@ -1063,54 +1066,91 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
 
         }
         return "";
-    }
-
-    public class MainActivityReceiver extends BroadcastReceiver {
+    } public class MainActivityReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
             try {
+               // stopringbacktone();
                 LOG.info("PSTN Call back action " + intent.getAction().toString());
                 if (myCallId.equals(intent.getStringExtra("callid"))) {
+                    //stopringbacktone();
                     if (intent.getAction().equals(CSEvents.CSCALL_CALLENDED)) {
                         LOG.info("onReceive: Callend reason " + intent.getStringExtra("endReason").toString());
                         callEndReason = intent.getStringExtra("endReason");
-
+                        reconnecting.setVisibility(View.GONE);
                         if (callEndReason.equalsIgnoreCase("No Credit")) {
                             mPreferenceProvider.setPrefboolean(PreferenceProvider.NEED_TO_SHOW_CALL_END_REASON, true);
                         }
                         if (intent.getStringExtra("endReason").toString().equals(CSConstants.UserBusy)) {
-                            showStreamStoppedAlert("callEnded! UserBusy!");
-                            mTimerTv.setText("callEnded! UserBusy!");
+                            showStreamStoppedAlert("CallEnded! UserBusy!");
+                            mTimerTv.setText("CallEnded! UserBusy!");
                         } else {
-                            showStreamStoppedAlert("callEnded");
-                            mTimerTv.setText("callEnded");
+                            showStreamStoppedAlert("CallEnded");
+                            mTimerTv.setText("CallEnded");
                         }
-
+                        // Toast.makeText(getApplicationContext(), callEndReason, Toast.LENGTH_SHORT).show();
+                        //showAlertToUser(callEndReason, PSTNCallActivity.this);
                     } else if (intent.getAction().equals(CSEvents.CSCALL_NOANSWER)) {
+                        String noAnswerString = "";
+
+                        if (!isConnectingTone) {
+                            noAnswerString = "unreachable";
+                            mTimerTv.setText("unreachable");
+                        } else {
+                            noAnswerString = "NoAnswer";
+                            mTimerTv.setText("NoAnswer");
+                        }
+                        reconnecting.setVisibility(View.GONE);
                         showStreamStoppedAlert("NoAnswer");
-                        mTimerTv.setText("NoAnswer");
+                        // Toast.makeText(context, "NoAnswer", Toast.LENGTH_SHORT).show();
+                      //  showAlertToUser(noAnswerString, PSTNCallActivity.this);
+
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_SESSION_IN_PROGRESS)) {
+                        //183 for session in progress
+                        isConnectingTone = true;
+                        mTimerTv.setText("Ringing");
+                        reconnecting.setVisibility(View.GONE);
+
+
                     } else if (intent.getAction().equals(CSEvents.CSCALL_CALLANSWERED)) {
                         PreferenceProvider pf = new PreferenceProvider(getApplicationContext());
                         pf.setPrefboolean("inCallSuccess", true);
+                        reconnecting.setVisibility(View.GONE);
                         LOG.info(TAG1, "Call Answer Success");
                         mCallingGifImg.setVisibility(View.GONE);
                         mTvDuration.setVisibility(View.VISIBLE);
                         mTvDuration.setText("In Call");
+                        //  mTimerTv.setText("");
                         mMuteButtonTv.setEnabled(true);
                         mDTMFButtonTv.setEnabled(true);
                         mHoldButtonTv.setEnabled(true);
+                        mContactsButtonTv.setEnabled(true);
                         LOG.info(TAG1, "Call Answer Success after");
+                        mTimerTv.setText("Connecting..");
                         mTimerHandler.postDelayed(mTimerRunnable, mTimerDelay);
+                        //stopringbacktone();
                     } else if (intent.getAction().equals(CSEvents.CSCALL_NOMEDIA)) {
                         showStreamStoppedAlert("NoMedia! CallEnded!");
                         mTimerTv.setText("NoMedia! CallEnded!");
+                        reconnecting.setVisibility(View.GONE);
                     } else if (intent.getAction().equals(CSEvents.CSCALL_RINGING)) {
-                        mTimerTv.setText("Ringing");
+                        boolean iscallwaiting = intent.getBooleanExtra("iscallwaiting", false);
+                        isConnectingTone = true;
+                        reconnecting.setVisibility(View.GONE);
+                        if (iscallwaiting) {
+                            mTimerTv.setText("User busy");
+                        } else {
+                            mTimerTv.setText("Ringing");
+                        }
+                        //playringbacktone(false);
+                      //  playringbacktone(iscallwaiting);
+                        //stopConnectingTone();
                     } else if (intent.getAction().equals(CSEvents.CSCALL_MEDIACONNECTED)) {
                         mTvDuration.setVisibility(View.VISIBLE);
-                        mTvDuration.setVisibility(View.VISIBLE);
-                        if (!getIntent().getBooleanExtra("isinitiatior", false)) {
+                        reconnecting.setVisibility(View.GONE);
+                        if (!isMediaConnected && !getIntent().getBooleanExtra("isinitiatior", false)) {
+                            isMediaConnected = true;
                             mTimerHandler.postDelayed(mTimerRunnable, mTimerDelay);
                         }
                         // stopringbacktone();
@@ -1126,16 +1166,31 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                     } else if (intent.getAction().equals(CSEvents.CSCALL_MEDIADISCONNECTED)) {
                         if (isNetworkErrorReceived) {
                             mTvDuration.setVisibility(View.VISIBLE);
+                            reconnecting.setVisibility(View.GONE);
                             mTimerHandler.removeCallbacks(mTimerRunnable);
                             isNetworkErrorReceived = false;
                             isMediaDisconnected = true;
-                            mTvDuration.setText("Reconnecting..");
+                        }
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_HOLD_UNHOLD_RESPONSE)) {
+
+                        if (myCallId.equals(intent.getStringExtra("callid"))) {
+                            boolean ishold_sdk = intent.getBooleanExtra("hold", false);
+
+                            if (!ishold_sdk) {
+
+
+                            }
                         }
                     }
+
 
                 }
                 if (intent.getAction().equals(CSEvents.CSCLIENT_NETWORKERROR)) {
                     isNetworkErrorReceived = true;
+                    reconnecting.setVisibility(View.VISIBLE);
+                    // Toast.makeText(getApplicationContext(), "NetWork Error", Toast.LENGTH_SHORT).show();
+                    //  showAlertToUser("NetWork Error ", PSTNCallActivity.this);
+
                 }
 
             } catch (Exception ex) {
@@ -1145,67 +1200,174 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
     }
 
 
-    MainActivityReceiver MainActivityReceiverObj = new MainActivityReceiver();
+/*
+    public class MainActivityReceiver extends BroadcastReceiver {
 
-    @Override
-    public void onResume() {
-        super.onResume();
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                LOG.info("PSTN Call back action " + intent.getAction().toString());
+                if (myCallId.equals(intent.getStringExtra("callid"))) {
 
-        try {
-            shownotifiction = true;
-            mDialingFeedback = new DialingFeedback(PSTNCallActivity.this, false);
-            mDialingFeedback.resume();
-            IntentFilter filter3 = new IntentFilter(CSEvents.CSCALL_NOANSWER);
-            IntentFilter filter4 = new IntentFilter(CSEvents.CSCALL_CALLANSWERED);
-            IntentFilter filter5 = new IntentFilter(CSEvents.CSCALL_NOMEDIA);
-            IntentFilter filter6 = new IntentFilter(CSEvents.CSCLIENT_NETWORKERROR);
-            IntentFilter filter7 = new IntentFilter(CSEvents.CSCALL_RINGING);
-            IntentFilter filter8 = new IntentFilter(CSEvents.CSCALL_MEDIACONNECTED);
-            IntentFilter filter9 = new IntentFilter(CSEvents.CSCALL_MEDIADISCONNECTED);
-            IntentFilter filter10 = new IntentFilter("TerminateForSecondCall");
-            IntentFilter filter11 = new IntentFilter(CSEvents.CSCALL_SEND_DTMF_TONE_RESPONSE);
-            IntentFilter filter12 = new IntentFilter(CSEvents.CSCALL_HOLD_UNHOLD_RESPONSE);
-            IntentFilter filter13 = new IntentFilter(CSEvents.CSCALL_SESSION_IN_PROGRESS);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter3);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter4);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter5);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter6);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter7);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter8);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter9);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter10);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter11);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter12);
-            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter13);
-            mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
+                    if (intent.getAction().equals(CSEvents.CSCALL_CALLENDED)) {
+                        reconnecting.setVisibility(View.GONE);
+                        LOG.info("onReceive: Callend reason " + intent.getStringExtra("endReason").toString());
+                        callEndReason = intent.getStringExtra("endReason");
+
+                        if (callEndReason.equalsIgnoreCase("No Credit")) {
+                            mPreferenceProvider.setPrefboolean(PreferenceProvider.NEED_TO_SHOW_CALL_END_REASON, true);
+                        }
+                        if (intent.getStringExtra("endReason").toString().equals(CSConstants.UserBusy)) {
+                            showStreamStoppedAlert("callEnded! UserBusy!");
+                            mTimerTv.setText("callEnded! UserBusy!");
+                        } else {
+                            showStreamStoppedAlert("callEnded");
+                            mTimerTv.setText("callEnded");
+                        }
+
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_NOANSWER)) {
+                        reconnecting.setVisibility(View.GONE);
+                        showStreamStoppedAlert("NoAnswer");
+                        mTimerTv.setText("NoAnswer");
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_CALLANSWERED)) {
+                        PreferenceProvider pf = new PreferenceProvider(getApplicationContext());
+                        pf.setPrefboolean("inCallSuccess", true);
+                        LOG.info(TAG1, "Call Answer Success");
+                        mCallingGifImg.setVisibility(View.GONE);
+                        reconnecting.setVisibility(View.GONE);
+                        mTvDuration.setVisibility(View.VISIBLE);
+                        mTvDuration.setText("In Call");
+                        mMuteButtonTv.setEnabled(true);
+                        mDTMFButtonTv.setEnabled(true);
+                        mHoldButtonTv.setEnabled(true);
+                        LOG.info(TAG1, "Call Answer Success after");
+                        mTimerHandler.postDelayed(mTimerRunnable, mTimerDelay);
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_NOMEDIA)) {
+                        reconnecting.setVisibility(View.GONE);
+                        showStreamStoppedAlert("NoMedia! CallEnded!");
+                        mTimerTv.setText("NoMedia! CallEnded!");
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_RINGING)) {
+                        // isConnectingTone = true;
+                        reconnecting.setVisibility(View.GONE);
+                        mTimerTv.setText("Ringing");
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_SESSION_IN_PROGRESS)) {
+                        mTimerTv.setText("In progress");
+
+                        reconnecting.setVisibility(View.GONE);
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_MEDIACONNECTED)) {
+                        mTvDuration.setVisibility(View.VISIBLE);
+                        reconnecting.setVisibility(View.GONE);
+                        mTvDuration.setVisibility(View.VISIBLE);
+                        if (!getIntent().getBooleanExtra("isinitiatior", false)) {
+                            mTimerHandler.postDelayed(mTimerRunnable, mTimerDelay);
+                        }
+                        // stopringbacktone();
+                        // stopConnectingTone();
+                        mMuteButtonTv.setEnabled(true);
+                        mDTMFButtonTv.setEnabled(true);
+                        mHoldButtonTv.setEnabled(true);
+                        mHoldButtonTv.setEnabled(true);
+                        if (isMediaDisconnected) {
+                            isMediaDisconnected = false;
+                            mTimerHandler.postDelayed(mTimerRunnable, mTimerDelay);
+                            mTvDuration.setText("In Call");
+                        }
+                    } else if (intent.getAction().equals(CSEvents.CSCALL_MEDIADISCONNECTED)) {
+                        if (isNetworkErrorReceived) {
+                            mTvDuration.setVisibility(View.VISIBLE);
+                            reconnecting.setVisibility(View.VISIBLE);
+                            mTimerHandler.removeCallbacks(mTimerRunnable);
+                            isNetworkErrorReceived = false;
+                            isMediaDisconnected = true;
+                            mTvDuration.setText("Reconnecting..");
+                        }
+                    } else if (intent.getAction().equals(CSEvents.CSCLIENT_NETWORKERROR)) {
+                        isNetworkErrorReceived = true;
+                        if (isNetworkErrorReceived) {
+                            mTvDuration.setVisibility(View.VISIBLE);
+                            mTimerHandler.removeCallbacks(mTimerRunnable);
+                            isNetworkErrorReceived = false;
+                            isMediaDisconnected = true;
+                            mTvDuration.setText("Reconnecting..");
+                        }
+                    }
+                    if (intent.getAction().equals(CSEvents.CSCLIENT_NETWORKERROR)) {
+                        isNetworkErrorReceived = true;
+                        reconnecting.setVisibility(View.VISIBLE);
+                        // Toast.makeText(getApplicationContext(), "NetWork Error", Toast.LENGTH_SHORT).show();
+                        //  showAlertToUser("NetWork Error ", PSTNCallActivity.this);
+
+                    }
+                }
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+*/
 
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        MainActivityReceiver MainActivityReceiverObj = new MainActivityReceiver();
+
+        @Override
+        public void onResume() {
+            super.onResume();
+
+            try {
+                shownotifiction = true;
+                mDialingFeedback = new DialingFeedback(PSTNCallActivity.this, false);
+                mDialingFeedback.resume();
+                IntentFilter filter3 = new IntentFilter(CSEvents.CSCALL_NOANSWER);
+                IntentFilter filter4 = new IntentFilter(CSEvents.CSCALL_CALLANSWERED);
+                IntentFilter filter5 = new IntentFilter(CSEvents.CSCALL_NOMEDIA);
+                IntentFilter filter6 = new IntentFilter(CSEvents.CSCLIENT_NETWORKERROR);
+                IntentFilter filter7 = new IntentFilter(CSEvents.CSCALL_RINGING);
+                IntentFilter filter8 = new IntentFilter(CSEvents.CSCALL_MEDIACONNECTED);
+                IntentFilter filter9 = new IntentFilter(CSEvents.CSCALL_MEDIADISCONNECTED);
+                IntentFilter filter10 = new IntentFilter("TerminateForSecondCall");
+                IntentFilter filter11 = new IntentFilter(CSEvents.CSCALL_SEND_DTMF_TONE_RESPONSE);
+                IntentFilter filter12 = new IntentFilter(CSEvents.CSCALL_HOLD_UNHOLD_RESPONSE);
+                IntentFilter filter13 = new IntentFilter(CSEvents.CSCALL_SESSION_IN_PROGRESS);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter3);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter4);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter5);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter6);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter7);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter8);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter9);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter10);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter11);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter12);
+                LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(MainActivityReceiverObj, filter13);
+                mSensorManager.registerListener(this, mProximity, SensorManager.SENSOR_DELAY_NORMAL);
+
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
         }
 
-    }
+        @Override
+        public void onPause() {
+            super.onPause();
+            mSensorManager.unregisterListener(this);
+        }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        mSensorManager.unregisterListener(this);
-    }
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            try {
+                LOG.info("onDestroy: ondestory called");
+                GlobalVariables.INCALL = false;
+                mPreferenceProvider.setPrefboolean(getString(R.string.call_logs_incall_message), false);
+                mPreferenceProvider.setPrefboolean(getString(R.string.play_video_call_pref_already_login), false);
+                mPreferenceProvider.setPrefboolean("CallRunning", false);
+                mPreferenceProvider.setPrefboolean("CallScreenStart", true);
+                ContactsFragment.isContactClick = false;
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            LOG.info("onDestroy: ondestory called");
-            GlobalVariables.INCALL = false;
-            mPreferenceProvider.setPrefboolean(getString(R.string.call_logs_incall_message), false);
-            mPreferenceProvider.setPrefboolean(getString(R.string.play_video_call_pref_already_login), false);
-            mPreferenceProvider.setPrefboolean("CallRunning", false);
-            mPreferenceProvider.setPrefboolean("CallScreenStart", true);
-            ContactsFragment.isContactClick = false;
-
-            //notificationManager.cancel(notificationID);
-            new ForeGroundServiceApis().stopCallService(getApplicationContext());
+                //notificationManager.cancel(notificationID);
+                new ForeGroundServiceApis().stopCallService(getApplicationContext());
 
             /*try {
                 runOnUiThread(new Runnable() {
@@ -1219,154 +1381,154 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }*/
-            if (mPhoneConnectivityReceiver != null) {
-                mTelephonyManager.listen(mPhoneConnectivityReceiver,
-                        PhoneStateListener.LISTEN_NONE);
-                mPhoneConnectivityReceiver = null;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        try {
-            showStreamStopAlert();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        ;
-        //return;
-    }
-
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-
-            if (event.values[0] >= -SENSOR_SENSITIVITY && event.values[0] <= SENSOR_SENSITIVITY) {
-                LOG.info("onSensorChanged: proximity ON");
-                WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.flags |= WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-                params.screenBrightness = 0;
-                getWindow().setAttributes(params);
-                mBlankScreenLayout.setVisibility(View.VISIBLE);
-                mMainScreenLayout.setVisibility(View.GONE);
-
-            } else {
-                LOG.info("onSensorChanged: proximity OFF");
-                WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.screenBrightness = -1;
-                getWindow().setAttributes(params);
-                mBlankScreenLayout.setVisibility(View.GONE);
-                mMainScreenLayout.setVisibility(View.VISIBLE);
-            }
-        }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
-    /**
-     * This method will close the running call
-     *
-     * @param message
-     * @return
-     */
-    public boolean showStreamStoppedAlert(final String message) {
-        try {
-
-
-            endTheCall();
-
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
-
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
-
-    /**
-     * This method will show the popup dialog if user pressed back button while call running state
-     *
-     * @return
-     */
-    public boolean showStreamStopAlert() {
-        try {
-            if (!isFinishing()) {
-                android.app.AlertDialog.Builder successfullyLogin = new android.app.AlertDialog.Builder(PSTNCallActivity.this);
-                successfullyLogin.setTitle("Confirmation");
-                successfullyLogin.setCancelable(false);
-                successfullyLogin.setMessage("End Call?");
-                successfullyLogin.setPositiveButton("Ok",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-
-                                CSCallsObj.endPstnCall(mDestinationNumberToCall, myCallId);
-                                endTheCall();
-                            }
-                        });
-
-                successfullyLogin.setNegativeButton("Cancel",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-
-                            }
-                        });
-                if (!isFinishing()) {
-                    successfullyLogin.show();
+                if (mPhoneConnectivityReceiver != null) {
+                    mTelephonyManager.listen(mPhoneConnectivityReceiver,
+                            PhoneStateListener.LISTEN_NONE);
+                    mPhoneConnectivityReceiver = null;
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return true;
-        } catch (Exception ex) {
-            return false;
+
+
         }
 
-    }
 
-
-    /****  native GSM Call handling    **/
-
-    private class ServicePhoneStateReceiver extends PhoneStateListener {
         @Override
-        public void onCallStateChanged(int state, String incomingNumber) {
-            LOG.info("onCallStateChanged called" + state);
-            if (state == TelephonyManager.CALL_STATE_RINGING || state == TelephonyManager.CALL_STATE_OFFHOOK) {
-                isGSMCallCame = true;
-                isHoldEnabled = false;
-                mHoldButtonTv.setSelected(true);
-                mMuteButtonTv.setSelected(true);
-                CSCallsObj.holdPstnCall(myCallId, true);
-                //}
-            } else {
-                if (isGSMCallCame) {
-                    isGSMCallCame = false;
-                    isHoldEnabled = true;
-                    mHoldButtonTv.setSelected(false);
-                    mMuteButtonTv.setSelected(false);
-                    CSCallsObj.holdPstnCall(myCallId, false);
-                }
+        public void onBackPressed() {
+            //super.onBackPressed();
+            try {
+                showStreamStopAlert();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-            super.onCallStateChanged(state, incomingNumber);
+            ;
+            //return;
         }
 
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+
+                if (event.values[0] >= -SENSOR_SENSITIVITY && event.values[0] <= SENSOR_SENSITIVITY) {
+                    LOG.info("onSensorChanged: proximity ON");
+                    WindowManager.LayoutParams params = getWindow().getAttributes();
+                    params.flags |= WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+                    params.screenBrightness = 0;
+                    getWindow().setAttributes(params);
+                    mBlankScreenLayout.setVisibility(View.VISIBLE);
+                    mMainScreenLayout.setVisibility(View.GONE);
+
+                } else {
+                    LOG.info("onSensorChanged: proximity OFF");
+                    WindowManager.LayoutParams params = getWindow().getAttributes();
+                    params.screenBrightness = -1;
+                    getWindow().setAttributes(params);
+                    mBlankScreenLayout.setVisibility(View.GONE);
+                    mMainScreenLayout.setVisibility(View.VISIBLE);
+                }
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+
+        /**
+         * This method will close the running call
+         *
+         * @param message
+         * @return
+         */
+        public boolean showStreamStoppedAlert(final String message) {
+            try {
+
+
+                endTheCall();
+
+                return true;
+            } catch (Exception ex) {
+                return false;
+            }
+
+        }
+
+        @Override
+        protected void attachBaseContext(Context base) {
+            super.attachBaseContext(base);
+            MultiDex.install(this);
+        }
+
+        /**
+         * This method will show the popup dialog if user pressed back button while call running state
+         *
+         * @return
+         */
+        public boolean showStreamStopAlert() {
+            try {
+                if (!isFinishing()) {
+                    android.app.AlertDialog.Builder successfullyLogin = new android.app.AlertDialog.Builder(PSTNCallActivity.this);
+                    successfullyLogin.setTitle("Confirmation");
+                    successfullyLogin.setCancelable(false);
+                    successfullyLogin.setMessage("End Call?");
+                    successfullyLogin.setPositiveButton("Ok",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+
+                                    CSCallsObj.endPstnCall(mDestinationNumberToCall, myCallId);
+                                    endTheCall();
+                                }
+                            });
+
+                    successfullyLogin.setNegativeButton("Cancel",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+
+                                }
+                            });
+                    if (!isFinishing()) {
+                        successfullyLogin.show();
+                    }
+                }
+                return true;
+            } catch (Exception ex) {
+                return false;
+            }
+
+        }
+
+
+        /****  native GSM Call handling    **/
+
+        private class ServicePhoneStateReceiver extends PhoneStateListener {
+            @Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                LOG.info("onCallStateChanged called" + state);
+                if (state == TelephonyManager.CALL_STATE_RINGING || state == TelephonyManager.CALL_STATE_OFFHOOK) {
+                    isGSMCallCame = true;
+                    isHoldEnabled = false;
+                    mHoldButtonTv.setSelected(true);
+                    mMuteButtonTv.setSelected(true);
+                    CSCallsObj.holdPstnCall(myCallId, true);
+                    //}
+                } else {
+                    if (isGSMCallCame) {
+                        isGSMCallCame = false;
+                        isHoldEnabled = true;
+                        mHoldButtonTv.setSelected(false);
+                        mMuteButtonTv.setSelected(false);
+                        CSCallsObj.holdPstnCall(myCallId, false);
+                    }
+                }
+                super.onCallStateChanged(state, incomingNumber);
+            }
+
+        }
     }
-}
 

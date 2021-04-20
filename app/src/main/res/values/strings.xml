@@ -90,7 +90,7 @@
 
     <!--Notification Handling Strings-->
 
-    <string name="notification_title">Ekotell</string>
+    <string name="notification_title">Ekottel</string>
 
     <!--Add Message-->
     <string name="add_message_pref_balance">balance</string>
@@ -288,7 +288,7 @@
     <string name="contact_intent_incall">InCall</string>
 
     <string name="contact_all_contacts_message">All Contacts</string>
-    <string name="contact_tringy_contacts_message">Ekotell Contacts</string>
+    <string name="contact_tringy_contacts_message">Ekottel Contacts</string>
     <string name="contact_loading_contacts_message">Contacts Loading...</string>
 
     <string name="contact_no_sms_app_available">No Sms App Available</string>
@@ -351,9 +351,9 @@
 
     <!--About-->
     <string name="about_contact_support">Contact Support</string>
-    <string name="about_email_support"> calljibi@gmail.com</string>
+    <string name="about_email_support">ekottel7@gmail.com</string>
     <string name="about_phone_number_support">00201127810605</string>
-    <string name="about_whatsapp_number_support">00201153430639</string>
+    <string name="about_whatsapp_number_support">00447459719982</string>
 
     <!--Audio Call-->
     <string name="audio_call_default_country_name">India</string>
@@ -510,7 +510,7 @@
     <string name="call_rate_enter_number">Please Enter a Number</string>
     <!--contacts popup-->
     <string name="contacts_popup_details_message">Contact Details</string>
-    <string name="contacts_popup_invite_friends_message">Invite to Ekotell</string>
+    <string name="contacts_popup_invite_friends_message">Invite to Ekottel</string>
 
     <!--Incall keypad-->
 
@@ -559,7 +559,7 @@
     <string name="more_activity_list_subscribe_package">Subscribe Packages</string>
     <string name="more_activity_list_balance_transfer">Share Transfer</string>
     <string name="more_activity_list_call_rates">Call Rates</string>
-    <string name="more_activity_list_transaction_history">Paypament history</string>
+    <string name="more_activity_list_transaction_history">Payment history</string>
     <string name="more_activity_list_support">Support</string>
     <string name="more_activity_list_notifications">Notifications</string>
     <string name="more_activity_list_invite_friend">Invite a friend</string>

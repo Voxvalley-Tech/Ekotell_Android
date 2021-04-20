@@ -51,8 +51,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10dp"
                         android:ellipsize="marquee"
-                        android:gravity="center"
                         android:fontFamily="@font/ubuntu_light"
+                        android:gravity="center"
                         android:singleLine="true"
                         android:text=""
                         android:textColor="@color/black" />
@@ -68,7 +68,6 @@
                         android:id="@+id/tv_call_rates"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10dp"
                         android:layout_marginRight="@dimen/_3dp"
                         android:ellipsize="marquee"
                         android:singleLine="true"
@@ -132,6 +131,19 @@
             android:fontFamily="@font/ubuntu_light"
             android:textColor="@color/black"
             android:textSize="@dimen/text_20sp" />
+        <TextView
+            android:id="@+id/tv_audio_call_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_gif_audio"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:gravity="center"
+            android:text="Reconnecting.."
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_15sp"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/caller_number"

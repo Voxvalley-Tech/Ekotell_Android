@@ -41,7 +41,7 @@
                 android:layout_marginLeft="@dimen/_2dp"
                 android:layout_marginRight="@dimen/_2dp" 
                 android:gravity="center"
-                android:text="Ekotell needs following permissions in order to receive incoming calls and messages through push notifications.These permissions may vary per device model i.e different devices may show up different options to enable push notifications."
+                android:text="Ekottel needs following permissions in order to receive incoming calls and messages through push notifications.These permissions may vary per device model i.e different devices may show up different options to enable push notifications."
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/text_14sp"
                 android:textStyle="normal" />

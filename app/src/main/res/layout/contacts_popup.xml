@@ -56,6 +56,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/view_bar"
                 android:layout_width="@dimen/_180dp"
                 android:gravity="center"
                 android:layout_gravity="center"

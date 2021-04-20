@@ -105,7 +105,7 @@ public class PasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showProgressBar();
-                    CSAppDetails csAppDetails = new CSAppDetails( "ekotell","iamlivedbnew"); // Tringy
+                    CSAppDetails csAppDetails = new CSAppDetails( "Ekottel","iamlivedbnew"); // Tringy
                 /*CSAppDetails  csAppDetails=new CSAppDetails("iamLive","aid_8656e0f6_c982_4485_8ca7_656780b53d34"); // Konverz*/
                 CSClientObj.initialize(GlobalVariables.server, GlobalVariables.port, csAppDetails);
             }

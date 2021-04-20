@@ -22,20 +22,20 @@
 
             <TextView
                 android:id="@+id/view_dialer_button_text_textView_num"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="2"
-
-                android:textStyle="bold"
                 android:textColor="@drawable/tab_textcolor"
-                android:textSize="@dimen/text_25sp" />
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/view_dialer_button_text_textView_numm"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view_dialer_button_text_textView_num"
-                android:layout_marginLeft="@dimen/_5dp"
                 android:gravity="center"
                 android:text="+"
                 android:textColor="@drawable/tab_textcolor"

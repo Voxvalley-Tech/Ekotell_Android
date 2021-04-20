@@ -136,17 +136,7 @@ public class ShowCallLogHistory extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     LOG.info("onItemClick: direction of call is ");
-                    TextView c = (TextView) view.findViewById(R.id.text1);
-                    String direction = c.getText().toString();
-                    LOG.info("onItemClick: direction of call is "+direction);
-                    if (direction.contains("pstn")) {
-                        CallMethodHelper.processAudioCall(ShowCallLogHistory.this, managecontactnumber, "PSTN");
-                    } else if (direction.contains("video")) {
-                        CallMethodHelper.placeVideoCall(ShowCallLogHistory.this, managecontactnumber);
-                    } else {
-                        CallMethodHelper.processAudioCall(ShowCallLogHistory.this, managecontactnumber, "PSTN");
-                    }
-
+                    CallMethodHelper.processAudioCall(ShowCallLogHistory.this, managecontactnumber, "PSTN");
                 }
             });
 /*

@@ -264,11 +264,12 @@ public class ContactsAdapter extends BaseAdapter {
 
 
                 } else {
-                    if (appContact) {
-                        CallMethodHelper.processAudioCall(context, number, "PSTN");
+                    CallMethodHelper.processAudioCall(context, number, "PSTN");
+                   /* if (appContact) {
+
                     } else {
                         CallMethodHelper.processAudioCall(context, number, "PSTN");
-                    }
+                    }*/
                 }
 
 
@@ -277,11 +278,12 @@ public class ContactsAdapter extends BaseAdapter {
         contactsViewHolder.tv_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (appContact) {
+                CallMethodHelper.processAudioCall(context, number, "PSTN");
+               /* if (appContact) {
                     CallMethodHelper.processAudioCall(context, number, "PSTN");
                 } else {
                     CallMethodHelper.processAudioCall(context, number, "PSTN");
-                }
+                }*/
             }
         });
 
@@ -415,12 +417,14 @@ public class ContactsAdapter extends BaseAdapter {
 
 
         LinearLayout ll_details = (LinearLayout) v.findViewById(R.id.ll_contact_details);
+        LinearLayout view_bar = (LinearLayout) v.findViewById(R.id.view_bar);
         LinearLayout ll_invite = (LinearLayout) v.findViewById(R.id.ll_contact_invite);
         TextView tv_contact_invite = (TextView) v.findViewById(R.id.tv_contact_invite);
         TextView tv_contact_details = (TextView) v.findViewById(R.id.tv_contact_details);
 
         if (isAppContact != null && isAppContact.equalsIgnoreCase("1")) {
             ll_invite.setVisibility(View.GONE);
+            view_bar.setVisibility(View.GONE);
         } else {
             ll_invite.setVisibility(View.VISIBLE);
         }

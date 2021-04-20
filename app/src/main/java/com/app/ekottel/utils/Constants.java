@@ -3,7 +3,7 @@ package com.app.ekottel.utils;
 public class Constants {
     public static final Float USD_XCD_DIFF = 2.67F ;
     public static boolean IS_IMPLICIT_ACTIVITY_OPEN = false;
-    public static String APP_NAME = "Ekotell";
+    public static String APP_NAME = "Ekottel";
 
     //urls for APIs
     public static String BALANCE_URL = "";
