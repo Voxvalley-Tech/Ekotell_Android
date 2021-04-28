@@ -285,6 +285,7 @@ public class ZoneSelectActivity extends Activity {
         country2Phone.put("Slovenia", "+386");
         country2Phone.put("Solomon Islands", "+677");
         country2Phone.put("South Africa", "+27");
+        country2Phone.put("South Sudan", "+211");
         country2Phone.put("South Georgia and the South Sandwich Islands", "+500");
         country2Phone.put("South Korea", "+82");
         country2Phone.put("Spain", "+34");
@@ -648,7 +649,7 @@ public class ZoneSelectActivity extends Activity {
         country2Phone2.put("KN", "869");
         country2Phone2.put("LC", "758");
 
-
+        country2Phone2.put("SU", "+211");
         country2Phone2.put("VC", "784");
         country2Phone2.put("TT", "868");
         country2Phone2.put("TC", "649");

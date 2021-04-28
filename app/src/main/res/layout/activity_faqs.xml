@@ -82,12 +82,12 @@
 
 
 
-    <WebView
+  <!--  <WebView
         android:id="@+id/faq_web_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/rl_header"
-        android:visibility="gone" />
+        android:visibility="gone" />-->
 </RelativeLayout>

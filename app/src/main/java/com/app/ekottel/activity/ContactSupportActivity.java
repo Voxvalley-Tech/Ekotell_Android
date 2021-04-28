@@ -63,7 +63,7 @@ public class ContactSupportActivity extends AppCompatActivity {
 
 
 
-                String url = "https://api.whatsapp.com/send?phone="+"00447459719982";
+                String url = "https://api.whatsapp.com/send?phone="+"447459719982";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
@@ -83,7 +83,10 @@ public class ContactSupportActivity extends AppCompatActivity {
         callus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CallMethodHelper.processAudioCall(ContactSupportActivity.this, "+201153430639","PSTN");
+                Intent intent_dialpad = new Intent(ContactSupportActivity.this, DialpadActivity.class);
+                intent_dialpad.putExtra("DialNumberFromAnotherApp", "+201153430639");
+                startActivity(intent_dialpad);
+                //CallMethodHelper.processAudioCall(ContactSupportActivity.this, "+201153430639","PSTN");
             }
         });
 

@@ -192,9 +192,9 @@
             android:screenOrientation="portrait" />
         <activity android:name="com.app.ekottel.activity.PrivacyPolicyActivity"></activity>
 
-        <activity
-            android:name="com.app.ekottel.activity.ExistingUserOrNotActivity"
-            android:screenOrientation="portrait" />
+            <activity
+                android:name="com.app.ekottel.activity.ExistingUserOrNotActivity"
+                android:screenOrientation="portrait" />
 
 
         <activity android:name="com.app.ekottel.activity.ShowCallLogHistory" />
