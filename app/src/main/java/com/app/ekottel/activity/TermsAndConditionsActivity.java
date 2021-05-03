@@ -30,6 +30,25 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
     WebView mWebView;
     private String TAG;
     ProgressBar pb_terms_conditions;
+    private String htmlData="<p>Privacy Policy<p>\n" +
+            "<p> Last updated September 2021 <p>\n" +
+            "<p>The ekottel service is provided by H&amp;N Marketing and Communication</p>\n" +
+            "\n" +
+            "<p>Be confidential because we assure the protection of your Privacy and all data we collected from you.</p>\n" +
+            "\n" +
+            "<p>INFORMATION WE NEED. Ekottel need a Valid Phone number in order to access the service i.e. getting verification code.</p>\n" +
+            "\n" +
+            "<p>AGE PERMISSION: You must be at least 18 years of age to use ekottel.</p>\n" +
+            "\n" +
+            "<p>SECURITY: Your mobile phone number will be used as the main account username, and also it will be your caller Id in order to identify who you are and where are calling from.</p>\n" +
+            "\n" +
+            "<p>We may monitor accounts and usage for suspicious activity to provide security and safety on our service, and to prevent abuse, fraud, illegal usage, and breaches of our terms and conditions.</p>\n" +
+            "\n" +
+            "<p>According to law of Federal Republic of Nigeria (FRN) and Nigerian Communications Commission (NCC) no illegal act will be allowed. If account found with illegal act, it will be blocked forever and will not will no longer use our service.</p>\n" +
+            "\n" +
+            "<p>We were partnered with European communication companies for better and good service.</p>\n" +
+            "\n" +
+            "<p>PRIVACY POLICY CHANGES: We are viewing this Policy time to time, anytime we update this policy we will notify you.</p>";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +88,7 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-        mWebView.loadUrl(Constants.TERM_AND_CONDITION_URL);
+        mWebView.loadData(htmlData, "text/html; charset=utf-8", "UTF-8");
         mWebView.getSettings().setSupportMultipleWindows(true);
     }
 
