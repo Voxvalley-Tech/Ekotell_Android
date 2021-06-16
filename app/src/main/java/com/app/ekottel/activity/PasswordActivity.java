@@ -142,6 +142,7 @@ public class PasswordActivity extends AppCompatActivity {
             progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             progressBar.setProgress(0);
             progressBar.show();
+/*
 
             h = new Handler();
             runnableObj = new Runnable() {
@@ -160,6 +161,7 @@ public class PasswordActivity extends AppCompatActivity {
                 }
             };
             h.postDelayed(runnableObj, delay);
+*/
 
 
         } catch (Exception ex) {

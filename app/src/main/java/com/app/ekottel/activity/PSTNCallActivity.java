@@ -391,7 +391,9 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
             if (getIntent().getBooleanExtra("isinitiatior", false)) {
                 mDestinationNumberToCall = getIntent().getStringExtra("dstnumber");
                 //destinationNumberToCall = destinationNumberToCall.replace("+","");
-                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall, GlobalVariables.smsdidnumber, CallLocationActivity.callcontext, new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng, CallLocationActivity.final_address));
+                myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall,
+                        GlobalVariables.smsdidnumber, CallLocationActivity.callcontext,
+                        new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng, CallLocationActivity.final_address));
                 //myCallId = CSCallsObj.startPstnCall(mDestinationNumberToCall, CSConstants.CALLRECORD.DONTRECORD);
                 manageAudioFocus.requestAudioFocus(PSTNCallActivity.this, myCallId, mDestinationNumberToCall, false);
             }/* else {

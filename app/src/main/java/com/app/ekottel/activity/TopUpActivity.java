@@ -310,7 +310,9 @@ public class TopUpActivity  extends AppCompatActivity {
                             showErrorMessage("Oops some thing went wrong, try after some time");
                             return;
                         }
-                        Intent intent = new Intent(getApplicationContext(), StripePaymentActivity.class);
+
+                        //no stripe in this dialer so added PaymentActivity.class for example
+                        Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
                         intent.putExtra("selected", amount);
                         intent.putExtra(getResources().getString(R.string.stripe_publishable_key),publishableKey);
                         startActivity(intent);

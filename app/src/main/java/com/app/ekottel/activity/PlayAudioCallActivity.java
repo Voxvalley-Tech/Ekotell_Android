@@ -303,7 +303,10 @@ public class PlayAudioCallActivity extends Activity implements SensorEventListen
                     mycallid = getIntent().getStringExtra("callid");
 
                     //String sdp = getIntent().getStringExtra("sdp");
-                        CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"),CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                        CSCallsObj.answerVoiceCall(destinationnumbettocall,
+                                getIntent().getStringExtra("callid"),CallLocationActivity.callcontext,
+                                new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,
+                                        CallLocationActivity.final_address));
                   //  CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"));
                     //CSCallsObj.answerVoiceCall(destinationnumbettocall, getIntent().getStringExtra("callid"), CSConstants.CALLRECORD.DONTRECORD);
                 }

@@ -180,7 +180,7 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.setProgress(0);
                 progressDialog.show();
 
-                h = new Handler();
+               /* h = new Handler();
                 runnableObj = new Runnable() {
 
                     public void run() {
@@ -197,7 +197,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 };
                 h.postDelayed(runnableObj, delay);
-
+*/
 
             }
         } catch (Exception ex) {

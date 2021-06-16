@@ -232,7 +232,10 @@ public class PlayVideoCallActivity extends Activity {
                     playConnectingTone();
                     mViewOptionsHandler.postDelayed(viewOptionsRunnable, mTimeInvervel);
                     destinationNumberToCall = getIntent().getStringExtra("dstnumber");
-                    mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView,CSConstants.CALLRECORD.DONTRECORD,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat, CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                    mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView,
+                            mRemoteRenderView,CSConstants.CALLRECORD.DONTRECORD,
+                            CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,
+                                    CallLocationActivity.final_lng,CallLocationActivity.final_address));
                    // mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView, CSConstants.CALLRECORD.DONTRECORD);
                     //mycallid = CSCallsObj.startVideoCall(destinationNumberToCall, mLocalCaptureView, mRemoteRenderView,localRenderLayout,remoteRenderLayout, CSConstants.CALLRECORD.DONTRECORD);
                     manageAudioFocus.requestAudioFocus(PlayVideoCallActivity.this, mycallid, destinationNumberToCall,false);
@@ -243,7 +246,10 @@ public class PlayVideoCallActivity extends Activity {
                     destinationNumberToCall = getIntent().getStringExtra("srcnumber");
                     h.postDelayed(RunnableObj, delay);
                     mycallid = getIntent().getStringExtra("callid");
-                    CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView,CallLocationActivity.callcontext,new CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,CallLocationActivity.final_address));
+                    CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"),
+                            mLocalCaptureView, mRemoteRenderView,CallLocationActivity.callcontext,new
+                                    CSLocation(CallLocationActivity.final_lat,CallLocationActivity.final_lng,
+                                    CallLocationActivity.final_address));
                     //String sdp = getIntent().getStringExtra("sdp");
                     //CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView);
                     //CSCallsObj.answerVideoCall(destinationNumberToCall, getIntent().getStringExtra("callid"), mLocalCaptureView, mRemoteRenderView,localRenderLayout,remoteRenderLayout, CSConstants.CALLRECORD.DONTRECORD);

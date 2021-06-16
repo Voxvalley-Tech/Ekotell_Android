@@ -372,6 +372,7 @@ public class SignupActivity extends AppCompatActivity {
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progressDialog.setProgress(0);
                 progressDialog.show();
+/*
 
                 h = new Handler();
                 runnableObj = new Runnable() {
@@ -390,6 +391,7 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 };
                 h.postDelayed(runnableObj, delay);
+*/
 
 
             }
