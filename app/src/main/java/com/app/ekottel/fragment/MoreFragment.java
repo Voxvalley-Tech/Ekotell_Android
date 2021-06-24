@@ -235,7 +235,7 @@ public class MoreFragment extends Fragment {
                                         intent.putExtra("AppName", resInfo.loadLabel(pm).toString());
                                         intent.setAction(Intent.ACTION_SEND);
                                         intent.setType("text/plain");
-                                        intent.putExtra(Intent.EXTRA_TEXT, "Check out Ekottel application for your smartphone. which allows to offer end-to-end mobile VoIP communication services such as voice, video and text. Download it today from  https://play.google.com/store/apps/details?id=com.app.ekotell");
+                                        intent.putExtra(Intent.EXTRA_TEXT, "Check out Ekottel application for your smartphone. which allows to offer end-to-end mobile VoIP communication services such as voice, video and text. Download it today from  https://play.google.com/store/apps/details?id=com.app.ekottel");
                                         intent.putExtra(Intent.EXTRA_SUBJECT, "Android + iPhone ( Ultimate Calling Experience )");
                                         intent.setPackage(packageName);
                                         targetShareIntents.add(intent);
