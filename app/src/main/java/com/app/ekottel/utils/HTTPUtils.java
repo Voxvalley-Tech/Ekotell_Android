@@ -1,8 +1,8 @@
 package com.app.ekottel.utils;
 
-import static com.app.ekottel.utils.GlobalVariables.LOG;
-
 import com.ca.wrapper.CSDataProvider;
+
+import static com.app.ekottel.utils.GlobalVariables.LOG;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -12,13 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 /**
  * Created by nagaraju on 7/14/2017.
@@ -50,50 +44,12 @@ public class HTTPUtils {
         }
 
 
-        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
-            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
-
-            public void checkClientTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
-
-            public void checkServerTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
-        }};
-        // Install the all-trusting trust manager
-        try {
-            //ProviderInstaller.installIfNeeded(getApplicationContext());
-            SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-            LOG.info(TAG1, "Trust manager");
-        } catch (Exception e) {
-            LOG.info(TAG1, "SSL Error");
-        }
-        HostnameVerifier hv = new HostnameVerifier() {
-            public boolean verify(String urlHostName, SSLSession session) {
-                // LOG.info(TAG1,"Warning: URL Host: " + urlHostName +
-                // " vs. "+ session.getPeerHost());
-              /*  HostnameVerifier hv= HttpsURLConnection.getDefaultHostnameVerifier();
-
-                return hv.verify(urlHostName, session);*/
-                return true;
-            }
-        };
-
-        // Create URL string
-        //String urlString = "https://185.62.85.143:443/api/getpackages?username=%2B919030708054&password=123456";
-        //LOG.info("httpget", URL);
         try {
             // Create Request to server and get response
             URL url = new URL(urlString);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setHostnameVerifier(hv);
             urlConnection.connect();
             // Read the input stream into a String
             InputStream inputStream = urlConnection.getInputStream();
@@ -115,47 +71,15 @@ public class HTTPUtils {
     public static String getStripeResponseFromURLPOST(String link, String val) {
 
         StringBuffer balance_value = new StringBuffer();
-        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
-            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
 
-            public void checkClientTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
 
-            public void checkServerTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
-        }};
 
-        // Install the all-trusting trust manager
-       /* try {
-            SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection
-                    .setDefaultSSLSocketFactory(sc.getSocketFactory());
-            Log.i(TAG1, "Trust manager");
-        } catch (Exception e) {
-            Log.i(TAG1, "SSL Error");
-        }*/
-
-        HostnameVerifier hv = new HostnameVerifier() {
-            public boolean verify(String urlHostName, SSLSession session) {
-                // Log.i(TAG1,"Warning: URL Host: " + urlHostName +
-                // " vs. "+ session.getPeerHost());
-                HostnameVerifier hv= HttpsURLConnection.getDefaultHostnameVerifier();
-
-                return hv.verify(urlHostName, session);
-            }
-        };
 
         try {
             URL urls = new URL(link);
             HttpURLConnection connection;
             connection = (HttpURLConnection) urls.openConnection();
-            // ((HttpsURLConnection) connection).setHostnameVerifier(hv);
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type",
@@ -203,48 +127,18 @@ public class HTTPUtils {
     public static String getResponseFromURLPOST(String urlString, JSONObject params) {
         //LOG.info(TAG1, "Response from server is request " + urlString + " Params are " + params.toString());
         StringBuffer balance_value = new StringBuffer();
-        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
 
-            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return null;
-            }
 
-            public void checkClientTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
 
-            public void checkServerTrusted(
-                    java.security.cert.X509Certificate[] certs, String authType) {
-            }
-        }};
 
-        // Install the all-trusting trust manager
-        try {
-            SSLContext sc = SSLContext.getInstance("SSL");
-            sc.init(null, trustAllCerts, new java.security.SecureRandom());
-            HttpsURLConnection
-                    .setDefaultSSLSocketFactory(sc.getSocketFactory());
-            LOG.info(TAG1, "Trust manager");
-        } catch (Exception e) {
-            LOG.info(TAG1, "SSL Error");
-        }
 
-        HostnameVerifier hv = new HostnameVerifier() {
-            public boolean verify(String urlHostName, SSLSession session) {
-                // LOG.info(TAG1,"Warning: URL Host: " + urlHostName +
-                // " vs. "+ session.getPeerHost());
-                HostnameVerifier hv= HttpsURLConnection.getDefaultHostnameVerifier();
 
-               // return hv.verify(urlHostName, session);
-                return true;
-            }
-        };
 
         try {
             URL urls = new URL(urlString);
             HttpURLConnection connection;
             connection = (HttpsURLConnection) urls.openConnection();
-            ((HttpsURLConnection) connection).setHostnameVerifier(hv);
+
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
