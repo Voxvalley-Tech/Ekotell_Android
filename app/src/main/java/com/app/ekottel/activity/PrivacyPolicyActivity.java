@@ -19,22 +19,27 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
 
     String htmlString2 =
-            "<h1>\n" + "The Jibicall service is provided by Jibiyality Marketing and Communication with BN 2575454.</h1>\n" +
-
-                    "<p>Be confidential because we asure the protection of your Privacy and all data we collected from you.\n" +
-                    "\n" +
-                    "<h3>INFORMATION WE NEED</h3>\n" +
-
-                    "<p>JibiCall need a Valid Phone number inorder to access the service i.e getting verification code.</p>\n" +
-
-
-                    "<h3>\n" +
-                    "AGE PERMISSION: You must be at least 18 years of age to use JibiCall. </h3>\n" +
-                    "<h3>SECURITY: Your mobile phone number will be used as the main account username, and also it will be your caller Id in order to identify who you are and where are calling from. </h3>\n" +
-                    "<p>We may monitor accounts and usage for suspicious activity to provide security and safety on our service, and to prevent abuse, fraud, illegal usage, and breaches of our terms and conditions.</p>\n"+
-                    "\n"+
-                    "<pAccording to law of Federal Republic of Nigeria (FRN) and Nigerian Communications Commision (NCC) no illegal act will be allowed. If account found with illegal act, it will be blocked forever and will not will no longer use our service. We were partnered with european communication companies for better and good service. </p>\n"+
-                    "\n";
+            "<p>Privacy Policy</p>\n" +
+                    "<p>Last updated September 2021</p>\n" +
+                    "<p>The ekottel service is provided by H&amp;N Marketing and Communication</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>Be confidential because we assure the protection of your Privacy and all data we collected from you.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>INFORMATION WE NEED.</p>\n" +
+                    "<p>Ekottel need a Valid Phone number in order to access the service i.e. getting verification code.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>AGE PERMISSION: You must be at least 18 years of age to use ekottel.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>SECURITY: Your mobile phone number will be used as the main account username, and also it will be your caller Id in order to identify who you are and where are calling from.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>We may monitor accounts and usage for suspicious activity to provide security and safety on our service, and to prevent abuse, fraud, illegal usage, and breaches of our terms and conditions.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>According to law of Federal Republic of Nigeria (FRN) and Nigerian Communications Commission (NCC) no illegal act will be allowed. If account found with illegal act, it will be blocked forever and will not will no longer use our service.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>We were partnered with European communication companies for better and good service.</p>\n" +
+                    "<p>&nbsp;</p>\n" +
+                    "<p>PRIVACY POLICY CHANGES:</p>\n" +
+                    "<p>We are viewing this Policy time to time, anytime we update this policy we will notify you</p>";
                  /*
                     "<p>Users are responsible for any third-party Personal Data obtained, published or shared through this Application and confirm that they have the third party's consent to provide the Data to the Owner.</p>\n"+
                     "<li>CallMeSoft's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. You may find a complete list of these Privacy Policies and their links here: Privacy Policy Links.</li> \n" +
