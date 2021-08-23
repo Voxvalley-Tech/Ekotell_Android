@@ -4,15 +4,20 @@ import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+
 import static com.app.ekottel.utils.GlobalVariables.LOG;
 
 import android.util.Log;
@@ -71,12 +76,13 @@ public class DialpadActivity extends AppCompatActivity {
     boolean isReturningFromCall = false;
     PreferenceProvider mPreferenceProvider;
     TextView mTvDialpadAddContact;
-    ImageView mIvDiapladCountry,iv_dialpad_add_contact;
+    ImageView mIvDiapladCountry, iv_dialpad_add_contact;
     private String userName = "";
     private String password = "";
     boolean checkBalance = true;
     private String TAG;
     private boolean isCountryCode = false;
+    private BalanceTransferReceiver balanceTransferReceiver = new BalanceTransferReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +94,9 @@ public class DialpadActivity extends AppCompatActivity {
         mTvFlag = (TextView) findViewById(R.id.tv_dialpad_flag);
         mTvDownArrow = (TextView) findViewById(R.id.tv_dialpad_arrow_down);
         mTvDialPadCall = (ImageView) findViewById(R.id.tv_dialpad_call);
-
+        balanceTransferReceiver = new BalanceTransferReceiver();
+        IntentFilter filter1 = new IntentFilter(getString(R.string.balance_transfered_successful));
+        LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(balanceTransferReceiver, filter1);
         mIvDiapladCountry = (ImageView) findViewById(R.id.iv_diaplad_country);
         iv_dialpad_add_contact = (ImageView) findViewById(R.id.iv_dialpad_add_contact);
 
@@ -97,7 +105,7 @@ public class DialpadActivity extends AppCompatActivity {
 
         mTvCountryCode = (TextView) findViewById(R.id.tv_dialpad_country_code);
 
-       // mTvDialpadAddContact = (TextView) findViewById(R.id.tv_dialpad_add_contact);
+        // mTvDialpadAddContact = (TextView) findViewById(R.id.tv_dialpad_add_contact);
 
         userName = CSDataProvider.getLoginID();
         userName = userName.replace("+", "");
@@ -132,13 +140,13 @@ public class DialpadActivity extends AppCompatActivity {
         mTvFlag.setTypeface(text_font);
         mTvDownArrow.setTypeface(text_font);
         mTvBackArrow.setTypeface(text_font);
-     //   mTvDialpadAddContact.setTypeface(text_font);
+        //   mTvDialpadAddContact.setTypeface(text_font);
 
         mTvFlag.setText(getString(R.string.signup_flag));
         mTvDownArrow.setText(getString(R.string.signup_arrow_down));
         mTvBackArrow.setText(getString(R.string.contacts_details_back_arrow));
 
-      //  mTvDialpadAddContact.setText(getString(R.string.dialpad_add_contact));
+        //  mTvDialpadAddContact.setText(getString(R.string.dialpad_add_contact));
 
         String dialpadNum = mPreferenceProvider.getPrefString("DialpadNumber");
 
@@ -146,10 +154,10 @@ public class DialpadActivity extends AppCompatActivity {
 
         String dialNumberFromAnotherApp = getIntent().getStringExtra("DialNumberFromAnotherApp");
 
-        if(dialNumberFromAnotherApp != null){
+        if (dialNumberFromAnotherApp != null) {
             fillDialPadNumber(dialNumberFromAnotherApp);
         } else if (dialpadNum != null && !dialpadNum.isEmpty()) {
-           fillDialPadNumber(dialpadNum);
+            fillDialPadNumber(dialpadNum);
         }
 
         if (dialpadNumCountry != null && !dialpadNumCountry.isEmpty()) {
@@ -326,7 +334,7 @@ public class DialpadActivity extends AppCompatActivity {
                     countryCode = "";
                     mllCallRates.setVisibility(View.INVISIBLE);
                 }
-                LOG.info("onTextChanged: dialer country code tv  "+mTvCountryCode.getText().toString());
+                LOG.info("onTextChanged: dialer country code tv  " + mTvCountryCode.getText().toString());
                 if (mTvCountryCode.getText().toString().trim().length() < 1 && s.length() > 3) {
                     getcountryname(s.toString());
                 }
@@ -445,7 +453,7 @@ public class DialpadActivity extends AppCompatActivity {
                     } else {
                         try {
                             isReturningFromCall = true;
-                            CallMethodHelper.processAudioCall(DialpadActivity.this, mTvCountryCode.getText().toString().trim()+mEtDialpadNumber.getText().toString().trim(), "PSTN");
+                            CallMethodHelper.processAudioCall(DialpadActivity.this, mTvCountryCode.getText().toString().trim() + mEtDialpadNumber.getText().toString().trim(), "PSTN");
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
@@ -467,6 +475,7 @@ public class DialpadActivity extends AppCompatActivity {
     /**
      * this method fills the dial pad number from 3rd party apps and aslo for the already peviously entered number also
      * and calles the call rates fro the number
+     *
      * @param dialpadNum
      */
     private void fillDialPadNumber(String dialpadNum) {
@@ -616,7 +625,7 @@ public class DialpadActivity extends AppCompatActivity {
                     balance = array.getJSONObject(i).getString(getString(R.string.dialpad_balance_api_message));
                 }
 
-                Log.i("mTvBalance","mTvBalance--->"+balance);
+                Log.i("mTvBalance", "mTvBalance--->" + balance);
                 if (balance != null && !balance.isEmpty()) {
                     mPreferenceProvider.setPrefString(getString(R.string.dialpad_avail_bal), balance);
                     mTvBalance.setText("$" + balance);
@@ -642,7 +651,7 @@ public class DialpadActivity extends AppCompatActivity {
         if (code_num != null && code_num.length() > 3) {
             code_num = code_num.substring(0, 3);
         }
-        LOG.info("getcountryname: countryCode "+getTwoCharCountryCode(code_num));
+        LOG.info("getcountryname: countryCode " + getTwoCharCountryCode(code_num));
         Locale obj = new Locale("", getTwoCharCountryCode(code_num));
         String countryName = obj.getDisplayCountry();
         String contryCode = "";
@@ -1046,6 +1055,36 @@ public class DialpadActivity extends AppCompatActivity {
 
     }
 
+    private class BalanceTransferReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (intent.getAction().equals(getString(R.string.balance_transfered_successful))) {
+                    mTvBalance.setText("$" + mPreferenceProvider.getPrefString(getString(R.string.dialpad_avail_bal)));
+                    String username1 = CSDataProvider.getLoginID();
+                    String password1 = CSDataProvider.getPassword();
+
+                    String pwd = username1 + password1;
+
+                    LOG.debug("Password dialpad:" + pwd);
+                    String actualPassword = "";
+                    try {
+                        actualPassword = Utils.generateSHA256(pwd);
+                        LOG.debug("Password after SHA dialpad:" + actualPassword);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    String url = Constants.BALANCE_URL + "+" + userName + "?loginusername%2B" + userName + "&password=" + actualPassword;
+                    new APITask(url, getString(R.string.dialpad_balance_api_message)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -1061,6 +1100,14 @@ public class DialpadActivity extends AppCompatActivity {
             } else {
                 mPreferenceProvider.setPrefString("DialpadNumber", null);
                 mPreferenceProvider.setPrefString("DialpadNumberCountry", null);
+            }
+
+            try {
+                if (balanceTransferReceiver != null) {
+                    LocalBroadcastManager.getInstance(getApplicationContext()).unregisterReceiver(balanceTransferReceiver);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         } catch (Exception e) {
             e.printStackTrace();

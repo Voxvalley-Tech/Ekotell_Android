@@ -13,9 +13,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import static com.app.ekottel.utils.GlobalVariables.LOG;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,10 +68,12 @@ public class ProfileFragment extends Fragment {
     private EditText mEtProfilePackOne, mEtProfilePackTwo;
 
     private ListView mListView;
-    private TextView noData;
+    private TextView noData, mTvProfileBalance;
     private View mProfileView;
     private TextView tv_send_logs;
     private boolean isProfilePicAvailable = false;
+    PreferenceProvider pf;
+    private BalanceTransferReceiver balanceTransferReceiver = new BalanceTransferReceiver();
     private List<MyPackagesList> myPackagesLists = new ArrayList<MyPackagesList>();
 
     @Override
@@ -76,6 +82,7 @@ public class ProfileFragment extends Fragment {
         LOG.info("Profile page onCreateView");
 
         if (mProfileView == null) {
+            pf = new PreferenceProvider(getContext());
             mProfileView = inflater.inflate(R.layout.fragment_profile, container, false);
             mTvEdit = mProfileView.findViewById(R.id.tv_profile_edit);
             mTvProfilePackages = mProfileView.findViewById(R.id.tv_profile_packages);
@@ -83,6 +90,7 @@ public class ProfileFragment extends Fragment {
             mTvProfileNumberImg = mProfileView.findViewById(R.id.tv_profile_number_img);
             mTvRegStatus = mProfileView.findViewById(R.id.tv_profile_reg_status);
             mTvProfileName = mProfileView.findViewById(R.id.tv_profile_name);
+            mTvProfileBalance = mProfileView.findViewById(R.id.tv_profile_balance_text);
             mTvProfileName.setSelected(true);
             tv_send_logs = mProfileView.findViewById(R.id.tv_send_logs);
             mTvProfileStatus = mProfileView.findViewById(R.id.tv_profile_status);
@@ -92,10 +100,12 @@ public class ProfileFragment extends Fragment {
             mIvProfileStatus = mProfileView.findViewById(R.id.iv_profile_status);
 
             mIvProfilePic = mProfileView.findViewById(R.id.iv_profile);
-
+            balanceTransferReceiver = new BalanceTransferReceiver();
+            IntentFilter balanceFilter = new IntentFilter(getString(R.string.balance_transfered_successful));
+            LocalBroadcastManager.getInstance(getActivity()).registerReceiver(balanceTransferReceiver, balanceFilter);
             mTvRegStatus.setSelected(true);
             mTvProfileNumber.setSelected(true);
-
+            mTvProfileBalance.setText("$" + pf.getPrefString(getString(R.string.bal_trans_pref_avail_message)));
             Typeface text_font = Utils.getTypeface(getActivity());
             mTvEdit.setTypeface(text_font);
             mTvProfileNumberImg.setTypeface(text_font);
@@ -115,7 +125,7 @@ public class ProfileFragment extends Fragment {
                     if (isProfilePicAvailable) {
 
 
-                        Bitmap bitmap = ((BitmapDrawable)mIvProfilePic.getDrawable()).getBitmap();
+                        Bitmap bitmap = ((BitmapDrawable) mIvProfilePic.getDrawable()).getBitmap();
                         ByteArrayOutputStream stream = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                         byte[] byteArray = stream.toByteArray();
@@ -123,7 +133,7 @@ public class ProfileFragment extends Fragment {
                         Intent profileIntent = new Intent(getActivity(), ProfileImageActivity.class);
                         profileIntent.putExtra("profileContactNumber", CSDataProvider.getLoginID());
                         profileIntent.putExtra("isSelfProfile", true);
-                        profileIntent.putExtra("image",byteArray);
+                        profileIntent.putExtra("image", byteArray);
                         startActivity(profileIntent);
                     } else {
                         Toast.makeText(getActivity(), "Profile image not available", Toast.LENGTH_SHORT).show();
@@ -328,7 +338,6 @@ public class ProfileFragment extends Fragment {
                 //LOG.info("getmypackages length:" + array.length());
 
 
-
                 for (int i = 0; i < array.length(); i++) {
                     MyPackagesList myPackagesList = new MyPackagesList();
 
@@ -386,6 +395,30 @@ public class ProfileFragment extends Fragment {
 
             DisplayMyPackagesAdapter displayPackagesAdapter = new DisplayMyPackagesAdapter(getActivity(), myPackagesLists, 0);
             mListView.setAdapter(displayPackagesAdapter);
+        } else if (api.equals(getString(R.string.dialpad_balance_api_message))) {
+
+            try {
+                JSONObject jsonObj = new JSONObject(returndata);
+                String balance = "";
+
+                JSONArray array = jsonObj.getJSONObject(getString(R.string.dialpad_response_message_key)).getJSONArray(getString(R.string.dialpad_response_message_value));
+                for (int i = 0; i < array.length(); i++) {
+                    balance = array.getJSONObject(i).getString(getString(R.string.dialpad_balance_api_message));
+                }
+
+                Log.i("mTvBalance", "mTvBalance--->" + balance);
+                if (balance != null && !balance.isEmpty()) {
+                    pf.setPrefString(getString(R.string.dialpad_avail_bal), balance);
+                    mTvProfileBalance.setText("$" + balance);
+                } else {
+                    pf.setPrefString(getString(R.string.dialpad_avail_bal), "0");
+                    mTvProfileBalance.setText("$" + "0");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -505,7 +538,7 @@ public class ProfileFragment extends Fragment {
                 return;
             }
             updateData();
-
+            mTvProfileBalance.setText("$" + pf.getPrefString(getString(R.string.bal_trans_pref_avail_message)));
             String username = CSDataProvider.getLoginID();
 
             if (username != null && !username.isEmpty()) {
@@ -583,11 +616,48 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    private class BalanceTransferReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (intent.getAction().equals(getString(R.string.balance_transfered_successful))) {
+                    // mTvBalance.setText("$" + mPreferenceProvider.getPrefString(getString(R.string.dialpad_avail_bal)));
+                    String username1 = CSDataProvider.getLoginID();
+                    String password1 = CSDataProvider.getPassword();
+                    String userName = CSDataProvider.getLoginID();
+                    userName = userName.replace("+", "");
+                    String pwd = username1 + password1;
+
+                    LOG.debug("Password dialpad:" + pwd);
+                    String actualPassword = "";
+                    try {
+                        actualPassword = Utils.generateSHA256(pwd);
+                        LOG.debug("Password after SHA dialpad:" + actualPassword);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    String url = Constants.BALANCE_URL + "+" + userName + "?loginusername%2B" + userName + "&password=" + actualPassword;
+                    new APITask(url, getString(R.string.dialpad_balance_api_message)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(registrationStatuserviceReceiver);
         LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(MainActivityReceiverObj);
-
+        try {
+            if (balanceTransferReceiver != null) {
+                LocalBroadcastManager.getInstance(getActivity()).unregisterReceiver(balanceTransferReceiver);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

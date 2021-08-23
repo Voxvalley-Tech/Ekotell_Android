@@ -113,6 +113,7 @@
     <string name="bal_trans_response_error_message_key">error</string>
     <string name="bal_trans_time_out">Timeout.Pls Retry..</string>
     <string name="bal_trans_wait_message">Please wait..</string>
+    <string name="balance_transfered_successful">BalanceTransferd</string>
     <string name="bal_trans_pref_avail_message">AvailBal</string>
     <string name="bal_trans_http_api_message">API</string>
     <string name="bal_trans_http_data_message">Data</string>

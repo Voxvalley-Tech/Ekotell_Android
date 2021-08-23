@@ -5,18 +5,20 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/headerTv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50dp"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:text="@string/app_name_capitel"
+        android:fontFamily="@font/ubuntu_bold"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/_30dp"
-        android:textSize="@dimen/text_22sp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:textColor="@color/white"/>
+        android:text="@string/app_name_capitel"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_22sp" />
+
     <RelativeLayout
         android:id="@+id/rl_header"
         android:layout_width="fill_parent"
@@ -47,8 +49,8 @@
                 android:layout_gravity="top|right"
                 android:layout_marginLeft="-20dip"
                 android:layout_toRightOf="@+id/iv_profile"
-                android:scaleType="fitXY"
                 android:background="@drawable/circle_contact_header"
+                android:scaleType="fitXY"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -72,20 +74,20 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/_10dp"
                     android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_marginBottom="@dimen/_10dp"
                     android:ellipsize="marquee"
+                    android:fontFamily="@font/ubuntu_regular"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:text=""
-                    android:fontFamily="@font/ubuntu_regular"
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="@dimen/_5dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -116,6 +118,44 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_14sp" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5dp"
+                    android:layout_marginTop="@dimen/_5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="Bal:"
+                        android:textColor="@color/black_30"
+                        android:textSize="@dimen/text_14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_profile_balance_text"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5dp"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/ubuntu_light"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_14sp" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -132,15 +172,15 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="@dimen/_5dp"
                     android:layout_marginRight="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
                     android:ellipsize="marquee"
+                    android:fontFamily="@font/ubuntu_regular"
                     android:gravity="center"
                     android:marqueeRepeatLimit="marquee_forever"
                     android:singleLine="true"
                     android:text=""
-                    android:fontFamily="@font/ubuntu_regular"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text_14sp" />
 
@@ -185,11 +225,11 @@
             android:id="@+id/tv_profile_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="Available"
-            android:singleLine="true"
-            android:fontFamily="@font/ubuntu_regular"
             android:ellipsize="marquee"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="left"
+            android:singleLine="true"
+            android:text="Available"
             android:textColor="#2c2c2c"
             android:textSize="@dimen/text_16sp" />
 
@@ -197,12 +237,12 @@
             android:id="@+id/tv_send_logs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left"
             android:layout_marginLeft="@dimen/_80dp"
+            android:gravity="left"
             android:text="Send Logs"
-            android:visibility="gone"
             android:textColor="#2c2c2c"
-            android:textSize="@dimen/text_16sp" />
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
     </LinearLayout>
 
 
@@ -229,13 +269,13 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/profile_edit_bg"
             android:editable="false"
+            android:fontFamily="@font/ubuntu_regular"
             android:gravity="center_vertical"
             android:hint="Package one"
             android:maxLength="25"
-            android:paddingBottom="10dp"
             android:paddingLeft="25dp"
             android:paddingTop="10dp"
-            android:fontFamily="@font/ubuntu_regular"
+            android:paddingBottom="10dp"
             android:textColor="@color/theme_color"
             android:textColorHint="@color/theme_color"
             android:textSize="@dimen/text_18sp" />
@@ -247,13 +287,13 @@
             android:layout_marginBottom="30dp"
             android:background="@drawable/profile_edit_bg"
             android:editable="false"
+            android:fontFamily="@font/ubuntu_regular"
             android:gravity="start|center_vertical"
             android:hint="Package two"
             android:maxLength="25"
-            android:paddingBottom="10dp"
             android:paddingLeft="25dp"
             android:paddingTop="10dp"
-            android:fontFamily="@font/ubuntu_regular"
+            android:paddingBottom="10dp"
             android:textColor="@color/theme_color"
             android:textColorHint="@color/theme_color"
             android:textSize="@dimen/text_18sp" />
@@ -266,10 +306,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/ubuntu_regular"
         android:gravity="center"
         android:paddingBottom="10dp"
         android:text="My Packages"
-        android:fontFamily="@font/ubuntu_regular"
         android:textColor="#b2b2b2"
         android:visibility="gone" />
 

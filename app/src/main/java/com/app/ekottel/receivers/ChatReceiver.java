@@ -8,6 +8,7 @@ import android.os.Looper;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import static com.app.ekottel.utils.GlobalVariables.LOG;
 
+import com.app.ekottel.R;
 import com.app.ekottel.utils.MainActivity;
 import com.app.ekottel.utils.NotificationMethodHelper;
 import com.app.ekottel.utils.PreferenceProvider;
@@ -53,6 +54,11 @@ public class ChatReceiver extends BroadcastReceiver {
                         LOG.info(TAG1,"grpmessagesender:" + grpmessagesender);
                     }
                     cur.close();
+
+                    if (lastmessage.startsWith("I have transferred")) {
+                        LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(context.getString(R.string.balance_transfered_successful)));
+
+                    }
                     if (issender == 0) {
 
                         int isgroupmessage = intent.getIntExtra("isgroupmessage", 0);
