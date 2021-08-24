@@ -138,7 +138,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         }
         mContactFragment = new ContactsFragment();
         mCallLogsFragment = new CallLogsFragment();
-      //  mMessagesFragment = new MessagesFragment();
+        //  mMessagesFragment = new MessagesFragment();
         mMoreFragment = new MoreFragment();
         mProfileFragment = new ProfileFragment();
 
@@ -159,17 +159,16 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         username = CSDataProvider.getLoginID();
         PreferenceProvider pf = new PreferenceProvider(getApplicationContext());
-        Log.e("HomeAcivity","count-->"+com.ca.app.App.getActivityStackCount());
+        Log.e("HomeAcivity", "count-->" + com.ca.app.App.getActivityStackCount());
 
 
-           pf.setPrefboolean(getString(R.string.call_logs_incall_message), false);
+        pf.setPrefboolean(getString(R.string.call_logs_incall_message), false);
 
 
+        //This is used to check if  not allow second call if already call is there
 
-            //This is used to check if  not allow second call if already call is there
-
-        Boolean bl=pf.getPrefBoolean(getApplicationContext().getString(R.string.call_logs_incall_message));
-        Log.e("HomeAcivity","HomeAcivity-->"+bl);
+        Boolean bl = pf.getPrefBoolean(getApplicationContext().getString(R.string.call_logs_incall_message));
+        Log.e("HomeAcivity", "HomeAcivity-->" + bl);
 
 
         //This is used to avoid multiple calls ringing state
@@ -229,19 +228,19 @@ public class HomeScreenActivity extends AppCompatActivity {
                 Constants.CALL_RATES_URL = url;
             } else if ("url_balancetransfer".equalsIgnoreCase(urlname)) {
                 Constants.BALANCE_TRANSFER_URL = url;
-                Log.e("BALANCE_TRANSFER_URL","BALANCE_TRANSFER_URL-->"+url);
+                Log.e("BALANCE_TRANSFER_URL", "BALANCE_TRANSFER_URL-->" + url);
             } else if ("url_getpackages".equalsIgnoreCase(urlname)) {
                 Constants.PACKAGES_URL = url;
             } else if ("url_paypalgetclientid".equalsIgnoreCase(urlname)) {
                 Constants.PAYPAL_GETCLIENTID_URL = url;
-                Log.e("PAYPAL_GETCLIENTID_URL","PAYPAL_GETCLIENTID_URL-->"+url);
+                Log.e("PAYPAL_GETCLIENTID_URL", "PAYPAL_GETCLIENTID_URL-->" + url);
             } else if ("url_paypalverifypayment".equalsIgnoreCase(urlname)) {
                 Constants.PAYPAL_VERIFYPAYMENT_URL = url;
-                Log.e("PAYPAL_VERIFY","PAYPAL_VERIFYPAYMENT_URL-->"+url);
+                Log.e("PAYPAL_VERIFY", "PAYPAL_VERIFYPAYMENT_URL-->" + url);
 
             } else if ("createstripepaymentintent".equalsIgnoreCase(urlname)) {
                 Constants.STRIPE_CREATE_STRIPE_PAYMENT_INTENT = url;
-                Log.e("PAYPAL_VERIFY","STRIPE_CREATE_STRIPE_PAYMENT_INTENT-->"+url);
+                Log.e("PAYPAL_VERIFY", "STRIPE_CREATE_STRIPE_PAYMENT_INTENT-->" + url);
             } else if ("url_stripepayment".equalsIgnoreCase(urlname) || "veifystripepayment".equalsIgnoreCase(urlname)) {
                 Constants.STRIPE_VERIFICATION_URL = url;
             } else if ("url_getstripekey".equalsIgnoreCase(urlname)) {
@@ -298,7 +297,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             intent_image_share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
 
-            if (receivedFileType!=null && !receivedFileType.equals("") ) {
+            if (receivedFileType != null && !receivedFileType.equals("")) {
                 PreferenceProvider preferenceProvider = new PreferenceProvider(context);
                 preferenceProvider.setPrefboolean(PreferenceProvider.IS_FILE_SHARE_AVAILABLE, true);
                 intent_image_share.putExtra("isShareFileAvailable", true);
@@ -545,7 +544,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                         .findViewById(R.id.tv_alert_title);
                 TextView tv_message = (TextView) mPopupCloseDialog
                         .findViewById(R.id.tv_alert_message);
-              //  tv_message.setText(message);
+                //  tv_message.setText(message);
                 yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -558,7 +557,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                                 intent.setData(Uri.parse("package:" + getApplicationContext().getPackageName()));
                                 startActivity(intent);
 
-                            } catch ( ActivityNotFoundException e ) {
+                            } catch (ActivityNotFoundException e) {
                                 //e.printStackTrace();
 
                                 //Open the generic Apps page:
@@ -644,7 +643,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 tabLayout.getTabAt(1).setCustomView(customCallLogsView(-1));
                 tabLayout.getTabAt(2).setCustomView(customProfileView(-1));
                 tabLayout.getTabAt(3).setCustomView(customMoreView(-1));
-             //   tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
+                //   tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
 
                 break;
             case 1:
@@ -652,21 +651,21 @@ public class HomeScreenActivity extends AppCompatActivity {
                 tabLayout.getTabAt(1).setCustomView(customCallLogsView(currenttab));
                 tabLayout.getTabAt(2).setCustomView(customProfileView(-1));
                 tabLayout.getTabAt(3).setCustomView(customMoreView(-1));
-               // tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
+                // tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
                 break;
             case 2:
                 tabLayout.getTabAt(0).setCustomView(customContactsView(-1));
                 tabLayout.getTabAt(1).setCustomView(customCallLogsView(-1));
                 tabLayout.getTabAt(2).setCustomView(customProfileView(currenttab));
                 tabLayout.getTabAt(3).setCustomView(customMoreView(-1));
-               // tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
+                // tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
                 break;
             case 3:
                 tabLayout.getTabAt(0).setCustomView(customContactsView(-1));
                 tabLayout.getTabAt(1).setCustomView(customCallLogsView(-1));
                 tabLayout.getTabAt(2).setCustomView(customProfileView(-1));
                 tabLayout.getTabAt(3).setCustomView(customMoreView(currenttab));
-              //  tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
+                //  tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
                 break;
             /*case 4:
 
@@ -682,7 +681,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 tabLayout.getTabAt(1).setCustomView(customCallLogsView(-1));
                 tabLayout.getTabAt(2).setCustomView(customProfileView(-1));
                 tabLayout.getTabAt(3).setCustomView(customMoreView(-1));
-              //  tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
+                //  tabLayout.getTabAt(4).setCustomView(customMoreView(-1));
                 break;
 
 
@@ -743,13 +742,11 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
 
-
-
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(mContactFragment, "Contacts");
         adapter.addFragment(mCallLogsFragment, "Call Logs");
-       // adapter.addFragment(mMessagesFragment, "IM");
+        // adapter.addFragment(mMessagesFragment, "IM");
         adapter.addFragment(mProfileFragment, "Profile");
         adapter.addFragment(mMoreFragment, "More");
         viewPager.setAdapter(adapter);
@@ -854,6 +851,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         return view;
     }
+
     /**
      * @return this is returns integer value
      */
@@ -1048,6 +1046,9 @@ public class HomeScreenActivity extends AppCompatActivity {
                         DialpadActivity.mTvBalance.setVisibility(View.GONE);
                         LOG.info("Dialpad Called network invisible");
                     }
+                    if (ProfileFragment.mTvProfileBalance != null) {
+                        ProfileFragment.mTvProfileBalance.setVisibility(View.GONE);
+                    }
                     reTry();
                 } else if (intent.getAction().equals(CSEvents.CSCLIENT_INITILIZATION_RESPONSE)) {
                     if (intent.getStringExtra(CSConstants.RESULT).equals(CSConstants.RESULT_FAILURE)) {
@@ -1090,6 +1091,9 @@ public class HomeScreenActivity extends AppCompatActivity {
                         if (DialpadActivity.mTvBalance != null) {
                             DialpadActivity.mTvBalance.setVisibility(View.INVISIBLE);
                             LOG.info("Dialpad Called network invisible");
+                        }
+                        if (ProfileFragment.mTvProfileBalance != null) {
+                            ProfileFragment.mTvProfileBalance.setVisibility(View.INVISIBLE);
                         }
                     }
                 }
@@ -1185,6 +1189,9 @@ public class HomeScreenActivity extends AppCompatActivity {
             mProfileFragment.mTvRegStatus.setText(getString(R.string.registered));
         if (DialpadActivity.mTvBalance != null) {
             DialpadActivity.mTvBalance.setVisibility(View.VISIBLE);
+        }
+        if (ProfileFragment.mTvProfileBalance != null) {
+            ProfileFragment.mTvProfileBalance.setVisibility(View.VISIBLE);
         }
         if (DialpadActivity.mTvDialpadRegStatus != null)
             DialpadActivity.mTvDialpadRegStatus.setText(getString(R.string.registered));

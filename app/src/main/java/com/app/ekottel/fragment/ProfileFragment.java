@@ -30,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.ekottel.R;
+import com.app.ekottel.activity.DialpadActivity;
 import com.app.ekottel.activity.HomeScreenActivity;
 import com.app.ekottel.activity.ProfileImageActivity;
 import com.app.ekottel.activity.StatusActivity;
@@ -68,9 +69,9 @@ public class ProfileFragment extends Fragment {
     private EditText mEtProfilePackOne, mEtProfilePackTwo;
 
     private ListView mListView;
-    private TextView noData, mTvProfileBalance;
+    private TextView noData, tv_send_logs;
     private View mProfileView;
-    private TextView tv_send_logs;
+    public static TextView mTvProfileBalance;
     private boolean isProfilePicAvailable = false;
     PreferenceProvider pf;
     private BalanceTransferReceiver balanceTransferReceiver = new BalanceTransferReceiver();
@@ -548,6 +549,24 @@ public class ProfileFragment extends Fragment {
                 mTvProfileNumberImg.setVisibility(View.GONE);
             }
 
+            String username1 = CSDataProvider.getLoginID();
+            String password1 = CSDataProvider.getPassword();
+            String userName = CSDataProvider.getLoginID();
+            userName = userName.replace("+", "");
+            String pwd = username1 + password1;
+
+            LOG.debug("Password" + pwd);
+            String actualPassword = "";
+            try {
+                actualPassword = Utils.generateSHA256(pwd);
+                LOG.debug("Password after SHA" + actualPassword);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            String url = Constants.BALANCE_URL + "%2B" + userName + "?password=" + actualPassword;
+            LOG.info("Balance URL: " + url);
+            new APITask(url, getString(R.string.dialpad_balance_api_message)).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
             if (HomeScreenActivity.status != null && !HomeScreenActivity.status.isEmpty()) {
                 mTvRegStatus.setText(HomeScreenActivity.status);

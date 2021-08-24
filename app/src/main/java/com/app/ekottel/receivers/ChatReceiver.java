@@ -125,7 +125,7 @@ public class ChatReceiver extends BroadcastReceiver {
                         String activeDestination = pf.getPrefString("activeDestination");
                         LOG.info(TAG1, "Chat Receieved active destination" + activeDestination);
                         if (!destination.equals(activeDestination)) {
-                            NotificationMethodHelper.NotifyUserChat(context, destinationname, finalmessage, destination, isgroupmessage, name);
+                          //  NotificationMethodHelper.NotifyUserChat(context, destinationname, finalmessage, destination, isgroupmessage, name);
                         }
 
 
