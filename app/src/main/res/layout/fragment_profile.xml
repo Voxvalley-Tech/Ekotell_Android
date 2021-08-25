@@ -137,7 +137,7 @@
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="Bal:"
-                        android:textColor="@color/black_30"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/text_14sp" />
 
                     <TextView
@@ -148,10 +148,10 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="@dimen/_5dp"
                         android:ellipsize="marquee"
-                        android:fontFamily="@font/ubuntu_light"
+                        android:fontFamily="@font/ubuntu_regular"
                         android:marqueeRepeatLimit="marquee_forever"
                         android:singleLine="true"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_14sp" />
                 </LinearLayout>
 

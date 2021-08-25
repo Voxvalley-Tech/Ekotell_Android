@@ -20,11 +20,13 @@ android {
         applicationId "com.app.ekottel"
         minSdkVersion 19
         targetSdkVersion 29
-        versionCode 3
+        versionCode 4
         versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
     }
+
     dataBinding {
         enabled = true
     }
@@ -76,7 +78,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     // SDK
-     implementation(name: 'app-release', ext: 'aar')
+    implementation(name: 'app-release', ext: 'aar')
     //implementation 'vox-cpaas:connectsdk:1.4.2.9'
     // AppCompact library
     implementation 'androidx.appcompat:appcompat:1.0.0'
