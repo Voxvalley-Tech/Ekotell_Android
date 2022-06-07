@@ -40,6 +40,9 @@ import com.ca.dao.CSContact;
 import com.ca.wrapper.CSCall;
 import com.ca.wrapper.CSClient;
 import com.ca.wrapper.CSDataProvider;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 
@@ -53,6 +56,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import static android.hardware.Camera.CameraInfo.CAMERA_FACING_FRONT;
+
+import androidx.annotation.NonNull;
 
 public class Utils {
 
@@ -97,7 +102,26 @@ public class Utils {
 
         return null;
     }
+    public static void subscribeToPushTopic() {
+        try {
 
+            FirebaseMessaging.getInstance().subscribeToTopic("ekottelpromotionsandroid")
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            String msg = "Success";
+                            if (!task.isSuccessful()) {
+                                msg = "Failure";
+                            }
+                            //Log.d(TAG, msg);
+                            //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public static String getInternationFormatNumber(String phNumber, String countryCode) {
         try {

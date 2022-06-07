@@ -28,6 +28,7 @@ import com.app.ekottel.activity.ViewMyPromotionsActivity;
 import com.app.ekottel.receivers.InComingCallHandlingReceiver;
 import com.app.ekottel.receivers.MissedCallNotificationReceiver;
 import com.ca.Utils.CSConstants;
+import com.ca.app.App;
 
 import java.util.Random;
 
@@ -36,6 +37,9 @@ public class NotificationMethodHelper {
     private static String TAG = "NotificationMethodHelper";
     private static String CHANNEL_ID = "Tringy_Channel";
     public static int callNotificationID = 1001;
+    private static NotificationManager notificationManager;
+    private static String CHANNEL_ID_PROMOTIONS = "minidialer_channel_promotions";
+    private static final int PROMOTION_NOTIFICATION_ID = 777;
 
     /**
      * This is used for display notification when app is in background using call
@@ -108,7 +112,84 @@ public class NotificationMethodHelper {
 
         return notification;
     }
+    public static void showPromotionalNotification(Context context, String title, String description) {
 
+        try {
+            if (notificationManager == null) {
+                notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            }
+            Log.i("title", "title===" + title+"---"+description);
+            Log.i("notificationManager", "notificationManager=" + notificationManager.toString());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                CharSequence name = context.getString(R.string.app_name);// The user-visible name of the channel.
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID_PROMOTIONS, name, importance);
+                mChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+                notificationManager.createNotificationChannel(mChannel);
+            }
+            PreferenceProvider pf = new PreferenceProvider(context);
+            /*boolean isHomePage = false;
+            if (pf != null) {
+                isHomePage = pf.getBooleanValue("RegisterHome");
+            }
+            Intent intent = null;
+            if (isHomePage) {
+                intent = new Intent(context, NotificationsActivity.class);
+            } else {
+                intent = new Intent(context, SplashActivity.class);
+            }*/
+            Intent intent = null;
+            //if 0 need to launch splash other noti
+
+            Log.i("activityStackcount", "" + com.ca.app.App.getActivityStackCount());
+            if (App.getActivityStackCount() > 0) {
+                intent = new Intent(context, ViewMyPromotionsActivity.class);
+            } else {
+                intent = new Intent(context, SplashScreenActivity.class);
+            }
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("IsPromotionalNotification", "promotions");
+            intent.setAction(Long.toString(System.currentTimeMillis()));
+            PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+            Notification notification = null;
+            // Notification not working in API level 27 so if API level more than 26 this will work
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                notification = new Notification.Builder(context)
+                        .setContentTitle(title)
+                        .setContentText(description)
+                        .setSmallIcon(R.drawable.ic_notification_transaperent)
+                        .setColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
+                        .setChannelId(CHANNEL_ID_PROMOTIONS)
+                        .setContentIntent(pIntent)
+                        .build();
+
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                notification = new Notification.Builder(context)
+                        .setContentTitle(title)
+                        .setContentText(description)
+                        .setSmallIcon(R.drawable.ic_notification_transaperent)
+                        .setColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
+                        .setContentIntent(pIntent).build();
+            } else {
+                notification = new Notification.Builder(context)
+                        .setContentTitle(title)
+                        .setContentText(description)
+                        .setSound(uri)
+                        .setSmallIcon(R.drawable.ic_notification_transaperent)
+                        .setContentIntent(pIntent).build();
+            }
+
+            // hide the notification after its selected
+            notification.flags |= Notification.FLAG_AUTO_CANCEL;
+            notificationManager.notify(PROMOTION_NOTIFICATION_ID, notification);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        // return PROMOTION_NOTIFICATION_ID;
+    }
     /**
      * This is used for remove call notification
      *
@@ -168,7 +249,7 @@ public class NotificationMethodHelper {
                         .setContentTitle(userdisplaystring)
                         .setContentText(channelname)
                         .setSmallIcon(R.drawable.ic_notification_transaperent)
-                        .setColor(ContextCompat.getColor(context, R.color.theme_color))
+                        .setColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
                         .setChannelId(CHANNEL_ID)
                         .setContentIntent(pIntent)
                         .build();
@@ -178,7 +259,7 @@ public class NotificationMethodHelper {
                         .setContentTitle(userdisplaystring)
                         .setContentText(channelname)
                         .setSmallIcon(R.drawable.ic_notification_transaperent)
-                        .setColor(ContextCompat.getColor(context, R.color.theme_color))
+                        .setColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
                         .setContentIntent(pIntent).build();
             } else {
                 notification = new Notification.Builder(context)
@@ -254,7 +335,7 @@ public class NotificationMethodHelper {
                 .setAutoCancel(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             noti.setSmallIcon(R.drawable.ic_notification_transaperent);
-            noti.setColor(context.getResources().getColor(R.color.theme_color));
+            noti.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
         } else {
             noti.setSmallIcon(R.drawable.ic_launcher);
         }
@@ -327,11 +408,11 @@ public class NotificationMethodHelper {
                         .setFullScreenIntent(fullScreenPendingIntent, true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationBuilder.setSmallIcon(R.drawable.ic_notification_transaperent);
-            notificationBuilder.setColor(context.getResources().getColor(R.color.theme_color));
+            notificationBuilder.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
             notificationBuilder.setChannelId(CHANNEL_ID);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             notificationBuilder.setSmallIcon(R.drawable.ic_notification_transaperent);
-            notificationBuilder.setColor(context.getResources().getColor(R.color.theme_color));
+            notificationBuilder.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
         } else {
             notificationBuilder.setSmallIcon(R.drawable.ic_launcher);
         }
@@ -441,12 +522,12 @@ public class NotificationMethodHelper {
             //noti.flags |= Notification.FLAG_AUTO_CANCEL;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 noti.setSmallIcon(R.drawable.ic_notification_transaperent);
-                noti.setColor(context.getResources().getColor(R.color.theme_color));
+                noti.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
                 noti.setChannelId(CHANNEL_ID);
 
             }else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 noti.setSmallIcon(R.drawable.ic_notification_transaperent);
-                noti.setColor(context.getResources().getColor(R.color.theme_color));
+                noti.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
             } else {
                 noti.setSmallIcon(R.drawable.ic_launcher);
             }
@@ -552,12 +633,12 @@ public class NotificationMethodHelper {
                     .setContentIntent(pIntent);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 noti.setSmallIcon(R.drawable.ic_notification_transaperent);
-                noti.setColor(context.getResources().getColor(R.color.theme_color));
+                noti.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
                 noti.setChannelId(CHANNEL_ID);
                 noti.setContentText(channelname);
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 noti.setSmallIcon(R.drawable.ic_notification_transaperent);
-                noti.setColor(context.getResources().getColor(R.color.theme_color));
+                noti.setColor(context.getResources().getColor(R.color.colorPrimaryDark));
                 //noti.setPriority(Notification.PRIORITY_MAX);
 
             } else {

@@ -517,7 +517,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
         mSendButton.setOnClickListener(v -> {
             String chatMessage = mChatMessageEditText.getText().toString().trim();
             if (!chatMessage.equals("")) {
-                CSChatObj.sendMessage(destination, chatMessage, isGroupChat,"","");
+                CSChatObj.sendMessage(destination, chatMessage, isGroupChat,"","","","",false);
                 updtateReadCount();
                 mChatMessageEditText.setText("");
                 notifyDataSetChanged(true, false, "", true);
@@ -788,12 +788,12 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                 String receivedFileType = getIntent().getStringExtra("receivedFileType");
                 String receivedFilePath = getIntent().getStringExtra("receivedFilePath");
                 if (receivedFileType.equals("text")) {
-                    CSChatObj.sendMessage(mFriendNumber, receivedFilePath, false,"","");
+                    CSChatObj.sendMessage(mFriendNumber, receivedFilePath, false,"","","","",false);
 
                 } else if (receivedFileType.equals("audio")) {
                     String audioPath = ChatMethodHelper.getPath(getApplicationContext(),
                             Uri.parse(receivedFilePath));
-                    CSChatObj.sendAudio(mFriendNumber, audioPath, false,"");
+                    CSChatObj.sendAudio(mFriendNumber, audioPath, false,"","","",false);
 
 //                    new SendFile(Uri.parse(receivedFilePath), "audio").execute();
 
@@ -805,7 +805,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "No Video Selected", Toast.LENGTH_SHORT).show();
                     } else {
                         Log.i(TAG, "not showing toast:" + filepath);
-                        CSChatObj.sendPhoto(mFriendNumber, filepath, false,"");
+                        CSChatObj.sendPhoto(mFriendNumber, filepath, false,"","","",false);
 
                     }
                 } else if (receivedFileType.equals("video")) {
@@ -816,7 +816,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "No Video Selected", Toast.LENGTH_SHORT).show();
                     } else {
                         Log.i(TAG, "not showing toast:" + filepath);
-                        CSChatObj.sendVideo(mFriendNumber, filepath, false,"");
+                        CSChatObj.sendVideo(mFriendNumber, filepath, false,"","","",false);
 
                     }
                 }
@@ -1261,7 +1261,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                 case LOCATION_REQUEST_CODE:
 
                 if (data != null) {
-                    CSChatObj.sendLocation(destination, new CSLocation(data.getDoubleExtra(ChatConstants.INTENT_LOCATION_LATITUDE, 0.0), data.getDoubleExtra(ChatConstants.INTENT_LOCATION_LONGITUDE, 0.0), data.getStringExtra(ChatConstants.INTENT_LOCATION_ADDRESS)), false, "");
+                    CSChatObj.sendLocation(destination, new CSLocation(data.getDoubleExtra(ChatConstants.INTENT_LOCATION_LATITUDE, 0.0), data.getDoubleExtra(ChatConstants.INTENT_LOCATION_LONGITUDE, 0.0), data.getStringExtra(ChatConstants.INTENT_LOCATION_ADDRESS)), false, "","","",false);
                     updtateReadCount();
                 }
 
@@ -1337,24 +1337,24 @@ public class ChatAdvancedActivity extends AppCompatActivity {
 
                                     switch (chattype) {
                                         case CSConstants.E_TEXTPLAIN:
-                                            CSChatObj.sendMessage(number, message, isgroupmessage,"","");
+                                            CSChatObj.sendMessage(number, message, isgroupmessage,"","","","",false);
                                             break;
                                         case CSConstants.E_TEXTHTML:
-                                            CSChatObj.sendMessage(number, message, isgroupmessage,"","");
+                                            CSChatObj.sendMessage(number, message, isgroupmessage,"","","","",false);
                                             break;
                                         case CSConstants.E_LOCATION:
                                             CSLocation cschatlocation = CSChatObj.getLocationFromChatID(chatid);
-                                            CSChatObj.sendLocation(number, cschatlocation, isgroupmessage,"");
+                                            CSChatObj.sendLocation(number, cschatlocation, isgroupmessage,"","","",false);
                                             break;
                                         case CSConstants.E_IMAGE:
                                             if (issender == 1) {
                                                 if (ismultidevice == 0) {
-                                                    CSChatObj.sendPhoto(number, uploadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendPhoto(number, uploadfilepath, isgroupmessage,"","","",false);
                                                 } else {
-                                                    CSChatObj.sendPhoto(number, downloadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendPhoto(number, downloadfilepath, isgroupmessage,"","","",false);
                                                 }
                                             } else {
-                                                CSChatObj.sendPhoto(number, downloadfilepath, isgroupmessage,"");
+                                                CSChatObj.sendPhoto(number, downloadfilepath, isgroupmessage,"","","",false);
                                             }
                                             break;
                                         case CSConstants.E_VIDEO:
@@ -1362,40 +1362,40 @@ public class ChatAdvancedActivity extends AppCompatActivity {
 
                                             if (issender == 1) {
                                                 if (ismultidevice == 0) {
-                                                    CSChatObj.sendVideo(number, uploadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendVideo(number, uploadfilepath, isgroupmessage,"","","",false);
                                                 } else {
-                                                    CSChatObj.sendVideo(number, downloadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendVideo(number, downloadfilepath, isgroupmessage,"","","",false);
                                                 }
                                             } else {
-                                                CSChatObj.sendVideo(number, downloadfilepath, isgroupmessage,"");
+                                                CSChatObj.sendVideo(number, downloadfilepath, isgroupmessage,"","","",false);
                                             }
                                             break;
                                         case CSConstants.E_CONTACT:
                                             Log.e(TAG, "ChatId in contact:  " + chatid);
                                             CSChatContact cschatContact = CSChatObj.getContactFromChatID(chatid);
                                             Log.e(TAG, "cotact numbers list :  " + cschatContact.getNumbers().size());
-                                            CSChatObj.sendContact(number, cschatContact, isgroupmessage,"");
+                                            CSChatObj.sendContact(number, cschatContact, isgroupmessage,"","","",false);
                                             break;
                                         case CSConstants.E_DOCUMENT:
                                             if (issender == 1) {
                                                 if (ismultidevice == 0) {
-                                                    CSChatObj.sendDocument(number, uploadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendDocument(number, uploadfilepath, isgroupmessage,"","","",false);
                                                 } else {
-                                                    CSChatObj.sendDocument(number, downloadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendDocument(number, downloadfilepath, isgroupmessage,"","","",false);
                                                 }
                                             } else {
-                                                CSChatObj.sendDocument(number, downloadfilepath, isgroupmessage,"");
+                                                CSChatObj.sendDocument(number, downloadfilepath, isgroupmessage,"","","",false);
                                             }
                                             break;
                                         case CSConstants.E_AUDIO:
                                             if (issender == 1) {
                                                 if (ismultidevice == 0) {
-                                                    CSChatObj.sendAudio(number, uploadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendAudio(number, uploadfilepath, isgroupmessage,"","","",false);
                                                 } else {
-                                                    CSChatObj.sendAudio(number, downloadfilepath, isgroupmessage,"");
+                                                    CSChatObj.sendAudio(number, downloadfilepath, isgroupmessage,"","","",false);
                                                 }
                                             } else {
-                                                CSChatObj.sendAudio(number, downloadfilepath, isgroupmessage,"");
+                                                CSChatObj.sendAudio(number, downloadfilepath, isgroupmessage,"","","",false);
                                             }
                                             break;
                                     }
@@ -1470,7 +1470,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                         Log.i(TAG, "Sending Contact, Name: " + contactName + " ,numbers: " + numbersList + " ,Labels: " + labelsList);
 
                         CSChatContact contactObject = new CSChatContact(contactName, numbersList, labelsList);
-                        boolean result = CSChatObj.sendContact(destination, contactObject, false,"");
+                        boolean result = CSChatObj.sendContact(destination, contactObject, false,"","","",false);
                         updtateReadCount();
 
                     }
@@ -1722,7 +1722,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
-                    CSChatObj.sendAudio(destination, AudioSavePathInDevice, false,"");
+                    CSChatObj.sendAudio(destination, AudioSavePathInDevice, false,"","","",false);
                     updtateReadCount();
                 }
             });
@@ -2137,7 +2137,7 @@ public class ChatAdvancedActivity extends AppCompatActivity {
                         int downloadpercentage = cur.getInt(cur.getColumnIndexOrThrow(CSDbFields.KEY_CHAT_TRANSFER_PERCENTAGE));
                         int uploadpercentage = cur.getInt(cur.getColumnIndexOrThrow(CSDbFields.KEY_CHAT_TRANSFER_PERCENTAGE));
 
-                        CSChatObj.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_ID, chatid,true);
+                        CSChatObj.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_ID, chatid,true,false);
 
                         if (chatfiledelete) {
                             if (chattype == CSConstants.E_TEXTPLAIN || chattype == CSConstants.E_CONTACT) {
@@ -2268,7 +2268,7 @@ if(cursorchatid.equals(chatid)) {
                         public void onClick(DialogInterface dialog,
                                             int which) {
 
-                            boolean status = CSChatObj.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_DESTINATION_LOGINID, destination,true);
+                            boolean status = CSChatObj.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_DESTINATION_LOGINID, destination,true,false);
                             if (status) {
                                 Intent filter = new Intent(Constants.ACTION_CLEAR_ALL_CHAT);
                                 sendBroadcast(filter);
@@ -2588,19 +2588,19 @@ if(cursorchatid.equals(chatid)) {
 
             if (result != null && !result.equals("")) {
                 if (filetype.equals("audio")) {
-                    CSChatObj.sendAudio(destination, result, false,"");
+                    CSChatObj.sendAudio(destination, result, false,"","","",false);
                 } else if (filetype.equals("video")) {
-                    CSChatObj.sendVideo(destination, result, false,"");
+                    CSChatObj.sendVideo(destination, result, false,"","","",false);
                 } else if (filetype.equals("gallaryimage")) {
-                    CSChatObj.sendPhoto(destination, result, false,"");
+                    CSChatObj.sendPhoto(destination, result, false,"","","",false);
                 } else if (filetype.equals("cameraimage")) {
-                    CSChatObj.sendPhoto(destination, result, false,"");
+                    CSChatObj.sendPhoto(destination, result, false,"","","",false);
                     File cemaraFile = new File(mImagePath);
                     if (cemaraFile.exists()) {
                         cemaraFile.delete();
                     }
                 } else {
-                    CSChatObj.sendDocument(destination, result, false,"");
+                    CSChatObj.sendDocument(destination, result, false,"","","",false);
                 }
 
             }

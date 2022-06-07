@@ -1007,7 +1007,7 @@ public class MessagesFragment extends Fragment {
                 public void onClick(View v) {
 
                     CSChat csChat = new CSChat();
-                    csChat.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_DESTINATION_LOGINID, number,true);
+                    csChat.deleteChatMessagebyfilter(CSDbFields.KEY_CHAT_DESTINATION_LOGINID, number,true,false);
                     loadAllMessages(true);
                     int count = getCount();
                     mUnreadCount.setText(count + "");
