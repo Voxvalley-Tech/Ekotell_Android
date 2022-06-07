@@ -189,6 +189,9 @@ public class CallMethodHelper {
                 GlobalVariables.destinationnumbettocall = numberToDial;
                 String phoneNumber;
                 phoneNumber = numberToDial.replaceAll("[^0-9]", "");
+                /*if(phoneNumber.contains("+")){
+                    phoneNumber=phoneNumber.replace("+","");
+                }*/
                 String number = phoneNumber;
                 number = number.replace(" ", "").replace("\u00A0", "").replace("+", "").replace("#",
                         "").replace("$", "").replace("#", "").replace("*", "").replace("(", "").replace(")", "").replace("-", "").replace("/", "");

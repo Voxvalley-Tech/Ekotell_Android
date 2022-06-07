@@ -9,7 +9,8 @@ public class GlobalVariables {
 	public static ArrayList<Integer> notification_id_list = new ArrayList<>();
 	//public static String server = "192.96.206.176";//banatelecom live
 	//public static String server = "Android.banatelecom.com";//banatelecom 54.227.136.155
-	public static String server = "162.0.220.110";//banatelecom 54.227.136.155
+	//public static String server = "162.0.220.110";//banatelecom 54.227.136.155
+	public static String server = "192.64.113.10";//banatelecom 54.227.136.155
 	//public static String server = "";//Konverz
 	//public static String server = "182.72.244.87";//banatelecom local
 	//public static String server = "208.96.164.20";//ericall
