@@ -599,7 +599,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     public void startLogCapture() {
         try {
             System.out.println("startLogCapture");
-            File filename = new File(Environment.getExternalStorageDirectory() + "/ekottel.log");
+            File filename = new File(context.getExternalFilesDir(null) + "/ekottel.log");
             filename.createNewFile();
             String cmd = "logcat -d -f " + filename.getAbsolutePath();
             Runtime.getRuntime().exec(cmd);

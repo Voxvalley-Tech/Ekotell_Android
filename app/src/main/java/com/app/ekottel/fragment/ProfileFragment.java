@@ -177,9 +177,9 @@ public class ProfileFragment extends Fragment {
 
     private void ShareViaEmail() {
         try {
-            File Root = Environment.getExternalStorageDirectory();
+            File Root = getActivity().getExternalFilesDir(null);
             //String filelocation=Root.getAbsolutePath() + folder_name + "/" + file_name;
-            String filelocation = Environment.getExternalStorageDirectory() + "/ekottel.log";
+            String filelocation = getActivity().getExternalFilesDir(null) + "/ekottel.log";
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setType("text/plain");
             String message = "Please find the attached logs..";

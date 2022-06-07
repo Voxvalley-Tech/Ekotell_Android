@@ -84,6 +84,12 @@
 # This dnsjava class uses old Sun API
 -dontnote org.xbill.DNS.spi.DNSJavaNameServiceDescriptor
 -dontwarn org.xbill.DNS.spi.DNSJavaNameServiceDescriptor
+-dontwarn com.squareup.okhttp.**
+-dontnote com.google.android.gms.**
+-dontnote com.google.firebase.messaging.**
+-dontwarn org.apache.xml.security.**
+-dontwarn org.apache.xpath.**
+-dontwarn org.objenesis.instantiator.sun.**
 
 # See http://stackoverflow.com/questions/5701126, happens in dnsjava
 -optimizations !code/allocation/variable

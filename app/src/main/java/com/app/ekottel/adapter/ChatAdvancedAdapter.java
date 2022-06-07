@@ -2210,7 +2210,7 @@ public class ChatAdvancedAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     Toast.makeText(context, "No interent", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+             /*   if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(context, "Write external storage permission needed", Toast.LENGTH_LONG).show();
 
                     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
@@ -2219,7 +2219,7 @@ public class ChatAdvancedAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         ActivityCompat.requestPermissions((Activity) context, allpermissions.toArray(new String[allpermissions.size()]), 101);
                     }
                     return;
-                }
+                }*/
                 filedownloadinitiatedchatids.add(chatid);
                 CSChatObj.downloadFile(chatid);
 

@@ -959,11 +959,11 @@ public class Utils {
      *
      * @return
      */
-    public static String getSentImagesDirectory() {
+    public static String getSentImagesDirectory(Context context) {
 
         try {
             String imagedirectorysent = "Ekottel" + "/Images/Sent";
-            return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + imagedirectorysent;
+            return context.getExternalFilesDir(null).getAbsolutePath() + "/" + imagedirectorysent;
 
         } catch (Exception ex) {
             return "";

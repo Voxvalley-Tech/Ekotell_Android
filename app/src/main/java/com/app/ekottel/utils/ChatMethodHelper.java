@@ -108,7 +108,7 @@ public class ChatMethodHelper {
                 final String type = split[0];
 
                 if ("primary".equalsIgnoreCase(type)) {
-                    return Environment.getExternalStorageDirectory() + "/"
+                    return context.getExternalFilesDir(null) + "/"
                             + split[1];
                 }
 
@@ -255,7 +255,7 @@ public class ChatMethodHelper {
 
 
             ChatConstants.chatappname = mContext.getApplicationInfo().loadLabel(mContext.getPackageManager()).toString();
-            String basePath = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ChatConstants.chatappname;
+            String basePath = mContext.getExternalFilesDir(null).getAbsolutePath() + File.separator + ChatConstants.chatappname;
 
 
             ChatConstants.imagedirectory = basePath + "/Images";
@@ -280,8 +280,8 @@ public class ChatMethodHelper {
 
             //profiles
             ChatConstants.profilesdirectory = basePath + "/Profile Photos";
-            //GlobalVariables.profilesdirectorysent = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator+ GlobalVariables.chatappname+"/Profile Photos/Sent";//used for location and doc
-            //GlobalVariables.profilesdirectoryreceived = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator+ GlobalVariables.chatappname+"/Profile Photos/Received"; //used for location and thumbainal internally
+            //GlobalVariables.profilesdirectorysent = context.getExternalFilesDir(null).getAbsolutePath() + File.separator+ GlobalVariables.chatappname+"/Profile Photos/Sent";//used for location and doc
+            //GlobalVariables.profilesdirectoryreceived = context.getExternalFilesDir(null).getAbsolutePath() + File.separator+ GlobalVariables.chatappname+"/Profile Photos/Received"; //used for location and thumbainal internally
 
             ChatConstants.thumbnailsdirectory = basePath + "/Thumbnails";
 
@@ -558,7 +558,7 @@ public class ChatMethodHelper {
 
         try {
 //            String imagedirectorysent = "Banatel" + "/Images/Sent";
-//            return Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + imagedirectorysent;
+//            return context.getExternalFilesDir(null).getAbsolutePath() + "/" + imagedirectorysent;
 
             return ChatConstants.imagedirectorysent;
         } catch (Exception ex) {

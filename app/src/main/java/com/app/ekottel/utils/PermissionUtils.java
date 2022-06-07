@@ -19,7 +19,7 @@ public class PermissionUtils {
 
     public static String[] PERMISSIONS = {Manifest.permission.CAMERA, Manifest.permission.READ_CONTACTS,
             Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CALL_PHONE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_PHONE_STATE};
+          Manifest.permission.CALL_PHONE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_PHONE_STATE};
 
     public static int PERMISSION_REQUEST_CODE = 99;
 

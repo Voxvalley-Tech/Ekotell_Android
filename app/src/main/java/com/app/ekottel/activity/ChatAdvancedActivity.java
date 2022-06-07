@@ -1481,109 +1481,42 @@ public class ChatAdvancedActivity extends AppCompatActivity {
     }
 
 
-    private boolean showGalleryOptions() {
+    public static boolean createDirIfNotExists(String path) {
         try {
-            final Dialog dialog = new Dialog(ChatAdvancedActivity.this);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setContentView(R.layout.chat_popup);
-            TextView tv_video = (TextView) dialog.findViewById(R.id.tv_profile_video);
-            TextView tv_camera = (TextView) dialog.findViewById(R.id.tv_profile_camera);
-            TextView tv_gallery = (TextView) dialog.findViewById(R.id.tv_profile_gallery);
-            Typeface text_medium = Utils.getTypefaceMedium(getApplicationContext());
-            tv_camera.setTypeface(text_medium);
-            tv_gallery.setTypeface(text_medium);
-            tv_video.setTypeface(text_medium);
-            tv_video.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    boolean callRunning = mPrefereceProvider.getPrefBoolean("CallRunning");
-                    if (callRunning) {
-                        Toast.makeText(ChatAdvancedActivity.this, getResources().getString(R.string.video_record_error_during_call), Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                        return;
-                    }
+            if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
-                    if (PermissionUtils.checkCameraPermission(ChatAdvancedActivity.this) && PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
-                        String directoryPath = Environment.getExternalStorageDirectory() + Constants.TRINGY_DIRECTORY;
-                        String fileName = "VIDEO_"
-                                + new SimpleDateFormat(Utils.getTimeFormatForChatScreen(getApplicationContext())).format(new Date())
-                                + ".mp4";
-                        File ImagePath = checkFileExistence(directoryPath, fileName);
 
-                        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 30);
-                        //takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
-                        } else {
-                            takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(ImagePath));
+                //Boolean isSDPresent = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+                Boolean isSDPresent = true;
+                //GlobalVariables.appname = IAmLiveCore.getApplicationName();
+
+                if (isSDPresent) {
+                    //LOG.info("yes SD-card is present:"+context.getExternalFilesDir(null).getAbsolutePath());
+
+//                    File file = new File(context.getExternalFilesDir(null) + File.separator + path);
+                    File file = new File(path);
+                    if (!file.exists()) {
+                        if (!file.mkdirs()) {
+                            //LOG.info("Problem creating a folder");
+                            return false;
                         }
-                        startActivityForResult(takeVideoIntent, VIDEO_CAPTURE_REQUEST_CODE);
-                        mImagePath = ImagePath.getAbsolutePath();
-                        dialog.dismiss();
-                    } else {
-                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
                     }
+                    return true;
+
+                } else {
+
+                    //LOG.info("NO SD-card is present\n");
+                    return false;
                 }
-            });
-            tv_camera.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    boolean callRunning = mPrefereceProvider.getPrefBoolean("CallRunning");
-                    if (callRunning) {
-                        Toast.makeText(ChatAdvancedActivity.this, getResources().getString(R.string.video_record_error_during_call), Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                        return;
-                    }
-
-                    if (PermissionUtils.checkCameraPermission(ChatAdvancedActivity.this) && PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
-                        String directoryPath = Environment.getExternalStorageDirectory() + Constants.TRINGY_DIRECTORY;
-                        String fileName = "IMG_"
-                                + new SimpleDateFormat(Utils.getTimeFormatForChatScreen(getApplicationContext())).format(new Date())
-                                + ".jpg";
-                        File ImagePath = checkFileExistence(directoryPath, fileName);
-                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        //intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
-                        } else {
-                            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(ImagePath));
-                        }
-                        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                        startActivityForResult(intent, IMAGE_CAPTURE_REQUEST_CODE);
-                        mImagePath = ImagePath.getAbsolutePath();
-                        dialog.dismiss();
-                    } else {
-                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
-                    }
-                }
-            });
-
-            tv_gallery.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    if (!PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
-                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
-                        return;
-                    }
-                    Intent i = new Intent(ChatAdvancedActivity.this, ShowImagesActivity.class);
-                    //  i.setType("image/* video/*");
-                    startActivityForResult(i, GALLERY_REQUEST_CODE);
-
-                    dialog.dismiss();
-                }
-            });
-
-            dialog.show();
-
-            return true;
+            } else {
+                return false;
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
-            return false;
         }
+        return false;
+
     }
 
     public void cancelProgressBar() {
@@ -2506,42 +2439,109 @@ if(cursorchatid.equals(chatid)) {
         return attachmentpath;
     }
 
-
-    public static boolean createDirIfNotExists(String path) {
+    private boolean showGalleryOptions() {
         try {
+            final Dialog dialog = new Dialog(ChatAdvancedActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.chat_popup);
+            TextView tv_video = (TextView) dialog.findViewById(R.id.tv_profile_video);
+            TextView tv_camera = (TextView) dialog.findViewById(R.id.tv_profile_camera);
+            TextView tv_gallery = (TextView) dialog.findViewById(R.id.tv_profile_gallery);
+            Typeface text_medium = Utils.getTypefaceMedium(getApplicationContext());
+            tv_camera.setTypeface(text_medium);
+            tv_gallery.setTypeface(text_medium);
+            tv_video.setTypeface(text_medium);
+            tv_video.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-            if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-
-
-                Boolean isSDPresent = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-                //GlobalVariables.appname = IAmLiveCore.getApplicationName();
-
-                if (isSDPresent) {
-                    //LOG.info("yes SD-card is present:"+Environment.getExternalStorageDirectory().getAbsolutePath());
-
-//                    File file = new File(Environment.getExternalStorageDirectory() + File.separator + path);
-                    File file = new File(path);
-                    if (!file.exists()) {
-                        if (!file.mkdirs()) {
-                            //LOG.info("Problem creating a folder");
-                            return false;
-                        }
+                    boolean callRunning = mPrefereceProvider.getPrefBoolean("CallRunning");
+                    if (callRunning) {
+                        Toast.makeText(ChatAdvancedActivity.this, getResources().getString(R.string.video_record_error_during_call), Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        return;
                     }
-                    return true;
 
-                } else {
+                    if (PermissionUtils.checkCameraPermission(ChatAdvancedActivity.this) && PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
+                        String directoryPath = getExternalFilesDir(null) + Constants.TRINGY_DIRECTORY;
+                        String fileName = "VIDEO_"
+                                + new SimpleDateFormat(Utils.getTimeFormatForChatScreen(getApplicationContext())).format(new Date())
+                                + ".mp4";
+                        File ImagePath = checkFileExistence(directoryPath, fileName);
 
-                    //LOG.info("NO SD-card is present\n");
-                    return false;
+                        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 30);
+                        //takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
+                        } else {
+                            takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(ImagePath));
+                        }
+                        startActivityForResult(takeVideoIntent, VIDEO_CAPTURE_REQUEST_CODE);
+                        mImagePath = ImagePath.getAbsolutePath();
+                        dialog.dismiss();
+                    } else {
+                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
+                    }
                 }
-            } else {
-                return false;
-            }
+            });
+            tv_camera.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    boolean callRunning = mPrefereceProvider.getPrefBoolean("CallRunning");
+                    if (callRunning) {
+                        Toast.makeText(ChatAdvancedActivity.this, getResources().getString(R.string.video_record_error_during_call), Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                        return;
+                    }
+
+                    if (PermissionUtils.checkCameraPermission(ChatAdvancedActivity.this) && PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
+                        String directoryPath = getExternalFilesDir(null) + Constants.TRINGY_DIRECTORY;
+                        String fileName = "IMG_"
+                                + new SimpleDateFormat(Utils.getTimeFormatForChatScreen(getApplicationContext())).format(new Date())
+                                + ".jpg";
+                        File ImagePath = checkFileExistence(directoryPath, fileName);
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        //intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            intent.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".provider", ImagePath));
+                        } else {
+                            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(ImagePath));
+                        }
+                        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                        startActivityForResult(intent, IMAGE_CAPTURE_REQUEST_CODE);
+                        mImagePath = ImagePath.getAbsolutePath();
+                        dialog.dismiss();
+                    } else {
+                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
+                    }
+                }
+            });
+
+            tv_gallery.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (!PermissionUtils.checkReadExternalStoragePermission(ChatAdvancedActivity.this)) {
+                        ActivityCompat.requestPermissions(ChatAdvancedActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
+                        return;
+                    }
+                    Intent i = new Intent(ChatAdvancedActivity.this, ShowImagesActivity.class);
+                    //  i.setType("image/* video/*");
+                    startActivityForResult(i, GALLERY_REQUEST_CODE);
+
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
+            return true;
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
         }
-        return false;
-
     }
 
     class SendFile extends AsyncTask<String, Integer, String> {
@@ -2640,7 +2640,6 @@ if(cursorchatid.equals(chatid)) {
 
     }
 
-
     /**
      * this method updates the phone gallery ,it scans the given file
      *
@@ -2665,7 +2664,7 @@ if(cursorchatid.equals(chatid)) {
             sendBroadcast(new Intent(
                     Intent.ACTION_MEDIA_MOUNTED,
                     Uri.parse("file://"
-                            + Environment.getExternalStorageDirectory())));
+                            + getExternalFilesDir(null))));
         }
     }
 

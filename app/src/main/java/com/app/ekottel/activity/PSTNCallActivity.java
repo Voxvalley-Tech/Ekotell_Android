@@ -792,7 +792,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_0);
-                            CSCallsObj.sendDtmfInPstnCall("0", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"0",500,100);
                         }
                     });
 
@@ -804,7 +804,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_1);
-                            CSCallsObj.sendDtmfInPstnCall("1", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"1",500,100);
 
                         }
                     });
@@ -816,7 +816,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_2);
-                            CSCallsObj.sendDtmfInPstnCall("2", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"2",500,100);
 
                         }
                     });
@@ -828,7 +828,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_3);
-                            CSCallsObj.sendDtmfInPstnCall("3", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"3",500,100);
 
                         }
                     });
@@ -840,7 +840,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_4);
-                            CSCallsObj.sendDtmfInPstnCall("4", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"4",500,100);
 
                         }
                     });
@@ -852,7 +852,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_5);
-                            CSCallsObj.sendDtmfInPstnCall("5", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"5",500,100);
 
                         }
                     });
@@ -864,7 +864,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_6);
-                            CSCallsObj.sendDtmfInPstnCall("6", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"6",500,100);
 
                         }
                     });
@@ -876,7 +876,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_7);
-                            CSCallsObj.sendDtmfInPstnCall("7", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"7",500,100);
 
                         }
                     });
@@ -888,7 +888,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_8);
-                            CSCallsObj.sendDtmfInPstnCall("8", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"8",500,100);
 
                         }
                     });
@@ -900,7 +900,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_9);
-                            CSCallsObj.sendDtmfInPstnCall("9", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"9",500,100);
 
                         }
                     });
@@ -912,7 +912,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_B);
-                            CSCallsObj.sendDtmfInPstnCall("*", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"*",500,100);
 
                         }
                     });
@@ -924,7 +924,7 @@ public class PSTNCallActivity extends Activity implements SensorEventListener {
                             edittext.setText(str);
                             edittext.setSelection(str.length());
                             mDialingFeedback.giveFeedback(ToneGenerator.TONE_DTMF_A);
-                            CSCallsObj.sendDtmfInPstnCall("#", myCallId);
+                            CSCallsObj.sendDTMF(myCallId,"#",500,100);
 
                         }
                     });

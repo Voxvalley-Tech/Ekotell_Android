@@ -508,10 +508,10 @@ public class StatusActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (!PermissionUtils.checkCameraPermission(StatusActivity.this) || !PermissionUtils.checkReadExternalStoragePermission(StatusActivity.this)) {
-                        ActivityCompat.requestPermissions(StatusActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+                        ActivityCompat.requestPermissions(StatusActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
                         return;
                     }
-                    String directoryPath = Environment.getExternalStorageDirectory() + Constants.TRINGY_DIRECTORY;
+                    String directoryPath = getExternalFilesDir(null) + Constants.TRINGY_DIRECTORY;
                     String fileName = "IMG_"
                             + new SimpleDateFormat(Utils.getTimeFormatForChatScreen(getApplicationContext())).format(new Date())
                             + ".jpg";
@@ -536,7 +536,7 @@ public class StatusActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (!PermissionUtils.checkReadExternalStoragePermission(StatusActivity.this)) {
-                        ActivityCompat.requestPermissions(StatusActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 101);
+                        ActivityCompat.requestPermissions(StatusActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
                         return;
                     }
                     Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -1078,7 +1078,7 @@ public class StatusActivity extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         //File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File storageDir = new File(Utils.getSentImagesDirectory());
+        File storageDir = new File(Utils.getSentImagesDirectory(getApplicationContext()));
 
         File image = null;
         try {

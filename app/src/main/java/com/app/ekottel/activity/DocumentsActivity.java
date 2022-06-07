@@ -54,7 +54,7 @@ public class DocumentsActivity extends AppCompatActivity {
         mSearchCancelImg = findViewById(R.id.search_cancel_img);
         mSearchEdt = findViewById(R.id.documents_search_edt);
         //getting SDcard root path
-        root = new File(Environment.getExternalStorageDirectory()
+        root = new File(getExternalFilesDir(null)
                 .getAbsolutePath());
         new getDocumnetsTask().execute();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
