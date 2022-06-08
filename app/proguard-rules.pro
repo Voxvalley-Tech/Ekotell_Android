@@ -90,6 +90,7 @@
 -dontwarn org.apache.xml.security.**
 -dontwarn org.apache.xpath.**
 -dontwarn org.objenesis.instantiator.sun.**
+-keepclassmembers enum * { *; }
 
 # See http://stackoverflow.com/questions/5701126, happens in dnsjava
 -optimizations !code/allocation/variable
